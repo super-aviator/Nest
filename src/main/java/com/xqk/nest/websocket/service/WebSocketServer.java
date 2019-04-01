@@ -1,5 +1,6 @@
 package com.xqk.nest.websocket.service;
 
+import com.xqk.nest.websocket.handlers.BinaryFrameHandler;
 import com.xqk.nest.websocket.handlers.TextFrameHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -41,15 +42,4 @@ public class WebSocketServer {
         }
     }
 
-
-
-    public static final class BinaryFrameHandler extends ChannelInboundHandlerAdapter{
-
-        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-            String url = msg.toString();
-            System.out.println("com.com.nest.server receive binary meg: " + url);
-
-            ctx.writeAndFlush(new TextWebSocketFrame("你好，客户端"));
-        }
-    }
 }
