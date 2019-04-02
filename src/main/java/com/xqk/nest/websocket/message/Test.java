@@ -1,6 +1,7 @@
 package com.xqk.nest.websocket.message;
 
-import com.xqk.websocket.util.RedisUtil;
+
+import com.xqk.nest.websocket.util.RedisUtil;
 
 public class Test {
     public static void main(String[] args) {

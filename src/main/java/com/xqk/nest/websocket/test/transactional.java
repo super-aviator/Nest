@@ -1,11 +1,12 @@
 package com.xqk.nest.websocket.test;
 
+import com.xqk.nest.websocket.util.RedisPool;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
 public class transactional {
     public static void main(String[] args) throws InterruptedException {
-        Jedis jedis= RedisUtil.getJedis();
+        Jedis jedis= RedisPool.getJedis();
         jedis.publish("10001","hello");
 
     }

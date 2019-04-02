@@ -1,6 +1,6 @@
 package com.xqk.nest.websocket.handlers;
 
-import com.xqk.websocket.util.MessageUtil;
+import com.xqk.nest.websocket.util.MessageUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

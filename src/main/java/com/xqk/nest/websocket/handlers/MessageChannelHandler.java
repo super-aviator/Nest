@@ -2,9 +2,9 @@ package com.xqk.nest.websocket.handlers;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import com.xqk.websocket.message.ChatMessage;
-import com.xqk.websocket.message.Message;
-import com.xqk.websocket.util.MessageUtil;
+import com.xqk.nest.websocket.message.ChatMessage;
+import com.xqk.nest.websocket.message.Message;
+import com.xqk.nest.websocket.util.MessageUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;

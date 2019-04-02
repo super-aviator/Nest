@@ -1,7 +1,7 @@
 package com.xqk.nest.websocket.util;
 
 import com.alibaba.fastjson.JSON;
-import com.xqk.websocket.message.Message;
+import com.xqk.nest.websocket.message.Message;
 import redis.clients.jedis.Jedis;
 
 import java.util.Set;
