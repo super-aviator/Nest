@@ -28,6 +28,7 @@ public class ChatMessage {
     private long timestamp;
 
     public ChatMessage() {
+        timestamp=System.currentTimeMillis();
     }
 
     public ChatMessage(String username, String avatar, String id, String type, String content, boolean mine, String fromid) {

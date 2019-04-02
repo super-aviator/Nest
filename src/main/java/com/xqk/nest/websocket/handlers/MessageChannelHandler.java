@@ -18,9 +18,10 @@ public class MessageChannelHandler extends SimpleChannelInboundHandler<TextWebSo
         String content = msg.text();
         Message<ChatMessage> message = JSON.parseObject(content, new TypeReference<Message<ChatMessage>>() {
         });
-        System.out.println(content);
+
+        System.out.println(JSON.toJSONString(message.getData()));
         String id = message.getData().getId();
-        MessageUtil.sendMsgToUser(SignChannelHandler.channels, id, content);
+        MessageUtil.sendMsgToUser(SignChannelHandler.channels, id,JSON.toJSONString(message.getData()));
     }
 
     @Override

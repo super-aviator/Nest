@@ -2,272 +2,56 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="NestMVC:war exploded" />
+      <artifact name="Nest" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e8729e0-6e81-4e7c-b585-4436f320df24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/layui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/layui.mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/laydate/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/laydate/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layer/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layer/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/html/chatlog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/html/find.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/html/getmsg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/html/msgbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/layim.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/mobile/layim.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/skin/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/css/modules/layim/voice/default.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/10.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/11.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/12.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/13.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/14.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/15.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/16.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/17.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/18.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/19.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/20.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/21.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/22.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/23.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/24.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/25.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/26.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/27.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/28.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/29.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/30.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/31.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/33.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/34.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/35.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/36.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/37.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/38.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/39.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/40.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/41.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/42.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/43.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/44.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/45.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/46.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/47.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/48.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/49.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/50.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/51.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/52.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/53.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/54.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/55.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/56.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/57.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/58.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/59.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/6.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/61.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/62.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/63.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/64.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/65.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/66.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/67.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/68.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/69.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/7.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/70.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/71.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/8.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/images/face/9.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/dest/layui.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/code.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/layedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/layim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/laypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/laytpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/mobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/lay/modules/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/layui/layui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/page-dup/find-password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/page-dup/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/page-dup/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/page-dup/registe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/images/signinBackgroundImage1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/images/signinBackgroundImage2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/images/signinBackgroundImage3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/signIn.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/signUp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/pages/webSocketTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/reconnecting-websocket/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/reconnecting-websocket/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/reconnecting-websocket/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/reconnecting-websocket/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/reconnecting-websocket/reconnecting-websocket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/reconnecting-websocket/reconnecting-websocket.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/Nest/test/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/config/CORSFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/config/MySqlSessionFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/config/NestAppInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/config/RootConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/config/WebConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/contorller/AccountController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/contorller/GroupController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/contorller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/dao/AccountDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/dao/GroupDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/dao/UserDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/dto/AccountDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/dto/GroupDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/dto/UserDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/Data.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/FriendInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/GroupInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/GroupMemberInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/GroupMembersMsg.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/Members.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/PacketInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/Tuple.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/UserInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/model/UserInfoMsg.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/websocket/handlers/BinaryFrameHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/websocket/handlers/TextFrameHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/websocket/service/WebSocketServer$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/com/xqk/nest/websocket/service/WebSocketServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/config/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/config/jdbcConfiguration.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/config/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/mapper/AccountOptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/mapper/GroupOptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/classes/mapper/UserOptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/fastjson-1.2.55.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/jackson-annotations-2.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/jackson-core-2.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/jackson-core-asl-1.9.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/jackson-databind-2.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/javax.servlet-api-3.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/json-20140107.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/mybatis-3.4.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.38.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/netty-all-4.1.34.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-aop-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-aspects-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-beans-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-context-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-context-support-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-core-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-expression-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-instrument-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-instrument-tomcat-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-jdbc-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-jms-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-messaging-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-orm-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-oxm-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-test-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-tx-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-web-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-webmvc-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-webmvc-portlet-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/lib/spring-websocket-4.3.18.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NestMVC_war_exploded/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/SignChannelHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/SystemMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/ArticleOpt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/GroupUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/RedisStart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/transactional.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/util/MessageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/util/RedisPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/util/RedisUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Nest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/NestMVC_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/NestMVC_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Nest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Spring_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Spring_4_3_18_RELEASE.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_4_3_18_RELEASE.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/BinaryFrameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/BinaryFrameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/TextFrameHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/Nest/pages/webSocketTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/Nest/pages/webSocketTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/CORSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/CORSFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/MySqlSessionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/MySqlSessionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/NestAppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/NestAppInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/RootConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/RootConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/contorller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/contorller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/contorller/GroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/contorller/GroupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/contorller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/contorller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dao/AccountDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dao/AccountDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dao/GroupDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dao/GroupDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dto/AccountDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dto/AccountDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dto/GroupDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dto/GroupDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/dto/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/Data.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/FriendInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/FriendInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/GroupInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/GroupInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/GroupMemberInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/GroupMemberInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/GroupMembersMsg.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/GroupMembersMsg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/Members.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/Members.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/PacketInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/PacketInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/Tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/Tuple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/UserInfoMsg.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/model/UserInfoMsg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/handlers/BinaryFrameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/handlers/BinaryFrameHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/handlers/TextFrameHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/service/WebSocketServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/service/WebSocketServer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/service/WebSocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/com/xqk/nest/websocket/service/WebSocketServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/config/jdbcConfiguration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Nest/WEB-INF/classes/config/jdbcConfiguration.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket-old/handlers/BinaryFrameHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket-old/handlers/TextFrameHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket-old/service/WebSocketServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/ChatMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/config/CORSFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/config/MySqlSessionFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/config/NestAppInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/config/RootConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/contorller/AccountController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/contorller/GroupController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/contorller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/dao/AccountDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/dao/GroupDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/dao/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/dto/AccountDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/dto/GroupDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/dto/UserDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/FriendInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/GroupInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/GroupMemberInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/GroupMembersMsg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/Members.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/PacketInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/Tuple.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/UserInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/model/UserInfoMsg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/handlers/BinaryFrameHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/handlers/TextFrameHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/service/WebSocketServer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/service/WebSocketServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/handlers/MessageChannelHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/handlers/MessageChannelHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/message/ChatMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/message/ChatMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/message/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xqk/nest/websocket/message/Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/jdbcConfiguration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/jdbcConfiguration.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/webSocketTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/webSocketTest.html" afterDir="false" />
     </list>
@@ -309,27 +93,88 @@
     </expand>
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1614784167">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="8" />
+          <entry key="properties" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="8" />
+          <entry key="Properties" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="112" />
+          <entry key="properties" value="17" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="112" />
+          <entry key="Properties" value="17" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/GroupUtil.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/ArticleOpt.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+            <state relative-caret-position="72">
+              <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1911">
-              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+            <state relative-caret-position="186">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding>
+                <element signature="e#495#496#0" expanded="true" />
+                <element signature="e#522#523#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/ChatMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1505">
+              <caret line="110" column="27" lean-forward="true" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
+              <folding>
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/util/MessageUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="19" column="76" lean-forward="true" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -371,12 +216,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/BinaryFrameHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/TextFrameHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/GroupUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/test/ArticleOpt.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/ChatMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -403,10 +257,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="606" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="547" />
+    <option name="y" value="7" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -416,7 +271,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -458,6 +312,24 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nest" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nest" type="462c0819:PsiDirectoryNode" />
+              <item name="contorller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nest" type="462c0819:PsiDirectoryNode" />
               <item name="websocket" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -468,6 +340,57 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nest" type="462c0819:PsiDirectoryNode" />
               <item name="websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nest" type="462c0819:PsiDirectoryNode" />
+              <item name="websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="message" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nest" type="462c0819:PsiDirectoryNode" />
+              <item name="websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nest" type="462c0819:PsiDirectoryNode" />
+              <item name="websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -488,10 +411,19 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="Nest" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="reconnecting-websocket" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -507,19 +439,19 @@
     <property name="project.structure.side.proportion" value="0.4561753" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aviator\Nest\src\main\resources" />
+      <recent name="C:\Users\Aviator\Nest\src\main\resources\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xqk.nest.mapper" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Nest\src\main\java\com\xqk\nest" />
       <recent name="D:\Nest\src\main\java\com\xqk\nest" />
       <recent name="C:\Users\Aviator\Nest\src\main\java\com\xqk\nest\model" />
       <recent name="C:\Users\Aviator\Nest\src\main\java\com\xqk\nest\dao" />
       <recent name="C:\Users\Aviator\Nest\src\main\java\com\xqk\nest\dto" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xqk.nest.mapper" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Aviator\Nest\src\main\resources" />
-      <recent name="C:\Users\Aviator\Nest\src\main\resources\config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -534,7 +466,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Nest">
+  <component name="RunManager" selected="Application.WebSocketServer">
     <configuration name="WebSocketServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xqk.nest.websocket.service.WebSocketServer" />
       <module name="NestAll" />
@@ -547,7 +479,7 @@
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="NestMVC:war exploded">
+        <artifact name="Nest">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
@@ -556,11 +488,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_Nest" />
       </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="true" />
       <log_file alias="Tomcat Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/manager.*" />
       <log_file alias="Tomcat Host Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/host-manager.*" />
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file enabled="true" id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="12999" />
       </RunnerSettings>
@@ -618,8 +550,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.WebSocketServer" />
       <item itemvalue="Tomcat Server.Nest" />
+      <item itemvalue="Application.WebSocketServer" />
     </list>
     <recent_temporary>
       <list>
@@ -648,16 +580,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11445000" />
+    <option name="totallyTimeSpent" value="20702000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.25586355" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.24508321" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -670,13 +602,13 @@
       <window_info anchor="bottom" id="Java Enterprise" order="5" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.68872017" />
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.22495896" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Application Servers" order="11" weight="0.3295082" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.164859" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.5369458" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.32980332" />
@@ -788,13 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -813,27 +738,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/BinaryFrameHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserOptMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -854,13 +762,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/BinaryFrameHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/ChatMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1505">
+          <caret line="110" column="27" lean-forward="true" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
+          <folding>
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/util/MessageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="19" column="76" lean-forward="true" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>NestMVC:war exploded</last-edited>
+          <last-edited>Nest</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -888,7 +866,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4561753" />
               </list>
             </option>
           </splitter-proportions>
@@ -908,7 +886,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>NestAll</last-edited>
+          <last-edited>Web|NestAll</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -932,7 +910,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Spring-4.3.18.RELEASE</last-edited>
+          <last-edited>Spring MVC-4.3.18.RELEASE</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
