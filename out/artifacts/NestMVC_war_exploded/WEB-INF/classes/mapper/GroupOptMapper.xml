@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper">
+
+    <select id="getGroupMembersMapper" resultMap="GetMembersResultMap" parameterType="Long">
+        SELECT DISTINCT B.group_id
+        FROM user_group_info  AS B
+        WHERE B.group_id=#{id} ;
+    </select>
+    <select id="getMembersByID" resultType="GroupMemberInfo">
+        SELECT A.user_id AS id,username,sign,avatar
+        FROM user_info  AS A
+        INNER JOIN user_group_info AS B ON  A.user_id=B.user_id
+        WHERE B.group_id=#{id};
+    </select>
+    <resultMap id="GetMembersResultMap" type="Members">
+        <collection property="list" javaType="ArrayList" ofType="GroupMemberInfo" select="mapper.getMembersByID" column="group_id">
+            <id column="id" javaType="Long"/>
+            <result column="username" javaType="String"/>
+            <result column="sign" javaType="String"/>
+            <result column="avatar" javaType="String"/>
+        </collection>
+    </resultMap>
+
+</mapper>

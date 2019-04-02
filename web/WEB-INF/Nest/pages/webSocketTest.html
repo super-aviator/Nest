@@ -64,7 +64,7 @@
                 , chatLog: layui.cache.dir + 'css/modules/layim/html/chatlog.html' //聊天记录页面地址，若不开启，剔除该项即可
             });
 
-            //发送消息
+            //监听发送的消息
             layim.on('sendMessage', function (res) {
                 var mine = res.mine; //包含我发送的消息及我的信息
                 var to = res.to;
@@ -83,11 +83,12 @@
 
                 socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 3000 });//掉线重连机制
                 socket.onerror = function () {
-                    layer.msg('连接失败，重试中 T_T', { icon: 2, offset: 't', anim: 5 });
+                    layer.msg('(: 连接失败，重试中', { icon: 2, offset: 't', anim: 5 });
                 };
 
                 socket.onopen = function () {
                     layer.msg('连接成功', { icon: 1, offset: 't', anim: 1 });
+                    socket.send("10001");
                 };
 
                 socket.onmessage = function (evt) {
@@ -96,16 +97,10 @@
                 }
 
                 socket.onclose = function () {
-                    layer.msg('已掉线,重试中 T_T', { icon: 5, offset: 't', anim: 6 });
+                    socket.close();
+                    layer.msg('(: 主机关闭了链接或者账号已已在其他地方登录', { icon: 5, offset: 't', anim: 6 });
                 };
 
-            });
-
-            layim.getMessage({
-                system: true //系统消息
-                , id: 1111111 //聊天窗口ID
-                , type: "friend" //聊天窗口类型
-                , content: '对方已掉线'
             });
 
             //监听在线状态

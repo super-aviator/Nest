@@ -1,7 +1,8 @@
 package com.xqk.nest.websocket.service;
 
-import com.xqk.nest.websocket.handlers.BinaryFrameHandler;
-import com.xqk.nest.websocket.handlers.TextFrameHandler;
+import com.xqk.websocket.handlers.BinaryFrameHandler;
+import com.xqk.websocket.handlers.SignChannelHandler;
+import com.xqk.websocket.handlers.MessageChannelHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -9,7 +10,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 
 import java.net.InetSocketAddress;
@@ -27,11 +27,12 @@ public class WebSocketServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             socketChannel.pipeline().addLast(
-                                    new HttpServerCodec(),
-                                    new HttpObjectAggregator(65536),
-                                    new WebSocketServerProtocolHandler("/chat"),
-                                    new TextFrameHandler(),
-                                    new BinaryFrameHandler());
+                                    new HttpServerCodec(),//消息编解码器
+                                    new HttpObjectAggregator(655360),//最大消息长度，并聚合消息
+                                    new WebSocketServerProtocolHandler("/chat"),//websocket路径
+                                    new SignChannelHandler(),
+                                    new MessageChannelHandler()
+                            );
                         }
                     });
             ChannelFuture future = b.bind().sync();
@@ -41,5 +42,4 @@ public class WebSocketServer {
             work.shutdownGracefully().sync();
         }
     }
-
 }
