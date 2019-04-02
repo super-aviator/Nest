@@ -9,7 +9,6 @@ public class BinaryFrameHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         String url = msg.toString();
         System.out.println("com.com.nest.server receive binary meg: " + url);
-
         ctx.writeAndFlush(new TextWebSocketFrame("你好，客户端"));
     }
 }
