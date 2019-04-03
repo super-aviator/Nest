@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper">
+
+
+    <select id="SelectUserInfo" resultType="UserInfo">
+        SELECT user_id AS id, username, sign, avatar, status
+        FROM user_info
+        WHERE user_id = #{id};
+    </select>
+
+
+    <select id="SelectGroupInfo" resultMap="GroupInfoResultMap">
+        SELECT group_name AS groupname, A.group_id AS id, avatar
+        FROM user_group_info AS A
+                 INNER JOIN group_info AS B
+        WHERE A.group_id = B.group_id
+          AND A.user_id = #{id};
+    </select>
+    <resultMap id="GroupInfoResultMap" type="GroupInfo">
+        <id property="id" column="id"/>
+        <result property="groupname" column="groupname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+
+    <select id="SelectFriendInfo" resultMap="FriendInfoResultMap">
+        SELECT packet_name, C.packet_id
+        FROM user_packet_info AS A
+                 INNER JOIN packet_info AS C ON A.packet_id = C.packet_id
+        WHERE A.user_id = #{id};
+    </select>
+    <select id="SelectUserFriend" resultType="FriendInfo">
+        SELECT E.user_id AS id, username, sign, avatar, status
+        FROM user_packet_info AS A
+                 INNER JOIN packet_user_info AS E ON A.packet_id = E.packet_id
+                 INNER JOIN user_info AS B ON E.user_id = B.user_id AND B.user_id != A.user_id
+        WHERE E.packet_id = #{id};
+    </select>
+
+    <resultMap id="FriendInfoResultMap" type="PacketInfo">
+        <constructor>
+            <idArg column="packet_id" javaType="Long"/>
+            <arg column="packet_name" javaType="String"/>
+        </constructor>
+        <collection property="list" ofType="FriendInfo" javaType="ArrayList" column="packet_id"
+                    select="SelectUserFriend">
+            <id column="id" javaType="Long"/>
+            <result column="username" javaType="String"/>
+            <result column="sign" javaType="String"/>
+            <result column="status" javaType="String"/>
+            <result column="avatar" javaType="String"/>
+        </collection>
+    </resultMap>
+
+    <update id="changeUserStatus" parameterType="UserInfo" flushCache="true"
+            statementType="PREPARED">
+        UPDATE user_info
+        SET status=#{status}
+        WHERE user_id = #{id};
+    </update>
+
+    <update id="changeUserSign" parameterType="UserInfo" flushCache="true"
+            statementType="PREPARED">
+        UPDATE user_info
+        SET sign=#{sign}
+        WHERE user_id = #{id};
+    </update>
+</mapper>

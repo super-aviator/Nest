@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper">
+    <select id="selectMsg" resultType="HistoryMsgItem" parameterType="Tuple" timeout="20">
+        SELECT *
+        <if test="e='friend'">
+            FROM friend_msg AS A
+        </if>
+        <if test="e='group'">
+            FROM group_msg AS A
+        </if>
+        WHERE A.id = #{t}
+        OR A.rev_id = #{t}
+        ORDER BY A.timestamp DESC LIMIT #{offset},#{count};
+    </select>
+
+    <insert id="storeMsg" parameterType="HistoryMsgItem" statementType="PREPARED" timeout="20">
+        <if test="type='friend'">
+            INSERT INTO friend_msg
+        </if>
+        <if test="type='group'">
+            INSERT INTO group_msg
+        </if>
+        (username,id,rev_id,avatar,timestamp,content)
+        VALUES(#{username},#{id},#{revId},#{avatar},#{timestamp},#{content});
+    </insert>
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="config/jdbcConfiguration.properties" />
+
+    <typeAliases>
+        <typeAlias type="com.xqk.nest.model.UserInfo" alias="UserInfo" />
+        <typeAlias type="com.xqk.nest.model.FriendInfo" alias="FriendInfo" />
+        <typeAlias type="com.xqk.nest.model.PacketInfo" alias="PacketInfo" />
+        <typeAlias type="com.xqk.nest.model.GroupInfo" alias="GroupInfo" />
+        <typeAlias type="com.xqk.nest.model.Members" alias="Members" />
+        <typeAlias type="com.xqk.nest.model.GroupMemberInfo" alias="GroupMemberInfo" />
+        <typeAlias type="com.xqk.nest.model.HistoryMsgItem" alias="HistoryMsgItem" />
+        <typeAlias type="com.xqk.nest.model.Tuple" alias="Tuple" />
+    </typeAliases>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/UserOptMapper.xml" />
+        <mapper resource="mapper/GroupOptMapper.xml" />
+        <mapper resource="mapper/AccountOptMapper.xml" />
+    </mappers>
+
+</configuration>
