@@ -14,6 +14,7 @@
     <script src="../layui/layui.js"></script>
     <script>
         var socket;
+        var id=2;
 
         layui.use('layim', function (layim) {
             //基础配置
@@ -24,7 +25,7 @@
                     url: 'http://localhost:8080/user/get-info' //接口地址（返回的数据格式见下文）
                     , type: 'get' //默认get，一般可不填
                     , data: {
-                        "id": "1"
+                        "id": id
                     } //额外参数
                 }
                 , initSkin: '6.jpg'//设置初始皮肤
@@ -68,13 +69,24 @@
             layim.on('sendMessage', function (res) {
                 var mine = res.mine; //包含我发送的消息及我的信息
                 var to = res.to;
-                var msg = {
-                    sendId: mine.id
-                    , receiveId: to.id
-                    , content: to.content
-                };
-                socket.send(JSON.stringify(msg));
 
+                var data = {
+                    username: mine.username
+                    , avatar: mine.avatar
+                    , id: to.id
+                    , type: to.type
+                    , content: mine.content
+                    , cid: to.id
+                    , mine: mine.mine
+                    , fromid: to.id
+                };
+
+                var msg = {
+                    emit: "chat"
+                    , data: data
+                }
+                socket.send(JSON.stringify(msg));
+                alert(JSON.stringify(data));
             });
 
             //init方法调用结束时事件触发
@@ -83,22 +95,29 @@
 
                 socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 3000 });//掉线重连机制
                 socket.onerror = function () {
-                    layer.msg('(: 连接失败，重试中', { icon: 2, offset: 't', anim: 5 });
+                    layer.msg('连接失败，重试中', { icon: 2, offset: 't', anim: 5 });
                 };
 
                 socket.onopen = function () {
                     layer.msg('连接成功', { icon: 1, offset: 't', anim: 1 });
-                    socket.send("10001");
+                    socket.send(id+"");
                 };
 
                 socket.onmessage = function (evt) {
-                    layim.getMessage(evt.data);
-                    alert(evt.data);
+                    layim.getMessage(JSON.parse(evt.data).data);
+                    // alert(JSON.stringify(evt)+"-----");
+                    // if (evt.type === 'chat') {
+                    //     // alert(evt.data);
+                    //     layim.getMessage(JSON.parse(evt.data));
+                    // } else if (evt.type === 'system') {
+                    //     // alert(evt.data);
+                    //     layim.getMessage(JSON.parse(evt.data));
+                    // }
                 }
 
                 socket.onclose = function () {
                     socket.close();
-                    layer.msg('(: 主机关闭了链接或者账号已已在其他地方登录', { icon: 5, offset: 't', anim: 6 });
+                    layer.msg('主机关闭了链接或者账号已已在其他地方登录', { icon: 5, offset: 't', anim: 6 });
                 };
 
             });

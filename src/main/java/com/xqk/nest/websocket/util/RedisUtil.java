@@ -1,7 +1,7 @@
 package com.xqk.nest.websocket.util;
 
 import com.alibaba.fastjson.JSON;
-import com.xqk.nest.websocket.message.Message;
+import com.xqk.nest.websocket.model.Message;
 import redis.clients.jedis.Jedis;
 
 import java.util.Set;
@@ -10,16 +10,16 @@ public class RedisUtil {
     private Jedis jedis=new Jedis();
 
     //将消息入离线列表
-    public void push(String id, Message msg){
+    public void pushMsg(String id, Message msg){
         jedis.lpush(id, JSON.toJSONString(msg));
     }
 
-    public void push(String id,String msg){
+    public void pushMsg(String id,String msg){
         jedis.lpush(id,msg);
     }
 
     //将消息出离线列表
-    public String pop(String id){
+    public String popMsg(String id){
         return jedis.rpop(id);
     }
 
@@ -29,7 +29,7 @@ public class RedisUtil {
     }
 
     //查找群的所有成员成员
-    public Set<String> findMembers(String id) {
+    public Set<String> getMembers(String id) {
         return jedis.smembers(id);
     }
 

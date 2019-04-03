@@ -15,6 +15,6 @@ public class transactional {
 class Suber extends JedisPubSub{
     @Override
     public void onMessage(String channel, String message) {
-        System.out.println("get a message:"+message);
+        System.out.println("get a model:"+message);
     }
 }

@@ -16,12 +16,12 @@ public class GroupDAO implements GroupDTO {
         SqlSession session = null;
         try {
             session = MySqlSessionFactory.getSqlSession();
-           Members members= session.selectOne("mapper.getGroupMembersMapper", id);
+            Members members = session.selectOne("mapper.getGroupMembersMapper", id);
             msg.setMembers(members);
             return JSON.toJSONString(msg);
         } catch (Exception e) {
             e.printStackTrace();
-            return JSON.toJSONString(new GroupMembersMsg(1, "服务器错误"));
+            return JSON.toJSONString(new GroupMembersMsg(1, "(: 服务器错误"));
         } finally {
             if (session != null)
                 session.close();

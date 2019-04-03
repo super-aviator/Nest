@@ -5,13 +5,6 @@
 
 <configuration>
 
-    <!--<properties>-->
-        <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/nest?useSSL=false&amp;characterEncoding=utf-8" />-->
-        <!--<property name="driver" value="com.mysql.jdbc.Driver" />-->
-        <!--<property name="username" value="nest-dev" />-->
-        <!--<property name="password" value="123456" />-->
-    <!--</properties>-->
-
     <properties resource="config/jdbcConfiguration.properties" />
 
     <typeAliases>
@@ -21,6 +14,8 @@
         <typeAlias type="com.xqk.nest.model.GroupInfo" alias="GroupInfo" />
         <typeAlias type="com.xqk.nest.model.Members" alias="Members" />
         <typeAlias type="com.xqk.nest.model.GroupMemberInfo" alias="GroupMemberInfo" />
+        <typeAlias type="com.xqk.nest.model.HistoryMsgItem" alias="HistoryMsgItem" />
+        <typeAlias type="com.xqk.nest.model.Tuple" alias="Tuple" />
     </typeAliases>
 
 

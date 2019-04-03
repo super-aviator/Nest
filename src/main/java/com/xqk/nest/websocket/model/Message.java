@@ -1,4 +1,4 @@
-package com.xqk.nest.websocket.message;
+package com.xqk.nest.websocket.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
@@ -31,5 +31,13 @@ public class Message<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "emit='" + emit + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

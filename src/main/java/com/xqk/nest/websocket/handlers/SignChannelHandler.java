@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     public static final ConcurrentHashMap<String, Channel> channels = new ConcurrentHashMap<>();
     private Pattern SignInPattern = Pattern.compile("\\d+");
+    private MessageUtil messageUtil=new MessageUtil();
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame s) throws Exception {
@@ -22,12 +23,9 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
             if (channels.containsKey(id)) {//查看是否已登陆
                 channels.get(id).close();//关闭以前登陆保存的channel
                 channels.put(id, channel);//放入新的channel
-                return;
             }
-
-            channels.put(id, channel);
             System.out.println(id + "---已登陆");
-            MessageUtil.sendOfflineMsgToUser(ctx,id);//发送离线消息到对应的ctx
+            messageUtil.sendOfflineMsgToUser(ctx,id);//发送离线消息到对应的ctx
         }
     }
 

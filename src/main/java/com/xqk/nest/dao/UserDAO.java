@@ -23,7 +23,7 @@ public class UserDAO implements UserDTO {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return JSON.toJSONString(new UserInfoMsg(1, "服务器错误"));
+            return JSON.toJSONString(new UserInfoMsg(1, "(: 服务器错误"));
         } finally {
             if (s != null)
                 s.close();
@@ -34,10 +34,10 @@ public class UserDAO implements UserDTO {
     public void changeUserStatus(long id, String status) {
         SqlSession session = MySqlSessionFactory.getSqlSession();
         try {
-            UserInfo userInfo=new UserInfo();
+            UserInfo userInfo = new UserInfo();
             userInfo.setStatus(status);
             userInfo.setId(id);
-            session.update("mapper.changeUserStatus",userInfo);
+            session.update("mapper.changeUserStatus", userInfo);
             session.commit();
         } finally {
             if (session != null) {
@@ -50,10 +50,10 @@ public class UserDAO implements UserDTO {
     public void changeUserSign(long id, String sign) {
         SqlSession session = MySqlSessionFactory.getSqlSession();
         try {
-            UserInfo userInfo=new UserInfo();
+            UserInfo userInfo = new UserInfo();
             userInfo.setSign(sign);
             userInfo.setId(id);
-            session.update("mapper.changeUserSign",userInfo);
+            session.update("mapper.changeUserSign", userInfo);
             session.commit();
         } finally {
             if (session != null) {

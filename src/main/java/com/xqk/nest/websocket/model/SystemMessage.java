@@ -1,4 +1,4 @@
-package com.xqk.nest.websocket.message;
+package com.xqk.nest.websocket.model;
 
 public class SystemMessage {
     private boolean system;

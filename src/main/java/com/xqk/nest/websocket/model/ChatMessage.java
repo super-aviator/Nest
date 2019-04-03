@@ -1,7 +1,8 @@
-package com.xqk.nest.websocket.message;
+package com.xqk.nest.websocket.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+@SuppressWarnings("unused")
 public class ChatMessage {
     @JSONField(ordinal = 1)
     private String username;
@@ -10,7 +11,7 @@ public class ChatMessage {
     private String avatar;
 
     @JSONField(ordinal = 3)
-    private String id;
+    private String id;//接受者id
 
     @JSONField(ordinal = 4)
     private String type;
@@ -22,12 +23,13 @@ public class ChatMessage {
     private boolean mine;
 
     @JSONField(ordinal = 7)
-    private String fromid;
+    private String fromid;//发送者id
 
     @JSONField(ordinal = 8)
     private long timestamp;
 
     public ChatMessage() {
+        timestamp=System.currentTimeMillis();
     }
 
     public ChatMessage(String username, String avatar, String id, String type, String content, boolean mine, String fromid) {
