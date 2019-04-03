@@ -10,5 +10,6 @@
         <module name="NestAll" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>
