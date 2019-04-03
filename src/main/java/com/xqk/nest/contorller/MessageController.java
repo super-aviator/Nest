@@ -24,7 +24,6 @@ public class MessageController {
     @RequestMapping(method= GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-
         String result = dao.getMessage(id,type);
         response.getWriter().write(result);
     }

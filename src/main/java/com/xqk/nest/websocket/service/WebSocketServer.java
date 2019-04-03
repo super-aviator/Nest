@@ -1,5 +1,6 @@
 package com.xqk.nest.websocket.service;
 
+import com.xqk.nest.websocket.handlers.BinaryFrameHandler;
 import com.xqk.nest.websocket.handlers.MessageChannelHandler;
 import com.xqk.nest.websocket.handlers.SignChannelHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -30,7 +31,8 @@ public class WebSocketServer {
                                     new HttpObjectAggregator(655360),//最大消息长度，并聚合消息
                                     new WebSocketServerProtocolHandler("/chat"),//websocket路径
                                     new SignChannelHandler(),
-                                    new MessageChannelHandler()
+                                    new MessageChannelHandler(),
+                                    new BinaryFrameHandler()
                             );
                         }
                     });

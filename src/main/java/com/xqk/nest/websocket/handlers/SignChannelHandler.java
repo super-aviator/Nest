@@ -11,8 +11,8 @@ import java.util.regex.Pattern;
 
 //拦截id
 public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
-    public static final ConcurrentHashMap<String, Channel> channels = new ConcurrentHashMap<>();
-    private Pattern SignInPattern = Pattern.compile("\\d+");
+    public static final ConcurrentHashMap<String, Channel> CHANNELS = new ConcurrentHashMap<>();
+    private static final Pattern SignInPattern = Pattern.compile("\\d+");
     private MessageUtil messageUtil=new MessageUtil();
 
     @Override
@@ -20,10 +20,10 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
         String id = s.text();
         Channel channel = ctx.channel();
         if (SignInPattern.matcher(id).matches()) {//判断是否是登陆消息
-            if (channels.containsKey(id)) {//查看是否已登陆
-                channels.get(id).close();//关闭以前登陆保存的channel
-                channels.put(id, channel);//放入新的channel
+            if (CHANNELS.containsKey(id)) {//查看是否已登陆
+                CHANNELS.get(id).close();//关闭以前登陆保存的channel
             }
+            CHANNELS.put(id, channel);//放入新的channel
             System.out.println(id + "---已登陆");
             messageUtil.sendOfflineMsgToUser(ctx,id);//发送离线消息到对应的ctx
         }
@@ -41,7 +41,6 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         removeIDAndChannel(ctx);
-        super.channelUnregistered(ctx);
     }
 
     @Override
@@ -53,15 +52,14 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         removeIDAndChannel(ctx);
-        super.channelInactive(ctx);
     }
 
     //从哈希表中移除指定的channel。
     private void removeIDAndChannel(ChannelHandlerContext ctx) {
-        for (String id : channels.keySet()) {
-            Channel channel = channels.get(id);
+        for (String id : CHANNELS.keySet()) {
+            Channel channel = CHANNELS.get(id);
             if (ctx.channel() == channel) {
-                channels.remove(id);
+                CHANNELS.remove(id);
                 System.out.println(id + "---已登出");
             }
         }

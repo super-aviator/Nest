@@ -13,15 +13,14 @@ import java.util.regex.Pattern;
 
 public class MessageChannelHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     private Pattern SignInPattern = Pattern.compile("\\d+");
-    private MessageUtil messageUtil=new MessageUtil();
+    private MessageUtil messageUtil = new MessageUtil();
 
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) {
         String content = msg.text();
-        Message<ChatMessage> message = JSON.parseObject(content, new TypeReference<Message<ChatMessage>>() {
+        Message message = JSON.parseObject(content, new TypeReference<Message<ChatMessage>>() {
         });
 
-        String id = message.getData().getId();
-        messageUtil.sendMsg(SignChannelHandler.channels, id,message);
+        messageUtil.sendMsg(SignChannelHandler.CHANNELS, message);
     }
 
     @Override
