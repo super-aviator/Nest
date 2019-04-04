@@ -14,7 +14,7 @@
         <typeAlias type="com.xqk.nest.model.GroupInfo" alias="GroupInfo" />
         <typeAlias type="com.xqk.nest.model.Members" alias="Members" />
         <typeAlias type="com.xqk.nest.model.GroupMemberInfo" alias="GroupMemberInfo" />
-        <typeAlias type="com.xqk.nest.model.HistoryMsgItem" alias="HistoryMsgItem" />
+        <typeAlias type="com.xqk.nest.websocket.model.HistoryChatMessage" alias="HistoryChatMessage" />
         <typeAlias type="com.xqk.nest.model.Tuple" alias="Tuple" />
     </typeAliases>
 
@@ -35,6 +35,7 @@
         <mapper resource="mapper/UserOptMapper.xml" />
         <mapper resource="mapper/GroupOptMapper.xml" />
         <mapper resource="mapper/AccountOptMapper.xml" />
+        <mapper resource="mapper/MessageOptMapper.xml" />
     </mappers>
 
 </configuration>

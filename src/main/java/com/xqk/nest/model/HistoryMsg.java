@@ -1,6 +1,8 @@
 package com.xqk.nest.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.xqk.nest.websocket.model.ChatMessage;
+import com.xqk.nest.websocket.model.HistoryChatMessage;
 
 import java.util.List;
 
@@ -12,15 +14,20 @@ public class HistoryMsg {
     private String msg;
 
     @JSONField(ordinal = 3)
-    private List<HistoryMsgItem> data;
+    private List<HistoryChatMessage> data;
 
-    public HistoryMsg(int code, String msg, List<HistoryMsgItem> data) {
+    public HistoryMsg(int code, String msg, List<HistoryChatMessage> data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
     public HistoryMsg() {
+    }
+
+    public HistoryMsg(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
     }
 
     public int getCode() {
@@ -39,11 +46,11 @@ public class HistoryMsg {
         this.msg = msg;
     }
 
-    public List<HistoryMsgItem> getData() {
+    public List<HistoryChatMessage> getData() {
         return data;
     }
 
-    public void setData(List<HistoryMsgItem> data) {
+    public void setData(List<HistoryChatMessage> data) {
         this.data = data;
     }
 

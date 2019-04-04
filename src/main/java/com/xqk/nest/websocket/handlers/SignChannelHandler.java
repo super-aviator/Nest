@@ -9,7 +9,7 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
-//拦截id
+//拦截登陆时传递的id信息
 public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     public static final ConcurrentHashMap<String, Channel> CHANNELS = new ConcurrentHashMap<>();
     private static final Pattern SignInPattern = Pattern.compile("\\d+");
@@ -25,7 +25,7 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
             }
             CHANNELS.put(id, channel);//放入新的channel
             System.out.println(id + "---已登陆");
-            messageUtil.sendOfflineMsgToUser(ctx,id);//发送离线消息到对应的ctx
+            messageUtil.sendOfflineMsgToUser(ctx,CHANNELS,id);//发送离线消息到对应的ctx
         }
     }
 

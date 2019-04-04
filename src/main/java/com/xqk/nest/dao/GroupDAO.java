@@ -7,10 +7,16 @@ import com.xqk.nest.model.GroupMembersMsg;
 import com.xqk.nest.model.Members;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.Set;
+
 public class GroupDAO implements GroupDTO {
     private GroupMembersMsg msg = new GroupMembersMsg();
 
-
+    /**
+     * 用于显示群成员的详细信息
+     * @param id
+     * @return
+     */
     public String getMembers(long id) {
         GroupMembersMsg msg = new GroupMembersMsg();
         SqlSession session = null;

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="mapper">
-    <select id="selectMsg" resultType="HistoryMsgItem" parameterType="Tuple" timeout="20">
+    <select id="selectMsg" resultType="HistoryChatMessage" parameterType="Tuple" timeout="20">
         SELECT *
         <if test="e='friend'">
             FROM friend_msg AS A
@@ -14,10 +14,10 @@
         </if>
         WHERE A.id = #{t}
         OR A.rev_id = #{t}
-        ORDER BY A.timestamp DESC LIMIT #{offset},#{count};
+        ORDER BY A.timestamp DESC LIMIT 0,10;
     </select>
 
-    <insert id="storeMsg" parameterType="HistoryMsgItem" statementType="PREPARED" timeout="20">
+    <insert id="storeMsg" parameterType="HistoryChatMessage" statementType="PREPARED" timeout="20">
         <if test="type='friend'">
             INSERT INTO friend_msg
         </if>

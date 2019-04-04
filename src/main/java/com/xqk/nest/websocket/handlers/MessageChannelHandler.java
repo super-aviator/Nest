@@ -1,9 +1,5 @@
 package com.xqk.nest.websocket.handlers;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-import com.xqk.nest.websocket.model.ChatMessage;
-import com.xqk.nest.websocket.model.Message;
 import com.xqk.nest.websocket.util.MessageUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -16,11 +12,8 @@ public class MessageChannelHandler extends SimpleChannelInboundHandler<TextWebSo
     private MessageUtil messageUtil = new MessageUtil();
 
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) {
-        String content = msg.text();
-        Message message = JSON.parseObject(content, new TypeReference<Message<ChatMessage>>() {
-        });
-
-        messageUtil.sendMsg(SignChannelHandler.CHANNELS, message);
+        String messageStr = msg.text();
+        messageUtil.sendMsg(SignChannelHandler.CHANNELS, messageStr);
     }
 
     @Override

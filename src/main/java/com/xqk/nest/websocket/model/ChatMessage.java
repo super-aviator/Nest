@@ -11,7 +11,7 @@ public class ChatMessage {
     private String avatar;
 
     @JSONField(ordinal = 3)
-    private String id;//发送者id
+    private String id;//接收者id
 
     @JSONField(ordinal = 4)
     private String type;
@@ -22,8 +22,8 @@ public class ChatMessage {
     @JSONField(ordinal = 6)
     private boolean mine;
 
-    @JSONField(ordinal = 7,serialize = false)
-    private String fromid;//接收者id
+    @JSONField(ordinal = 7)
+    private String fromid;//发送者id
 
     @JSONField(ordinal = 8)
     private long timestamp;
@@ -41,6 +41,14 @@ public class ChatMessage {
         this.mine = mine;
         this.fromid = fromid;
         this.timestamp = System.currentTimeMillis();
+    }
+
+    public ChatMessage(String username, String avatar, String content, String fromid, long timestamp) {
+        this.username = username;
+        this.avatar = avatar;
+        this.content = content;
+        this.fromid = fromid;
+        this.timestamp = timestamp;
     }
 
     public String getUsername() {

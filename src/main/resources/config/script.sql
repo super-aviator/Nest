@@ -1,4 +1,4 @@
-# 存储群聊信息
+# 群聊信息存储表
 CREATE TABLE `friend_msg` (
                             `username` varchar(16) COLLATE utf8_bin DEFAULT '',
                             `id` bigint(5) unsigned NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE `friend_msg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用于存储用户好友聊天记录';
 
 
-# 存储好友消息
+# 好友消息存储表
 CREATE TABLE `group_msg` (
                            `username` varchar(16) COLLATE utf8_bin DEFAULT '',
                            `id` bigint(5) unsigned NOT NULL,
@@ -20,3 +20,5 @@ CREATE TABLE `group_msg` (
                            `content` varchar(1000) COLLATE utf8_bin DEFAULT '',
                            PRIMARY KEY (`id`,`rev_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用于存储群聊消息';
+
+

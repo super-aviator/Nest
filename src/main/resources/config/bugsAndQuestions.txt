@@ -1,2 +1,12 @@
-1. SqlSession可以使用try-with-resource来写
+优化
+1. SqlSession可以使用try-with-resource来重写
 2. 消息分页功能
+
+
+待完成功能
+1. 群消息发送功能,使用redis做缓存，mysql做长期存储
+
+
+知识点
+1. Redis做缓存时，Redis数据与MySQL数据的一致性
+2. 单点登录
