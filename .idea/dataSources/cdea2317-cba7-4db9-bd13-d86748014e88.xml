@@ -933,154 +933,247 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="236" parent="6" name="group_info"/>
-    <table id="237" parent="6" name="packet_info"/>
-    <table id="238" parent="6" name="packet_user_info"/>
-    <table id="239" parent="6" name="user_group_info"/>
-    <table id="240" parent="6" name="user_info"/>
-    <table id="241" parent="6" name="user_packet_info"/>
-    <column id="242" parent="236" name="group_id">
+    <table id="236" parent="6" name="friend_msg">
+      <Comment>用于存储用户好友聊天记录</Comment>
+      <Collation>utf8_bin</Collation>
+    </table>
+    <table id="237" parent="6" name="group_info"/>
+    <table id="238" parent="6" name="group_msg">
+      <Comment>用于存储群聊消息</Comment>
+      <Collation>utf8_bin</Collation>
+    </table>
+    <table id="239" parent="6" name="packet_info"/>
+    <table id="240" parent="6" name="packet_user_info"/>
+    <table id="241" parent="6" name="user_group_info"/>
+    <table id="242" parent="6" name="user_info"/>
+    <table id="243" parent="6" name="user_packet_info"/>
+    <column id="244" parent="236" name="username">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="236" name="id">
+      <Position>2</Position>
+      <DataType>bigint(5) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="246" parent="236" name="rev_id">
+      <Position>3</Position>
+      <DataType>bigint(5) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="247" parent="236" name="avatar">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <DefaultExpression>&apos;http://tp4.sinaimg.cn/2145291155/180/5601307179/1&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="248" parent="236" name="timestamp">
+      <Position>5</Position>
+      <DataType>bigint(6) unsigned|0s</DataType>
+      <DefaultExpression>&apos;1467475443306&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="236" name="content">
+      <Position>6</Position>
+      <DataType>varchar(1000)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="250" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id
+rev_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="251" parent="237" name="group_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="236" name="group_name">
+    <column id="252" parent="237" name="group_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="236" name="avatar">
+    <column id="253" parent="237" name="avatar">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <DefaultExpression>&apos;http://tp4.sinaimg.cn/2145291155/180/5601307179/1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="245" parent="236" name="PRIMARY">
+    <key id="254" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>group_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="246" parent="237" name="packet_name">
+    <column id="255" parent="238" name="username">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="256" parent="238" name="id">
+      <Position>2</Position>
+      <DataType>bigint(5) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="238" name="rev_id">
+      <Position>3</Position>
+      <DataType>bigint(5) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="238" name="avatar">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <DefaultExpression>&apos;http://tp4.sinaimg.cn/2145291155/180/5601307179/1&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="238" name="timestamp">
+      <Position>5</Position>
+      <DataType>bigint(6) unsigned|0s</DataType>
+      <DefaultExpression>&apos;1467475443306&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="238" name="content">
+      <Position>6</Position>
+      <DataType>varchar(1000)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="261" parent="238" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id
+rev_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="262" parent="239" name="packet_name">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="237" name="packet_id">
+    <column id="263" parent="239" name="packet_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="248" parent="237" name="PRIMARY">
+    <key id="264" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>packet_name
 packet_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="249" parent="238" name="user_id">
+    <column id="265" parent="240" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="238" name="packet_id">
+    <column id="266" parent="240" name="packet_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="251" parent="238" name="PRIMARY">
+    <key id="267" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>packet_id
 user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="252" parent="239" name="user_id">
+    <column id="268" parent="241" name="user_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="239" name="group_id">
+    <column id="269" parent="241" name="group_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="254" parent="239" name="PRIMARY">
+    <key id="270" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id
 group_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="255" parent="240" name="user_id">
+    <column id="271" parent="242" name="user_id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="240" name="username">
+    <column id="272" parent="242" name="username">
       <Position>2</Position>
       <DataType>varchar(16)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="240" name="sign">
+    <column id="273" parent="242" name="sign">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
+      <Collation>utf8_bin</Collation>
     </column>
-    <column id="258" parent="240" name="avatar">
+    <column id="274" parent="242" name="avatar">
       <Position>4</Position>
       <DataType>varchar(200)|0s</DataType>
       <DefaultExpression>&apos;http://tp4.sinaimg.cn/2145291155/180/5601307179/1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="240" name="status">
+    <column id="275" parent="242" name="status">
       <Position>5</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_bin</Collation>
     </column>
-    <column id="260" parent="240" name="password">
+    <column id="276" parent="242" name="password">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="261" parent="240" name="user_id_UNIQUE">
+    <index id="277" parent="242" name="user_id_UNIQUE">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="262" parent="240" name="PRIMARY">
+    <key id="278" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="263" parent="240" name="user_id_UNIQUE">
+    <key id="279" parent="242" name="user_id_UNIQUE">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="264" parent="241" name="packet_id">
+    <column id="280" parent="243" name="packet_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="241" name="user_id">
+    <column id="281" parent="243" name="user_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="266" parent="241" name="PRIMARY">
+    <key id="282" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>packet_id
 user_id</ColNames>

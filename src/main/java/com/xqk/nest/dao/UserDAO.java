@@ -12,11 +12,11 @@ public class UserDAO implements UserDTO {
         UserInfoMsg msg = new UserInfoMsg(0);//消息pojo
         Data data = new Data();
 
-        SqlSession s = MySqlSessionFactory.getSqlSession();
-        try {
-            data.setMine(s.<UserInfo>selectOne("mapper.SelectUserInfo", userId));
-            data.setGroup(s.<GroupInfo>selectList("mapper.SelectGroupInfo", userId));
-            data.setFriend(s.<PacketInfo>selectList("mapper.SelectFriendInfo", userId));
+
+        try (SqlSession s = MySqlSessionFactory.getSqlSession()) {
+            data.setMine(s.selectOne("mapper.SelectUserInfo", userId));
+            data.setGroup(s.selectList("mapper.SelectGroupInfo", userId));
+            data.setFriend(s.selectList("mapper.SelectFriendInfo", userId));
 
             msg.setData(data);
             return JSON.toJSONString(msg);
@@ -24,41 +24,58 @@ public class UserDAO implements UserDTO {
         } catch (Exception e) {
             e.printStackTrace();
             return JSON.toJSONString(new UserInfoMsg(1, "(: 服务器错误"));
-        } finally {
-            if (s != null)
-                s.close();
         }
     }
 
     @Override
     public void changeUserStatus(long id, String status) {
-        SqlSession session = MySqlSessionFactory.getSqlSession();
-        try {
+
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             UserInfo userInfo = new UserInfo();
             userInfo.setStatus(status);
             userInfo.setId(id);
             session.update("mapper.changeUserStatus", userInfo);
             session.commit();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
         }
     }
 
     @Override
     public void changeUserSign(long id, String sign) {
-        SqlSession session = MySqlSessionFactory.getSqlSession();
-        try {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             UserInfo userInfo = new UserInfo();
             userInfo.setSign(sign);
             userInfo.setId(id);
             session.update("mapper.changeUserSign", userInfo);
             session.commit();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
+        }
+
+    }
+
+    @Override
+    public String getUserList(String username) {
+        Tuple<UserInfo, GroupInfo> tuple = new Tuple<>();
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            UserInfo userInfo = session.selectOne("mapper.getUserList", username);
+            GroupInfo groupInfo = session.selectOne("mapper.getGroupList", username);
+            tuple.setT(userInfo);
+            tuple.setE(groupInfo);
+            return JSON.toJSONString(tuple);
         }
     }
+
+    @Override
+    public void addFriend(long userId, long groupId) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            session.insert("mapper.addFriend",new Tuple<>(userId,groupId));
+            session.commit();
+        }
+    }
+
+    @Override
+    public UserInfo getUser(long userId) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            return session.selectOne("mapper.getUser",userId);
+        }
+    }
+
 }

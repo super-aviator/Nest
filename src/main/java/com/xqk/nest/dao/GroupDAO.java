@@ -10,27 +10,21 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.Set;
 
 public class GroupDAO implements GroupDTO {
-    private GroupMembersMsg msg = new GroupMembersMsg();
-
     /**
      * 用于显示群成员的详细信息
+     *
      * @param id
      * @return
      */
     public String getMembers(long id) {
         GroupMembersMsg msg = new GroupMembersMsg();
-        SqlSession session = null;
-        try {
-            session = MySqlSessionFactory.getSqlSession();
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             Members members = session.selectOne("mapper.getGroupMembersMapper", id);
             msg.setMembers(members);
             return JSON.toJSONString(msg);
         } catch (Exception e) {
             e.printStackTrace();
             return JSON.toJSONString(new GroupMembersMsg(1, "(: 服务器错误"));
-        } finally {
-            if (session != null)
-                session.close();
         }
     }
 }

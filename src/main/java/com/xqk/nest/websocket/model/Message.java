@@ -9,7 +9,7 @@ public class Message<T> {
     @JSONField(ordinal = 2)
     private T data;
 
-    private Message(T t,String emit){
+    public Message(T t,String emit){
         this.emit=emit;
         this.data =t;
     }

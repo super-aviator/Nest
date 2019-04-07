@@ -19,6 +19,9 @@ public class GroupInfo {
         this.avatar = avatar;
     }
 
+    public GroupInfo() {
+    }
+
     public String getGroupname() {
         return groupname;
     }

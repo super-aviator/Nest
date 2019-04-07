@@ -10,9 +10,9 @@ public class Test {
         message.setData(new ChatMessage("熊乾坤","http://sf","10001","friend","Hello在吗？",true,"10001"));
 //        System.out.println(JSON.toJSONString(model));
         RedisUtil mop=new RedisUtil();
-        mop.pushMsg("1",message);
-        mop.pushMsg("2",message);
-        mop.pushMsg("3",message);
-        mop.pushMsg("4",message);
+        mop.pushChatMsg("1",message);
+        mop.pushChatMsg("2",message);
+        mop.pushChatMsg("3",message);
+        mop.pushChatMsg("4",message);
     }
 }

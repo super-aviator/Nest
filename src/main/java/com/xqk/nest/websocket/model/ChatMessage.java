@@ -10,7 +10,7 @@ public class ChatMessage {
     @JSONField(ordinal = 2)
     private String avatar;
 
-    @JSONField(ordinal = 3)
+    @JSONField(ordinal = 3,serialize = false)
     private String id;//接收者id
 
     @JSONField(ordinal = 4)
@@ -99,6 +99,7 @@ public class ChatMessage {
         this.mine = mine;
     }
 
+    @JSONField(name = "id")
     public String getFromid() {
         return fromid;
     }

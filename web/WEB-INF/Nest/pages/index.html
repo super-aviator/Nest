@@ -13,7 +13,8 @@
 <body class="layui-bg-black">
     <script src="../layui/layui.js"></script>
     <script>
-
+        var socket;
+        var id = sessionStorage.getItem("username");
 
         layui.use('layim', function (layim) {
             //基础配置
@@ -24,7 +25,7 @@
                     url: 'http://localhost:8080/user/get-info' //接口地址（返回的数据格式见下文）
                     , type: 'get' //默认get，一般可不填
                     , data: {
-                        "id": "1"
+                        id: id
                     } //额外参数
                 }
                 , initSkin: '6.jpg'//设置初始皮肤
@@ -59,28 +60,75 @@
                     , type: 'post' //默认post
                 }
 
-                , msgbox: layui.cache.dir + 'css/modules/layim/html/msgbox.html' //消息盒子页面地址，若不开启，剔除该项即可
-                , find: layui.cache.dir + 'css/modules/layim/html/find.html' //发现页面地址，若不开启，剔除该项即可
-                , chatLog: layui.cache.dir + './chatlog.html' //聊天记录页面地址，若不开启，剔除该项即可
+                , msgbox: layui.cache.dir + '../pages/msgbox.html?id=' + id //消息盒子页面地址，若不开启，剔除该项即可
+                , find: layui.cache.dir + '../pages/find.html?id=' + id //发现页面地址，若不开启，剔除该项即可
+                , chatLog: layui.cache.dir + '../pages/chatlog.html?id=' + id //聊天记录页面地址，若不开启，剔除该项即可
             });
 
+            //监听发送的消息
             layim.on('sendMessage', function (res) {
                 var mine = res.mine; //包含我发送的消息及我的信息
-                alert(mine.content);
+                var to = res.to;
+
+                var data = {
+                    username: mine.username
+                    , avatar: mine.avatar
+                    , id: to.id//接收者id/群id
+                    , type: to.type
+                    , content: mine.content
+                    , cid: to.id
+                    , mine: mine.mine
+                    , fromid: mine.id//发送者id
+                };
+
+                var msg = {
+                    emit: "chat"
+                    , data: data
+                };
+                socket.send(JSON.stringify(msg));
             });
 
-            layim.getMessage({
-                system: true //系统消息
-                , id: 1111111 //聊天窗口ID
-                , type: "friend" //聊天窗口类型
-                , content: '对方已掉线'
+            //init方法调用结束时事件触发
+            layim.on('ready', function (options) {
+                // console.log(options);
+
+                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 5000, maxReconnectAttempts: 2 });//掉线重连机制
+                socket.onerror = function () {
+                    layer.msg('连接失败，重试中', { icon: 2, anim: 5 });
+                    // layer.load(2);
+                };
+
+                socket.onopen = function () {
+                    layer.msg('连接成功', { icon: 1, anim: 1 });
+                    socket.send(id);
+                };
+
+                socket.onmessage = function (evt) {
+                    var message = JSON.parse(evt.data);
+                    if (message.emit === 'chat') {//是聊天消息
+                        layim.getMessage(message.data);
+                    } else if (message.emit === 'notify') {//是通知消息,只需要显示提示消息的数目
+                        var msgNum = message.data;
+                        if (msgNum > 0)
+                            layim.msgbox(message.data);//提示用户有提示类的消息
+                    } else if (message.emit === 'changeStatus') {//是更改用户状态消息
+                        var id = message.data.id;
+                        var status = message.data.status;
+                        layim.setFriendStatus(id, status);
+                    }
+                }
+
+                socket.onclose = function () {
+                    socket.close();
+                    layer.alert('主机关闭了链接或者账号已已在其他地方登录', { icon: 5, anim: 6 });
+                };
+
             });
 
-            //监听在线状态
+            //监听在线状态------------------------------
             layim.on('online', function (status) {
-
                 $.post('http://localhost:8080/user/change-status', {
-                    id: 1
+                    id: id
                     , status: status
                 });
 
@@ -95,16 +143,28 @@
                 //     dataType: "jsonp", //指定服务器返回的数据类型
                 // });
 
+                var data = {
+                    id: id
+                    , status: status
+                };
+
+                var msg = {
+                    emit: "changeStatus"
+                    , data: data
+                };
+                socket.send(JSON.stringify(msg));
+
             });
 
             //监听签名修改
             layim.on('sign', function (value) {
                 $.post('http://localhost:8080/user/change-sign', {
-                    id: 1
+                    id: id
                     , sign: value
                 });
             });
         });
+
     </script>
 </body>
 

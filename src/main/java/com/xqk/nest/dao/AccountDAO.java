@@ -2,6 +2,7 @@ package com.xqk.nest.dao;
 
 import com.xqk.nest.dto.AccountDTO;
 import com.xqk.nest.config.MySqlSessionFactory;
+import com.xqk.nest.model.UserInfo;
 import org.apache.ibatis.session.SqlSession;
 
 public class AccountDAO implements AccountDTO {
@@ -10,24 +11,53 @@ public class AccountDAO implements AccountDTO {
     @Override
     public int pwCorrect(String username, String password) {
         if (username == null || password == null) return 2;
-
-        SqlSession session = null;
         String temp = null;
-        try {
-            session = MySqlSessionFactory.getSqlSession();
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             temp = session.selectOne("mapper.hasSignup", username);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (session != null)
-                session.close();
         }
-        if (temp != null) {
+        if (temp != null && !temp.equals("")) {
             if (temp.equals(password))
                 return 0;
             else return 2;
         }
         return 1;
+    }
+
+    @Override
+    public long getUserId(String username) {
+        if (username == null) return -1;
+        try (SqlSession session = MySqlSessionFactory.getSqlSession();) {
+            return session.selectOne("mapper.getUserId", username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
+    public int signUp(String username, String password, String avatar, String sign) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession();) {
+            UserInfo userInfo = new UserInfo(username, sign, avatar, password);
+            int col = session.insert("mapper.singUp", userInfo);
+            session.commit();
+            return col;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean hasSingUp(String username) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            Integer i = session.selectOne("mapper.hasSignUp", username);
+            return i != null && i.equals(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

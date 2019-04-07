@@ -68,4 +68,20 @@
         SET sign=#{sign}
         WHERE user_id = #{id};
     </update>
+
+    <select id="getUserList" resultType="UserInfo" parameterType="java.lang.String">
+        SELECT user_id AS id,username ,status,sign, avatar FROM user_info WHERE username=#{userId};
+    </select>
+
+    <select id="getGroupList" resultType="GroupInfo" parameterType="java.lang.String">
+        SELECT group_id AS id ,group_name AS groupname,avatar FROM group_info WHERE group_name=#{userId};
+    </select>
+
+    <insert id="addFriend" parameterType="Tuple">
+        INSERT INTO packet_user_info(packet_id,user_id) VALUES(#{e},#{t});
+    </insert>
+
+    <select id="getUser" resultType="UserInfo" parameterType="java.lang.Long">
+        SELECT user_id AS id,username ,status,sign, avatar FROM user_info WHERE user_id=#{userId};
+    </select>
 </mapper>

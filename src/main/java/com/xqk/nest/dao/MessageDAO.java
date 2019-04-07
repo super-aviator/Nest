@@ -10,6 +10,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
+/**
+ * 事物记得提交啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+ */
 public class MessageDAO {
 
     //查询历史消息
@@ -28,6 +31,7 @@ public class MessageDAO {
     public void storeMessage(HistoryChatMessage item) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             session.insert("mapper.storeMsg", item);
+            session.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

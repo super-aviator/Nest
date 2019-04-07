@@ -19,11 +19,21 @@ public class UserInfo {
     @JSONField(ordinal = 5)
     private String avatar;
 
+    @JSONField(serialize = false)
+    private String password;
+
     public UserInfo(Long id, String username, String sign, String status, String avatar) {
         this.username = username;
         this.id = id;
         this.sign = sign;
         this.status = status;
+        this.avatar = avatar;
+    }
+
+    public UserInfo(String username, String sign, String avatar,String password) {
+        this.username = username;
+        this.sign = sign;
+        this.password = password;
         this.avatar = avatar;
     }
 
@@ -77,6 +87,14 @@ public class UserInfo {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

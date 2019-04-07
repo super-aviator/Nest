@@ -4,15 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>singin</title>
+    <title>Nest注册</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js">
-        $(onclick())
     </script>
 
-    //大框的样式
+    <!-- //大框的样式 -->
     <style>
         .layoutAll {
             background: url('images/signinBackgroundImage3.jpg') no-repeat 0px 0px;
@@ -21,8 +20,8 @@
 
         .centerDiv {
             background-color: #FCFCFc;
-            width: 400px;
-            height: 450px;
+            width: 450px;
+            height: 530px;
             border-radius: 6px;
             margin: auto;
             margin-top: 20px;
@@ -30,8 +29,8 @@
         }
     </style>
 
-    //大框里面组件的样式
-    //欢迎文字
+    <!-- //大框里面组件的样式
+    //欢迎文字 -->
     <style>
         .welcomeDiv {
             text-align: center;
@@ -45,7 +44,7 @@
         }
     </style>
 
-    //表单
+    <!-- //表单 -->
     <style>
         .input-a {
             width: 350px;
@@ -62,63 +61,114 @@
             color: aliceblue;
             font-size: 15px;
         }
+
+        #img {
+            float: left;
+            display: inline;
+            width: 60px;
+            height: 60px;
+            margin-left: 50px;
+            display: none;
+        }
+
+        #upload-btn {
+            float: left;
+            display: inline;
+            margin-left: 50px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            width: 350px;
+        }
+
+        #file-input {
+            display: none;
+        }
     </style>
 
 </head>
 
 <body class="layoutAll">
-<div class="centerDiv">
-    <div class="welcomeDiv">
-        <p id="Nest">Nest</p>
+    <div class="centerDiv">
+        <div class="welcomeDiv">
+            <p id="Nest">Nest</p>
+        </div>
+
+
+        <form class="layui-form" id="data-form" enctype="multipart/form-data">
+            <div class="layui-upload">
+                <button type="button" class="layui-btn layui-btn-normal" id="upload-btn">上传头像</button>
+                <input class="layui-upload-file" type="file" name="avatar"
+                    accept="image/png, image/jpeg, image/gif, image/jpg" id="file-input">
+                <!-- <div class="layui-upload-list" id="upload-review">
+                    <img class="layui-circle layim-msgbox-avatar" id="img" src="file://D:/0.png">
+                    <p id="demoText"></p>
+                </div> -->
+            </div>
+
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="text" name="username" placeholder="昵称" class="layui-input" id="input-a">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="password" name="password" placeholder="密码" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="text" name="sign" placeholder="签名" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="button" value="注册" class="layui-btn layui-btn-lg layui-btn-normal"
+                        style="width:350px;" /><br />
+                </div>
+            </div>
+
+        </form>
+
+        <div id="sign-up">
+            <a href="./signIn.html">已有账号？去登录</a>
+        </div>
     </div>
-
-    <form class="layui-form" action="" method="POST" target="_self">
-        <div class="layui-form-item">
-            <div class="input-a">
-                <input type="text" name="username" lay-verify="title" autocomplete="off" placeholder="用户名"
-                       class="layui-input" id="input-a">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="input-a">
-                <input type="text" name="password" lay-verify="title" autocomplete="off" placeholder="密码"
-                       class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="input-a">
-                <input type="button" value="登录" class="layui-btn layui-btn-lg layui-btn-normal" style="width:350px;"
-                       onclick="login()" /><br />
-            </div>
-        </div>
-
-    </form>
-    <div id="sign-up">
-        <a href="./find-password.html">忘记密码</a>|<a href="./registe.html">没有账号？去注册</a>
-    </div>
-</div>
 </body>
 
 <script>
 
-    function login() {
-        var un = $('input[name="username"]').val();
-        var pw = $('input[name="password"]').val();
-        if ($.trim(un) === '' || $.trim(pw) === '') {
-            alert("请输入用户名密码");
-        }
-        $.post('http://127.0.0.1:8080/sign/sign-in', {
-            username: un,
-            password: pw
-        }, function (data) {
-            if (data === '登录成功')
-                location.href = "index.html";
-            // elseif (data==='密码错误')
-            else alert(data);
+
+    $('#upload-btn').click(function () {
+        $('.layui-upload-file').click();
+    });
+
+    $('input[value="注册"]').click(function () {
+        $.ajax({
+            url: "http://localhost:8080/sign/sign-up",
+            type: 'POST',
+            cache: false,
+            async: false,
+            data: new FormData($("#data-form")[0]),
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                alert(result);
+                if (result === '注册成功') {
+                    // window.location.href="signIn.html";
+                    window.open('signIn.html');
+                    window.close();
+                } else
+                    alert(result);
+            },
+            error: function (err) {
+                alert("连接服务器失败");
+            }
         });
-    }
+    });
+
 </script>
 
 </html>

@@ -1,5 +1,4 @@
 # Build targets
 /target
-*/target
 out/
 *.class

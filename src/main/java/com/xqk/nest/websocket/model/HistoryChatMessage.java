@@ -4,6 +4,9 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 @SuppressWarnings("unused")
 public class HistoryChatMessage {
+    @JSONField(serialize = false)
+    private String type;
+
     @JSONField(ordinal = 1)
     private String username;
 
@@ -12,6 +15,9 @@ public class HistoryChatMessage {
 
     @JSONField(ordinal = 2)
     private String id;//接收者id
+
+    @JSONField(serialize = false)
+    private String revId;
 
     @JSONField(ordinal = 5)
     private String content;
@@ -22,12 +28,14 @@ public class HistoryChatMessage {
     public HistoryChatMessage() {
     }
 
-    public HistoryChatMessage(String username, String avatar, String id, String content, long timestamp) {
+    public HistoryChatMessage(String username, String avatar, String id,String revId, String content, long timestamp,String type) {
         this.username = username;
         this.avatar = avatar;
         this.id = id;
+        this.revId=revId;
         this.content = content;
         this.timestamp = timestamp;
+        this.type=type;
     }
 
     public String getUsername() {
