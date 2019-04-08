@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="../layui/css/layui.css" media="all">
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="../reconnecting-websocket/reconnecting-websocket.min.js"></script>
+    <style>
+        body {
+            background: url('images/signinBackgroundImage3.jpg') no-repeat 0px 0px;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body class="layui-bg-black">
@@ -35,7 +41,7 @@
                 ]
                 , brief: false//是否始终开启面板
                 , isAudio: true//是否开启语音
-                , right: "150px"//面板右偏移量
+                , right: "100px"//面板右偏移量
 
                 //获取群员接口（返回的数据格式见下文）
                 , members: {
@@ -92,13 +98,17 @@
             layim.on('ready', function (options) {
                 // console.log(options);
 
-                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 5000, maxReconnectAttempts: 2 });//掉线重连机制
+                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 2000, maxReconnectAttempts: 1 });//掉线重连机制
                 socket.onerror = function () {
-                    layer.msg('连接失败，重试中', { icon: 2, anim: 5 });
-                    // layer.load(2);
+                    layer.msg('连接失败', { icon: 2, anim: 5, time: 2000,offset:'t' }, function () {
+                        layer.load(1,{shade: [0.3, '#393D49']});
+                    });
                 };
 
+
+
                 socket.onopen = function () {
+                    layer.closeAll('loading');
                     layer.msg('连接成功', { icon: 1, anim: 1 });
                     socket.send(id);
                 };
@@ -119,8 +129,11 @@
                 }
 
                 socket.onclose = function () {
-                    socket.close();
-                    layer.alert('主机关闭了链接或者账号已已在其他地方登录', { icon: 5, anim: 6 });
+                    // layer.alert('主机关闭了链接或者账号已在其他地方登录', { icon: 5, anim: 1 }, function (index) {
+                    //     location.href = "./signIn.html";
+                    // });
+                    layer.msg('连接失败', { icon: 2, anim: 5, time: 2000,offset:'t' })
+                    // socket.close();
                 };
 
             });

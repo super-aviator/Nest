@@ -1,3 +1,0 @@
-INSERT INTO nest.group_info (group_id, group_name, avatar) VALUES (101, 'java开发交流群', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1');
-INSERT INTO nest.group_info (group_id, group_name, avatar) VALUES (102, 'php开发交流群', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1');
-INSERT INTO nest.group_info (group_id, group_name, avatar) VALUES (103, 'python开发交流群', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1');

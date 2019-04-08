@@ -16,6 +16,7 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -71,7 +72,7 @@ public class MessageUtil {
 
     /**
      * 将群消息推送到群成员
-     * 这里需要将id和fromid交换一下
+     * 这里需要将id和fromId交换一下
      *
      * @param channels
      * @param chatMessage
@@ -84,10 +85,10 @@ public class MessageUtil {
 
         String msg = JSON.toJSONString(new Message(chatMessage, "chat"));
         for (String id : ru.getMembers(groupID)) {//获取群成员的id列表
-            if (id.equals(sendId)) continue;//发送者，信息不显示
-            if (channels.containsKey(id)) {
+            if (id.equals(sendId)) continue;//如果是消息的发送者，信息不显示
+            if (channels.containsKey(id))
                 channels.get(id).writeAndFlush(new TextWebSocketFrame(msg));//如果在线，则直接发送chatMessage消息
-            } else
+            else
                 ru.pushChatMsg(id, msg);//否则放入用户的离线消息列表中
         }
     }
@@ -101,8 +102,8 @@ public class MessageUtil {
      */
     public void sendOfflineMsgToUser(ChannelHandlerContext ctx, Map<String, Channel> channels, String id) {
         while (ru.hasMsg(id)) {//查询用户的离线消息
-            if (channels.containsKey(id))//确保推送离线消息时不掉线
-                ctx.writeAndFlush(new TextWebSocketFrame(ru.popMsg(id)));//将离线消息取出并推送----------------------
+            if (channels.containsKey(id))//确保用户还在线
+                ctx.writeAndFlush(new TextWebSocketFrame(ru.popMsg(id)));//将离线消息取出并推送
             else
                 return;//如果推送过程中掉线，则直接退出推送，
         }
@@ -123,7 +124,7 @@ public class MessageUtil {
     }
 
     /**
-     * 查询用户所有好友，给每一个好友好友发送消息提示用户状态
+     * 查询用户所有好友，给每一个好友好友发送消息，显示用户状态
      *
      * @param channels      用户channel的Map
      * @param statusMessage 状态信息
@@ -131,7 +132,7 @@ public class MessageUtil {
     private void sendStatusToFriend(Map<String, Channel> channels, StatusMessage statusMessage) {
         String sendId = statusMessage.getId();
         for (String friendId : ru.getMembers(sendId)) {
-            if (friendId.equals(sendId)) continue;//是发送者，信息不发送
+            if (friendId.equals(sendId)) continue;//如果是状态的发送者，则不发送
             if (channels.containsKey(sendId)) {//只给在线的用户发送状态信息
                 String msg = JSON.toJSONString(new Message<>(statusMessage, "changeStatus"));
                 channels.get(sendId).writeAndFlush(new TextWebSocketFrame(msg));//如果在线，则直接发送chatMessage消息
@@ -143,7 +144,6 @@ public class MessageUtil {
      * 将提示类的消息存储到离线消息列表中，然后发送用户提示类消息的数目，消息由用户主动获取
      * 提示消息需要一直保存。
      */
-    @SuppressWarnings("unchecked")
     public void storeNotifyMsg(Map<String, Channel> channels, NotifyMsg notifyMsg) {
         String uid = String.valueOf(notifyMsg.getUid());
         String msg = JSON.toJSONString(notifyMsg);
@@ -155,7 +155,9 @@ public class MessageUtil {
         ru.pushNotifyMsg(uid, msg);//直接将消息放入离线消息列表中,不管是否在线
     }
 
-    //当用户id登陆时，获取提示消息的数量
+    /**
+     * 当用户id登陆时，获取提示消息的数量
+     */
     public void getNotifyMsgNum(Map<String, Channel> channels, String id) {
         if (channels.containsKey(id)) { //查找id是否在线
             Message<Long> msgNum = new Message<>(ru.getNotifyMsgNum(id), "notify");//保存的是用户提示消息的数目
@@ -163,12 +165,14 @@ public class MessageUtil {
         }
     }
 
-    //获取用户id的提示消息
-    public String getNotifyMsg(Map<String, Channel> channels, String id) {
-        NotifyMsgResult result=new NotifyMsgResult();
+    /**
+     * 获取用户id所有的提示消息,并通过http发送到msgBox.html
+     */
+    public String getNotifyMsg(String id) {
+        NotifyMsgResult result = new NotifyMsgResult();
         ArrayList<NotifyMsg> list = new ArrayList<>();
         while (ru.hasNotifyMsg(id)) {
-            list.add(JSONObject.parseObject(ru.popNotifyMsg(id),NotifyMsg.class));
+            list.add(JSONObject.parseObject(ru.popNotifyMsg(id), NotifyMsg.class));
         }
         result.setData(list);
         return JSON.toJSONString(result);

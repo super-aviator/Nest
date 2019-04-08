@@ -95,11 +95,9 @@ CREATE TABLE `user_group_info` (
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000001, 101);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000001, 102);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000001, 103);
-INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000001, 104);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000002, 101);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000002, 102);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000002, 103);
-INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000002, 104);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000003, 101);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000003, 102);
 INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000004, 101);
@@ -107,24 +105,23 @@ INSERT INTO nest.user_group_info (user_id, group_id) VALUES (1000004, 102);
 
 # 群聊信息存储表
 CREATE TABLE `friend_msg` (
-                            `username` varchar(16) COLLATE utf8_bin DEFAULT '',
+                            `username` varchar(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
                             `id` bigint(5) unsigned NOT NULL,
                             `rev_id` bigint(5) unsigned NOT NULL,
-                            `avatar` varchar(200) COLLATE utf8_bin DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
-                            `timestamp` bigint(6) unsigned DEFAULT '1467475443306',
-                            `content` varchar(1000) COLLATE utf8_bin DEFAULT '',
-                            PRIMARY KEY (`id`,`rev_id`)
+                            `avatar` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
+                            `timestamp` bigint(6) unsigned NOT NULL DEFAULT '1467475443306',
+                            `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
+                            PRIMARY KEY (`id`,`rev_id`,`timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用于存储用户好友聊天记录';
 
 
 # 好友消息存储表
 CREATE TABLE `group_msg` (
-                           `username` varchar(16) COLLATE utf8_bin DEFAULT '',
+                           `username` varchar(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
                            `id` bigint(5) unsigned NOT NULL,
                            `rev_id` bigint(5) unsigned NOT NULL,
-                           `avatar` varchar(200) COLLATE utf8_bin DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
-                           `timestamp` bigint(6) unsigned DEFAULT '1467475443306',
-                           `content` varchar(1000) COLLATE utf8_bin DEFAULT '',
-                           PRIMARY KEY (`id`,`rev_id`)
+                           `avatar` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
+                           `timestamp` bigint(6) unsigned NOT NULL DEFAULT '1467475443306',
+                           `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
+                           PRIMARY KEY (`id`,`rev_id`,`timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用于存储群聊消息';
-

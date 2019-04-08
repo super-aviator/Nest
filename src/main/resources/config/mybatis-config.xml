@@ -16,6 +16,7 @@
         <typeAlias type="com.xqk.nest.model.GroupMemberInfo" alias="GroupMemberInfo" />
         <typeAlias type="com.xqk.nest.websocket.model.HistoryChatMessage" alias="HistoryChatMessage" />
         <typeAlias type="com.xqk.nest.model.Tuple" alias="Tuple" />
+        <typeAlias type="com.xqk.nest.model.Triple" alias="Triple" />
     </typeAliases>
 
 

@@ -4,18 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="mapper">
-    <select id="selectMsg" resultType="HistoryChatMessage" parameterType="Tuple" timeout="20">
+    <select id="selectMsg" resultType="HistoryChatMessage" statementType="PREPARED" parameterType="Triple" timeout="20">
         SELECT * FROM
-        <if test="e=='friend'">
+        <if test="c=='friend'">
             friend_msg
         </if>
-        <if test="e=='group'">
+        <if test="c=='group'">
             group_msg
         </if>
         AS A
-        WHERE A.id = #{t}
-        OR A.rev_id = #{t}
-        ORDER BY A.timestamp LIMIT 0,10;
+        WHERE (A.id = #{a} AND A.rev_id=#{b})
+        OR (A.id = #{b} AND A.rev_id=#{a})
+        ORDER BY A.timestamp LIMIT 0,20;
     </select>
 
     <insert id="storeMsg" parameterType="HistoryChatMessage" statementType="PREPARED" timeout="20">

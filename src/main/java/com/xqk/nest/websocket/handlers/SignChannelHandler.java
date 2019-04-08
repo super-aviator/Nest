@@ -18,7 +18,7 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
     private MessageUtil messageUtil = new MessageUtil();
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame s) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame s) {
         String id = s.text();
         Channel channel = ctx.channel();
         if (CHANNELS.containsKey(id)) {//查看是否已登陆
@@ -34,13 +34,11 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
     @Override
     public boolean acceptInboundMessage(Object msg) {
         String id = ((TextWebSocketFrame) msg).text();
-        if (SignInPattern.matcher(id).matches())
-            return true;
-        return false;
+        return SignInPattern.matcher(id).matches();
     }
 
     @Override
-    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+    public void channelUnregistered(ChannelHandlerContext ctx) {
         removeIDAndChannel(ctx);
     }
 
@@ -51,7 +49,7 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
     }
 
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+    public void channelInactive(ChannelHandlerContext ctx) {
         removeIDAndChannel(ctx);
     }
 

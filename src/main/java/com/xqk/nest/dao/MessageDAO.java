@@ -3,6 +3,7 @@ package com.xqk.nest.dao;
 import com.alibaba.fastjson.JSON;
 import com.xqk.nest.config.MySqlSessionFactory;
 import com.xqk.nest.model.HistoryMsg;
+import com.xqk.nest.model.Triple;
 import com.xqk.nest.model.Tuple;
 import com.xqk.nest.websocket.model.ChatMessage;
 import com.xqk.nest.websocket.model.HistoryChatMessage;
@@ -16,10 +17,12 @@ import java.util.List;
 public class MessageDAO {
 
     //查询历史消息
-    public String getPagingMessage(long id, String type) {
+    public String getPagingMessage(long id, long revId, String type) {
+        System.out.println(id+"  "+revId+" "+type);
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            List<HistoryChatMessage> msgList = session.selectList("mapper.selectMsg", new Tuple<>(id, type));
+            List<HistoryChatMessage> msgList = session.selectList("mapper.selectMsg", new Triple<>(id, revId, type));
             HistoryMsg result = new HistoryMsg(0, "", msgList);
+            System.out.println(JSON.toJSONString(result));
             return JSON.toJSONString(result);
         } catch (Exception e) {
             e.printStackTrace();
