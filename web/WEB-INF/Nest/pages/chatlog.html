@@ -43,11 +43,14 @@
     var param = location.search;
     var url = 'http://localhost:8080/message/get-message' + param;
     var urlArr = url.split('?');
-    url = urlArr[0] + '?' + urlArr[1] + '&rev' + urlArr[2] ;
+    url = urlArr[0] + '?' + urlArr[1] + '&rev' + urlArr[2];
+
+    //需要发送同步请求，异步可能到时res为null
+    $.ajaxSettings.async = false;
     $.get(url, null, function (data) {
       res = JSON.parse(data);
     });
-
+    $.ajaxSettings.async = true;
 
     layui.use(['layim', 'laypage'], function () {
       var layim = layui.layim
@@ -61,6 +64,7 @@
       var html = laytpl(LAY_tpl.value).render({
         data: res.data
       });
+
       $('#LAY_view').html(html);
     });
   </script>

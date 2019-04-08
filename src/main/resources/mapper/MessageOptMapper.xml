@@ -8,14 +8,16 @@
         SELECT * FROM
         <if test="c=='friend'">
             friend_msg
+            AS A
+            WHERE (A.id = #{a} AND A.rev_id=#{b})
+            OR (A.id = #{b} AND A.rev_id=#{a})
         </if>
         <if test="c=='group'">
             group_msg
+            AS A
+            WHERE A.rev_id=#{b}
         </if>
-        AS A
-        WHERE (A.id = #{a} AND A.rev_id=#{b})
-        OR (A.id = #{b} AND A.rev_id=#{a})
-        ORDER BY A.timestamp LIMIT 0,20;
+        ORDER BY A.timestamp DESC LIMIT 0,20;
     </select>
 
     <insert id="storeMsg" parameterType="HistoryChatMessage" statementType="PREPARED" timeout="20">

@@ -64,13 +64,18 @@ public class UserDAO implements UserDTO {
     }
 
     @Override
-    public void addFriend(long userId, long groupId) {
+    public void addFriend(long userId, long packetId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            session.insert("mapper.addFriend",new Tuple<>(userId,groupId));
+            session.insert("mapper.addFriend",new Tuple<>(userId,packetId));
             session.commit();
         }
     }
 
+    /**
+     * 通过id或者用户信息
+     * @param userId
+     * @return
+     */
     @Override
     public UserInfo getUser(long userId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
