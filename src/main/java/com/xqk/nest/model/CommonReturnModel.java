@@ -2,23 +2,28 @@ package com.xqk.nest.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-public class UploadImageReturnMod {
+public class CommonReturnModel<T> {
     @JSONField(ordinal = 1)
-    private int code=0;
+    private int code;
 
     @JSONField(ordinal = 2)
-    private String msg="";
+    private String msg;
 
     @JSONField(ordinal = 3)
-    private UploadImageMod data;
+    private T data;
 
-    public UploadImageReturnMod(int code, String msg, UploadImageMod data) {
+    public CommonReturnModel(int code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public UploadImageReturnMod() {
+    public CommonReturnModel(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public CommonReturnModel() {
     }
 
     public int getCode() {
@@ -37,17 +42,17 @@ public class UploadImageReturnMod {
         this.msg = msg;
     }
 
-    public UploadImageMod getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(UploadImageMod data) {
+    public void setData(T data) {
         this.data = data;
     }
 
     @Override
     public String toString() {
-        return "UploadImageReturnMod{" +
+        return "CommonReturnModel{" +
                 "code=" + code +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +

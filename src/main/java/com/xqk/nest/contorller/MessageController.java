@@ -5,6 +5,7 @@ import com.xqk.nest.dao.MessageDAO;
 import com.xqk.nest.dao.UserDAO;
 import com.xqk.nest.model.*;
 import com.xqk.nest.websocket.handlers.SignChannelHandler;
+import com.xqk.nest.websocket.model.HistoryChatMessage;
 import com.xqk.nest.websocket.util.MessageUtil;
 import com.xqk.nest.websocket.util.RedisUtil;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -37,8 +39,8 @@ public class MessageController {
     @RequestMapping(value = "/get-message", method = GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-        String result = messageDAO.getPagingMessage(id, revId, type);
-        response.getWriter().write(result);
+        CommonReturnModel<List<HistoryChatMessage>> result = messageDAO.getPagingMessage(id, revId, type);
+        response.getWriter().write(JSON.toJSONString(result));
     }
 
     /**
@@ -89,12 +91,12 @@ public class MessageController {
     @ResponseBody
     public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        UploadImageReturnMod returnMsg ;
+        CommonReturnModel<UploadImageMod> returnMsg ;
         try {
             returnMsg = messageDAO.uploadImage(image);
         } catch (Exception e) {
             e.printStackTrace();
-            returnMsg = new UploadImageReturnMod(1, "", null);
+            returnMsg = new CommonReturnModel<>(1, "", null);
         }
         System.out.println(JSON.toJSONString(returnMsg));
         response.getWriter().write(JSON.toJSONString(returnMsg));

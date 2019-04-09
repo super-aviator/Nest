@@ -8,16 +8,17 @@ import org.apache.ibatis.session.SqlSession;
 
 public class UserDAO implements UserDTO {
 
-    public UserInfoMsg getUserInfo(long userId) {
-        UserInfoMsg msg = new UserInfoMsg(0);//消息pojo
-        Data data = new Data();
+    public CommonReturnModel<Data> getUserInfo(long userId) {
+        CommonReturnModel<Data> msg;//消息pojo
 
         try (SqlSession s = MySqlSessionFactory.getSqlSession()) {
+            Data data = new Data();
             data.setMine(s.selectOne("mapper.SelectUserInfo", userId));
             data.setGroup(s.selectList("mapper.SelectGroupInfo", userId));
             data.setFriend(s.selectList("mapper.SelectFriendInfo", userId));
-
-            msg.setData(data);
+            msg = new CommonReturnModel<>(0, "", data);
+        } catch (Exception e) {
+            throw e;
         }
         return msg;
     }
@@ -31,6 +32,8 @@ public class UserDAO implements UserDTO {
             userInfo.setId(id);
             session.update("mapper.changeUserStatus", userInfo);
             session.commit();
+        } catch (Exception e) {
+            throw e;
         }
     }
 
@@ -47,7 +50,7 @@ public class UserDAO implements UserDTO {
     }
 
     @Override
-    public Tuple<UserInfo,GroupInfo> getUserList(String username) {
+    public Tuple<UserInfo, GroupInfo> getUserList(String username) {
         Tuple<UserInfo, GroupInfo> tuple = new Tuple<>();
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             UserInfo userInfo = session.selectOne("mapper.getUserList", username);
@@ -61,20 +64,21 @@ public class UserDAO implements UserDTO {
     @Override
     public void addFriend(long userId, long packetId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            session.insert("mapper.addFriend",new Tuple<>(userId,packetId));
+            session.insert("mapper.addFriend", new Tuple<>(userId, packetId));
             session.commit();
         }
     }
 
     /**
      * 通过id或者用户信息
+     *
      * @param userId
      * @return
      */
     @Override
     public UserInfo getUser(long userId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            return session.selectOne("mapper.getUser",userId);
+            return session.selectOne("mapper.getUser", userId);
         }
     }
 

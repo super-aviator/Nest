@@ -2,6 +2,7 @@ package com.xqk.nest.dao;
 
 import com.alibaba.fastjson.JSON;
 import com.xqk.nest.config.MySqlSessionFactory;
+import com.xqk.nest.dto.MessageDTO;
 import com.xqk.nest.model.*;
 import com.xqk.nest.websocket.model.ChatMessage;
 import com.xqk.nest.websocket.model.HistoryChatMessage;
@@ -15,20 +16,21 @@ import java.util.List;
 /**
  * 事物记得提交啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
  */
-public class MessageDAO {
+public class MessageDAO implements MessageDTO {
 
     //查询历史消息
-    public String getPagingMessage(long id, long revId, String type) {
-        System.out.println(id + "  " + revId + " " + type);
+    public CommonReturnModel<List<HistoryChatMessage>> getPagingMessage(long id, long revId, String type) {
+        CommonReturnModel<List<HistoryChatMessage>> result;
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             List<HistoryChatMessage> msgList = session.selectList("mapper.selectMsg", new Triple<>(id, revId, type));
-            HistoryMsg result = new HistoryMsg(0, "", msgList);
-            System.out.println(JSON.toJSONString(result));
-            return JSON.toJSONString(result);
+            result= new CommonReturnModel<>(0, "", msgList);
+
         } catch (Exception e) {
             e.printStackTrace();
-            return JSON.toJSONString(new HistoryMsg(1, "(: 服务器错误"));
+            result=new CommonReturnModel<>(1, "(: 服务器错误",null);
+            throw e;
         }
+        return result;
     }
 
     //插入历史消息
@@ -41,12 +43,12 @@ public class MessageDAO {
         }
     }
 
-    public UploadImageReturnMod uploadImage(MultipartFile image) throws IOException {
-        UploadImageReturnMod returnMsg;
+    public CommonReturnModel<UploadImageMod> uploadImage(MultipartFile image) throws IOException {
+        CommonReturnModel<UploadImageMod> returnMsg;
         File file = new File("E:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + image.getOriginalFilename());
         if (!file.exists())
             image.transferTo(file);
-        returnMsg = new UploadImageReturnMod(0, "success", new UploadImageMod("./dataImg/"+image.getOriginalFilename()));
+        returnMsg = new CommonReturnModel<>(0, "success", new UploadImageMod("./dataImg/"+image.getOriginalFilename()));
         return returnMsg;
     }
 }

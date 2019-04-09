@@ -22,13 +22,13 @@ public class AccountController {
             , HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
 
-        if(!dao.hasSingUp(username)){
-            Tuple<String, Long> tuple = new Tuple("账号未注册",-1l);
-            response.getWriter().write(JSON.toJSONString(tuple));
-            return ;
-        }
-
         try {
+            if (!dao.hasSingUp(username)) {
+                Tuple<String, Long> tuple = new Tuple<>("账号未注册", -1L);
+                response.getWriter().write(JSON.toJSONString(tuple));
+                return;
+            }
+
             int result = dao.pwCorrect(username, password);
             Tuple<String, Long> tuple = new Tuple<>();
             switch (result) {
@@ -56,7 +56,7 @@ public class AccountController {
         response.setCharacterEncoding("utf-8");
         File f = new File("E:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
         img.transferTo(f);
-        String avatar = "./dataImg/"+img.getOriginalFilename();
+        String avatar = "./dataImg/" + img.getOriginalFilename();
 
         if (dao.hasSingUp(username)) {
             response.getWriter().write("用户名已经注册");

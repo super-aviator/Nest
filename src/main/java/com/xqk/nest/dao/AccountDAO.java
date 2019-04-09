@@ -28,17 +28,17 @@ public class AccountDAO implements AccountDTO {
     @Override
     public long getUserId(String username) {
         if (username == null) return -1;
-        try (SqlSession session = MySqlSessionFactory.getSqlSession();) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             return session.selectOne("mapper.getUserId", username);
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
-        return -1;
     }
 
     @Override
     public int signUp(String username, String password, String avatar, String sign) {
-        try (SqlSession session = MySqlSessionFactory.getSqlSession();) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             UserInfo userInfo = new UserInfo(username, sign, avatar, password);
             int col = session.insert("mapper.singUp", userInfo);
             session.commit();

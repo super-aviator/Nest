@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -26,11 +27,11 @@ public class UserController {
     @RequestMapping(value = "/get-info", method = GET)
     public void getUserInfo(@RequestParam("id") long UserId, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        UserInfoMsg userInfoMsg;
+        CommonReturnModel<Data> userInfoMsg;
         try {
             userInfoMsg = userDAO.getUserInfo(UserId);
         } catch (Exception e) {
-            userInfoMsg = new UserInfoMsg(1, "(: 服务器错误");
+            userInfoMsg = new CommonReturnModel<>(1, "(: 服务器错误");
         }
 
         response.getWriter().write(JSON.toJSONString(userInfoMsg));
@@ -49,7 +50,7 @@ public class UserController {
     @RequestMapping(value = "/find-user", method = GET)
     public void getUserList(@RequestParam("username") String username, javax.servlet.http.HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        username = new String(username.getBytes("ISO-8859-1"), "utf-8");
+        username = new String(username.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 
         Tuple<UserInfo, GroupInfo> result = userDAO.getUserList(username);
 
