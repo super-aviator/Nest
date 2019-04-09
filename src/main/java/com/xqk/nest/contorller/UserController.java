@@ -1,9 +1,8 @@
 package com.xqk.nest.contorller;
 
+import com.alibaba.fastjson.JSON;
 import com.xqk.nest.dao.UserDAO;
-import com.xqk.nest.model.NotifyMsg;
-import com.xqk.nest.model.NotifyUserInfo;
-import com.xqk.nest.model.UserInfo;
+import com.xqk.nest.model.*;
 import com.xqk.nest.websocket.handlers.SignChannelHandler;
 import com.xqk.nest.websocket.util.MessageUtil;
 import org.springframework.stereotype.Controller;
@@ -27,9 +26,14 @@ public class UserController {
     @RequestMapping(value = "/get-info", method = GET)
     public void getUserInfo(@RequestParam("id") long UserId, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
+        UserInfoMsg userInfoMsg;
+        try {
+            userInfoMsg = userDAO.getUserInfo(UserId);
+        } catch (Exception e) {
+            userInfoMsg = new UserInfoMsg(1, "(: 服务器错误");
+        }
 
-        String result = userDAO.getUserInfo(UserId);
-        response.getWriter().write(result);
+        response.getWriter().write(JSON.toJSONString(userInfoMsg));
     }
 
     @RequestMapping(value = "/change-status", method = POST)
@@ -46,17 +50,25 @@ public class UserController {
     public void getUserList(@RequestParam("username") String username, javax.servlet.http.HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         username = new String(username.getBytes("ISO-8859-1"), "utf-8");
-        response.getWriter().write(userDAO.getUserList(username));
+
+        Tuple<UserInfo, GroupInfo> result = userDAO.getUserList(username);
+
+        response.getWriter().write(JSON.toJSONString(result));
     }
 
     //添加用户friendId
     @RequestMapping(value = "/add-friend", method = POST)
-    public void addFriend(@RequestParam("id") long id,@RequestParam("friend") long friendId, @RequestParam("group") long groupId , @RequestParam("remark") String remark, HttpServletResponse response) {
+    public void addFriend(@RequestParam("id") long id, @RequestParam("friend") long friendId, @RequestParam("group") long groupId, @RequestParam("remark") String remark, HttpServletResponse response) {
         response.setContentType("text/html;charset=UTF-8");
-        UserInfo userInfo=userDAO.getUser(id);
-        System.out.println(userInfo);
-        NotifyUserInfo notifyUserInfo = new NotifyUserInfo(id, userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign());
-        NotifyMsg notifyMsg = new NotifyMsg(ID++, "申请添加你为好友 o_o", friendId, id, groupId, 1, remark, null, 1, "刚刚", notifyUserInfo);
-        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, notifyMsg);//将消息存入列表，并提示用户
+
+        try {
+            UserInfo userInfo = userDAO.getUser(id);
+            NotifyUserInfo notifyUserInfo = new NotifyUserInfo(id, userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign());
+            NotifyMsg notifyMsg = new NotifyMsg(ID++, "申请添加你为好友 o_o", friendId, id, groupId, 1, remark, null, 1, "刚刚", notifyUserInfo);
+            messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, notifyMsg);//将消息存入列表，并提示用户
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

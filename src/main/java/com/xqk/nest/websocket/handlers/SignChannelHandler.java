@@ -25,7 +25,7 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
             CHANNELS.get(id).close();//关闭以前登陆保存的channel
         }
         CHANNELS.put(id, channel);//放入新的channel
-        System.out.println(id + "---已登陆");
+        System.out.println(id + "->已登陆");
         messageUtil.sendOfflineMsgToUser(ctx, CHANNELS, id);//发送离线聊天消息到对应的ctx
         messageUtil.getNotifyMsgNum(CHANNELS, id);//获取提示消息数量
     }
@@ -59,7 +59,7 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
             Channel channel = CHANNELS.get(id);
             if (ctx.channel() == channel) {
                 CHANNELS.remove(id);
-                System.out.println(id + "---已登出");
+                System.out.println(id + "->登出");
             }
         }
     }

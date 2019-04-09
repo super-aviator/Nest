@@ -23,7 +23,7 @@ public class AccountController {
         response.setCharacterEncoding("utf-8");
 
         if(!dao.hasSingUp(username)){
-            Tuple<String, Long> tuple = new Tuple("账号未注册",-1);
+            Tuple<String, Long> tuple = new Tuple("账号未注册",-1l);
             response.getWriter().write(JSON.toJSONString(tuple));
             return ;
         }
@@ -54,7 +54,7 @@ public class AccountController {
     public void singUp(@RequestParam("username") String username, @RequestParam("password") String password
             , @RequestParam("sign") String sign, @RequestParam("avatar") MultipartFile img, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
-        File f = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + img.getOriginalFilename());
+        File f = new File("E:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
         img.transferTo(f);
         String avatar = "./dataImg/"+img.getOriginalFilename();
 

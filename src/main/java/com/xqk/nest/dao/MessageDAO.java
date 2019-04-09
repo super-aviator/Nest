@@ -2,13 +2,14 @@ package com.xqk.nest.dao;
 
 import com.alibaba.fastjson.JSON;
 import com.xqk.nest.config.MySqlSessionFactory;
-import com.xqk.nest.model.HistoryMsg;
-import com.xqk.nest.model.Triple;
-import com.xqk.nest.model.Tuple;
+import com.xqk.nest.model.*;
 import com.xqk.nest.websocket.model.ChatMessage;
 import com.xqk.nest.websocket.model.HistoryChatMessage;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class MessageDAO {
 
     //查询历史消息
     public String getPagingMessage(long id, long revId, String type) {
-        System.out.println(id+"  "+revId+" "+type);
+        System.out.println(id + "  " + revId + " " + type);
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             List<HistoryChatMessage> msgList = session.selectList("mapper.selectMsg", new Triple<>(id, revId, type));
             HistoryMsg result = new HistoryMsg(0, "", msgList);
@@ -38,5 +39,14 @@ public class MessageDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public UploadImageReturnMod uploadImage(MultipartFile image) throws IOException {
+        UploadImageReturnMod returnMsg;
+        File file = new File("E:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + image.getOriginalFilename());
+        if (!file.exists())
+            image.transferTo(file);
+        returnMsg = new UploadImageReturnMod(0, "success", new UploadImageMod("./dataImg/"+image.getOriginalFilename()));
+        return returnMsg;
     }
 }

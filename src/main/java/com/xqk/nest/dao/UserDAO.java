@@ -8,10 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 
 public class UserDAO implements UserDTO {
 
-    public String getUserInfo(long userId) {
+    public UserInfoMsg getUserInfo(long userId) {
         UserInfoMsg msg = new UserInfoMsg(0);//消息pojo
         Data data = new Data();
-
 
         try (SqlSession s = MySqlSessionFactory.getSqlSession()) {
             data.setMine(s.selectOne("mapper.SelectUserInfo", userId));
@@ -19,12 +18,8 @@ public class UserDAO implements UserDTO {
             data.setFriend(s.selectList("mapper.SelectFriendInfo", userId));
 
             msg.setData(data);
-            return JSON.toJSONString(msg);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return JSON.toJSONString(new UserInfoMsg(1, "(: 服务器错误"));
         }
+        return msg;
     }
 
     @Override
@@ -52,14 +47,14 @@ public class UserDAO implements UserDTO {
     }
 
     @Override
-    public String getUserList(String username) {
+    public Tuple<UserInfo,GroupInfo> getUserList(String username) {
         Tuple<UserInfo, GroupInfo> tuple = new Tuple<>();
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             UserInfo userInfo = session.selectOne("mapper.getUserList", username);
             GroupInfo groupInfo = session.selectOne("mapper.getGroupList", username);
             tuple.setT(userInfo);
             tuple.setE(groupInfo);
-            return JSON.toJSONString(tuple);
+            return tuple;
         }
     }
 

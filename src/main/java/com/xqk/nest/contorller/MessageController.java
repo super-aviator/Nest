@@ -10,8 +10,11 @@ import com.xqk.nest.websocket.util.RedisUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -23,12 +26,13 @@ public class MessageController {
     private MessageDAO messageDAO = new MessageDAO();
     private UserDAO userDAO = new UserDAO();
     private MessageUtil messageUtil = new MessageUtil();
-    private RedisUtil redisUtil=new RedisUtil();
+    private RedisUtil redisUtil = new RedisUtil();
 
     /**
      * redis的缘故，用户id和群id不能重合但是可以使用分隔符group:的方式解决，所以用户和群的id可以重合
      * 这里有两种查询聊天记录需求，查询群聊的或者查询好友的记录，可以在java中判断url的type字段，然后分情况
      * 也可以在查询时给Mybatis传一个对象，对象包括id和type属性，用Mybatis的条件查询语句进行选择性查找
+     * 异常应该在DAO层抛出，controller层捕获。
      */
     @RequestMapping(value = "/get-message", method = GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
@@ -54,13 +58,11 @@ public class MessageController {
     public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
                             HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println(id+"--"+uid+"---"+group+"----"+from_group);
-        userDAO.addFriend(id,from_group);
-        userDAO.addFriend(uid,group);
-        redisUtil.addFriend(String.valueOf(uid),String.valueOf(id));
-        UserInfo userInfo=userDAO.getUser(id);
-        AddFriendMsg addFriendMsg=new AddFriendMsg("type",from_group,userInfo);
-        System.out.println(JSON.toJSONString(addFriendMsg));
+        userDAO.addFriend(id, from_group);
+        userDAO.addFriend(uid, group);
+        redisUtil.addFriend(String.valueOf(uid), String.valueOf(id));
+        UserInfo userInfo = userDAO.getUser(id);
+        AddFriendMsg addFriendMsg = new AddFriendMsg("type", from_group, userInfo);
         response.getWriter().write(JSON.toJSONString(addFriendMsg));
     }
 
@@ -76,4 +78,26 @@ public class MessageController {
                 new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
         response.getWriter().write(JSON.toJSONString(new NotifyMsgResult(0, 0, null)));
     }
+
+    /**
+     * 上传图片接口
+     * @param image
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping(value = "upload-image", method = POST)
+    @ResponseBody
+    public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        UploadImageReturnMod returnMsg ;
+        try {
+            returnMsg = messageDAO.uploadImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnMsg = new UploadImageReturnMod(1, "", null);
+        }
+        System.out.println(JSON.toJSONString(returnMsg));
+        response.getWriter().write(JSON.toJSONString(returnMsg));
+    }
+
 }

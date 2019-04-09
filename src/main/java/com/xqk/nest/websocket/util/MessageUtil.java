@@ -159,7 +159,6 @@ public class MessageUtil {
      */
     public void getNotifyMsgNum(Map<String, Channel> channels, String id) {
         if (channels.containsKey(id)) { //查找id是否在线
-            System.out.println(ru.getNotifyMsgNum(id));
             Message<Long> msgNum = new Message<>(ru.getNotifyMsgNum(id), "notify");//保存的是用户提示消息的数目
             channels.get(id).writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(msgNum)));//在线的话直接发送消息数目
         }
