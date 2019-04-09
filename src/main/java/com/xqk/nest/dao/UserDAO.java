@@ -1,6 +1,5 @@
 package com.xqk.nest.dao;
 
-import com.alibaba.fastjson.JSON;
 import com.xqk.nest.dto.UserDTO;
 import com.xqk.nest.config.MySqlSessionFactory;
 import com.xqk.nest.model.*;
@@ -17,8 +16,6 @@ public class UserDAO implements UserDTO {
             data.setGroup(s.selectList("mapper.SelectGroupInfo", userId));
             data.setFriend(s.selectList("mapper.SelectFriendInfo", userId));
             msg = new CommonReturnModel<>(0, "", data);
-        } catch (Exception e) {
-            throw e;
         }
         return msg;
     }

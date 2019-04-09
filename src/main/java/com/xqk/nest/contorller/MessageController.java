@@ -76,7 +76,7 @@ public class MessageController {
         response.setContentType("text/html;charset=UTF-8");
         UserInfo userInfo = userDAO.getUser(id);
         messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyMsg(0, userInfo.getUsername() + "拒绝了你的请求 （：",
-                uid, userInfo.getId(), 0, 1, null, null, 1, "刚刚",
+                uid, userInfo.getId(), 0, 0, null, null, 1, "刚刚",
                 new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
         response.getWriter().write(JSON.toJSONString(new NotifyMsgResult(0, 0, null)));
     }

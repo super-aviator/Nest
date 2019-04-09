@@ -2,6 +2,7 @@ package com.xqk.nest.contorller;
 
 import com.alibaba.fastjson.JSON;
 import com.xqk.nest.dao.AccountDAO;
+import com.xqk.nest.model.CommonReturnModel;
 import com.xqk.nest.model.Tuple;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class AccountController {
 
     @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
     public void singIn(@RequestParam("username") String username, @RequestParam("password") String password
-            , HttpServletResponse response) throws IOException {
+            , HttpServletResponse response) {
         response.setCharacterEncoding("utf-8");
 
         try {
@@ -54,19 +55,20 @@ public class AccountController {
     public void singUp(@RequestParam("username") String username, @RequestParam("password") String password
             , @RequestParam("sign") String sign, @RequestParam("avatar") MultipartFile img, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
-        File f = new File("E:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
-        img.transferTo(f);
+        CommonReturnModel<Integer> result;
+
+        File f = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
+        if (!f.exists())
+            img.transferTo(f);
         String avatar = "./dataImg/" + img.getOriginalFilename();
 
-        if (dao.hasSingUp(username)) {
-            response.getWriter().write("用户名已经注册");
-            return;
+        try{
+            result=dao.signUp(username,password,img,sign);
+        }catch(Exception e){
+            e.printStackTrace();
+            result=new CommonReturnModel<>(1,"服务器错误",null);
         }
-
-        if (dao.signUp(username, password, avatar, sign) == 1)
-            response.getWriter().write("注册成功");
-        else
-            response.getWriter().write("注册失败");
+        response.getWriter().write(JSON.toJSONString(result));
     }
 
 }

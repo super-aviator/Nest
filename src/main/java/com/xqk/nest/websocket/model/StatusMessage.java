@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class StatusMessage {
     @JSONField(ordinal = 1)
-    private String id;
+    private long id;
 
     @JSONField(ordinal = 2)
     private String status;
@@ -12,16 +12,16 @@ public class StatusMessage {
     public StatusMessage() {
     }
 
-    public StatusMessage(String id, String status) {
+    public StatusMessage(long id, String status) {
         this.id = id;
         this.status = status;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
