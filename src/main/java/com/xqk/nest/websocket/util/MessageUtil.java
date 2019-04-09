@@ -147,7 +147,6 @@ public class MessageUtil {
     public void storeNotifyMsg(Map<String, Channel> channels, NotifyMsg notifyMsg) {
         String uid = String.valueOf(notifyMsg.getUid());
         String msg = JSON.toJSONString(notifyMsg);
-        System.out.println(notifyMsg);
         if (channels.containsKey(uid)) { //查找id是否在线,在线的话提示用户有一个提示消息
             Message<Long> msgNum = new Message<>(Long.parseLong("1"), "notify");//保存的是用户提示消息的数目
             channels.get(uid).writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(msgNum)));//在线的话直接发送消息数目
@@ -160,6 +159,7 @@ public class MessageUtil {
      */
     public void getNotifyMsgNum(Map<String, Channel> channels, String id) {
         if (channels.containsKey(id)) { //查找id是否在线
+            System.out.println(ru.getNotifyMsgNum(id));
             Message<Long> msgNum = new Message<>(ru.getNotifyMsgNum(id), "notify");//保存的是用户提示消息的数目
             channels.get(id).writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(msgNum)));//在线的话直接发送消息数目
         }

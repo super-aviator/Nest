@@ -80,32 +80,32 @@
   <ul class="layim-msgbox" id="LAY_view"></ul>
 
   <textarea title="消息模版" id="LAY_tpl" style="display:none;">
-{{# layui.each(d.data, function(index, item){
-  if(item.from){ }}
-    <li data-uid="{{ item.from }}" data-fromGroup="{{ item.from_group }}">
-      <a href="/u/{{ item.from }}/" target="_blank">
-        <img src="{{ item.user.avatar }}" class="layui-circle layim-msgbox-avatar">
-      </a>
-      <p class="layim-msgbox-user">
-        <a href="/u/{{ item.from }}/" target="_blank">{{ item.user.username||'' }}</a>
-        <span>{{ item.time }}</span>
-      </p>
-      <p class="layim-msgbox-content">
-        {{ item.content }} 
-        <span>{{ item.remark ? '附言: '+item.remark : '' }}</span>
-      </p>
-      <p class="layim-msgbox-btn">
-        <button class="layui-btn layui-btn-small" data-type="agree">同意</button>
-        <button class="layui-btn layui-btn-small layui-btn-primary" data-type="refuse">拒绝</button>
-      </p>
-    </li>
-  {{# } else { }}
-    <li class="layim-msgbox-system">
-      <p><em>系统：</em>{{ item.content }}<span>{{ item.time }}</span></p>
-    </li>
-  {{# }
-}); }}
-</textarea>
+    {{# layui.each(d.data, function(index, item){
+      if(item.from){ }}
+        <li data-uid="{{ item.from }}" data-fromGroup="{{ item.from_group }}">
+          <a href="/u/{{ item.from }}/" target="_blank">
+            <img src="{{ item.user.avatar }}" class="layui-circle layim-msgbox-avatar">
+          </a>
+          <p class="layim-msgbox-user">
+            <a href="/u/{{ item.from }}/" target="_blank">{{ item.user.username||'' }}</a>
+            <span>{{ item.time }}</span>
+          </p>
+          <p class="layim-msgbox-content">
+            {{ item.content }} 
+            <span>{{ item.remark ? '附言: '+item.remark : '' }}</span>
+          </p>
+          <p class="layim-msgbox-btn">
+            <button class="layui-btn layui-btn-small" data-type="agree">同意</button>
+            <button class="layui-btn layui-btn-small layui-btn-primary" data-type="refuse">拒绝</button>
+          </p>
+        </li>
+      {{# } else { }}
+        <li class="layim-msgbox-system">
+          <p><em>系统：</em>{{ item.content }}<span>{{ item.time }}</span></p>
+        </li>
+      {{# }
+    }); }}
+    </textarea>
 
   <!-- 
 上述模版采用了 laytpl 语法，不了解的同学可以去看下文档：http://www.layui.com/doc/modules/laytpl.html 
@@ -133,6 +133,7 @@
           page: page || 1
           , id: id
         }, function (res) {
+          alert(res);
           res = JSON.parse(res);
           if (res.code != 0) {
             return layer.msg(res.msg);
@@ -176,9 +177,11 @@
         agree: function (othis) {
           var li = othis.parents('li')
             , uid = li.data('uid')
-            , from_group = li.data('fromGroup')
+            // , from_group = li.data('fromGroup')
+            , from_group = $('li[data-fromGroup]').attr('data-fromGroup')
             , user = cache[uid];
 
+          alert(from_group + "  " + uid);
           //选择分组
           parent.layui.layim.setFriendGroup({
             type: 'friend'
@@ -201,12 +204,11 @@
 
 
               //实际部署时，请开启下述注释，并改成你的接口地址
-
-
-              $.post('/message/agree-friend', {//加通知对方已同意好友
-                id:id,
+              alert(id + '  ' + uid + '  ' + from_group + ' ' + group);
+              $.post('http://localhost:8080/message/agree-friend', {//加通知对方已同意好友
+                id: id,
                 uid: uid //对方用户ID
-                , from_group: from_group //对方设定的好友分组
+                , fromgroup: from_group //对方设定的好友分组
                 , group: group //我设定的好友分组
               }, function (res) {
                 if (res.code != 0) {
@@ -235,14 +237,15 @@
             , uid = li.data('uid');
 
           layer.confirm('确定拒绝吗？', function (index) {
-            $.post('/message/refuse-friend', {//----------------------
-              uid: uid //对方用户ID
+            $.post('http://localhost:8080/message/refuse-friend', {
+              uid: uid, //对方用户ID
+              id: id
             }, function (res) {
               if (res.code != 0) {
                 return layer.msg(res.msg);
               }
               layer.close(index);
-              othis.parent().html('<em>已拒绝</em>');
+              othis.parent().html('已拒绝');
             });
           });
         }
@@ -255,4 +258,5 @@
     });
   </script>
 </body>
+
 </html>

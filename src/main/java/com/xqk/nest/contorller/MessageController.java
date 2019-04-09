@@ -1,9 +1,12 @@
 package com.xqk.nest.contorller;
 
+import com.alibaba.fastjson.JSON;
 import com.xqk.nest.dao.MessageDAO;
-import com.xqk.nest.model.NotifyMsg;
+import com.xqk.nest.dao.UserDAO;
+import com.xqk.nest.model.*;
 import com.xqk.nest.websocket.handlers.SignChannelHandler;
 import com.xqk.nest.websocket.util.MessageUtil;
+import com.xqk.nest.websocket.util.RedisUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,8 +20,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 @RequestMapping("/message")
 public class MessageController {
-    private MessageDAO dao = new MessageDAO();
+    private MessageDAO messageDAO = new MessageDAO();
+    private UserDAO userDAO = new UserDAO();
     private MessageUtil messageUtil = new MessageUtil();
+    private RedisUtil redisUtil=new RedisUtil();
 
     /**
      * redis的缘故，用户id和群id不能重合但是可以使用分隔符group:的方式解决，所以用户和群的id可以重合
@@ -28,7 +33,7 @@ public class MessageController {
     @RequestMapping(value = "/get-message", method = GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-        String result = dao.getPagingMessage(id, revId, type);
+        String result = messageDAO.getPagingMessage(id, revId, type);
         response.getWriter().write(result);
     }
 
@@ -42,19 +47,33 @@ public class MessageController {
     }
 
     /**
-     * 同意添加好友
+     * 同意添加好友，向请求发送方发送提示消息
+     * 将id添加到from_group，将uid添加到group
      */
     @RequestMapping(value = "/agree-friend", method = POST)
-    public void agreeFriend(@RequestParam("friend") long friendId, @RequestParam("group") long groupId, HttpServletResponse response) {
+    public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
+                            HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
+        System.out.println(id+"--"+uid+"---"+group+"----"+from_group);
+        userDAO.addFriend(id,from_group);
+        userDAO.addFriend(uid,group);
+        redisUtil.addFriend(String.valueOf(uid),String.valueOf(id));
+        UserInfo userInfo=userDAO.getUser(id);
+        AddFriendMsg addFriendMsg=new AddFriendMsg("type",from_group,userInfo);
+        System.out.println(JSON.toJSONString(addFriendMsg));
+        response.getWriter().write(JSON.toJSONString(addFriendMsg));
     }
 
     /**
      * 拒绝添加好友，向uid发送拒绝消息
      */
     @RequestMapping(value = "/refuse-friend", method = POST)
-    public void refuseFriend(@RequestParam("uid") long uid, HttpServletResponse response) {
+    public void refuseFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyMsg());//-------------------
+        UserInfo userInfo = userDAO.getUser(id);
+        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyMsg(0, userInfo.getUsername() + "拒绝了你的请求 （：",
+                uid, userInfo.getId(), 0, 1, null, null, 1, "刚刚",
+                new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
+        response.getWriter().write(JSON.toJSONString(new NotifyMsgResult(0, 0, null)));
     }
 }

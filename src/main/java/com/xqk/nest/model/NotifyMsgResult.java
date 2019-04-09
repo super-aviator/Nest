@@ -8,7 +8,7 @@ public class NotifyMsgResult {
     @JSONField(ordinal = 1)
     private int code;
     @JSONField(ordinal = 2)
-    private int pages;
+    private int pages=1;
     @JSONField(ordinal = 3)
     private List<NotifyMsg> data;
 
