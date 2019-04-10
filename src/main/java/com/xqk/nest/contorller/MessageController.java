@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -75,10 +74,10 @@ public class MessageController {
     public void refuseFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         UserInfo userInfo = userDAO.getUser(id);
-        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyMsg(0, userInfo.getUsername() + "拒绝了你的请求 （：",
-                uid, userInfo.getId(), 0, 1, null, null, 1, "刚刚",
+        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyModel(0, userInfo.getUsername() + "拒绝了你的请求 （：",
+                uid, 0, 0, 1, null, null, 1, "刚刚",
                 new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
-        response.getWriter().write(JSON.toJSONString(new NotifyMsgResult(0, 0, null)));
+        response.getWriter().write(JSON.toJSONString(new NotifyReturnModel(0, 0, null)));
     }
 
     /**
@@ -91,7 +90,7 @@ public class MessageController {
     @ResponseBody
     public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CommonReturnModel<UploadImageMod> returnMsg ;
+        CommonReturnModel<UploadImageModel> returnMsg ;
         try {
             returnMsg = messageDAO.uploadImage(image);
         } catch (Exception e) {

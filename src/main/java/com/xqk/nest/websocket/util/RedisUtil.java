@@ -1,7 +1,7 @@
 package com.xqk.nest.websocket.util;
 
 import com.alibaba.fastjson.JSON;
-import com.xqk.nest.model.NotifyMsg;
+import com.xqk.nest.model.NotifyModel;
 import com.xqk.nest.websocket.model.Message;
 import redis.clients.jedis.Jedis;
 
@@ -116,7 +116,7 @@ public class RedisUtil {
     }
 
     //存入提示消息
-    public void pushNotifyMsg(String id, NotifyMsg msg){
+    public void pushNotifyMsg(String id, NotifyModel msg){
         jedis.lpush(NOTIFY_SEPARATOR + id, JSON.toJSONString(msg));
     }
 
@@ -130,6 +130,7 @@ public class RedisUtil {
         return jedis.rpop(NOTIFY_SEPARATOR+id);
     }
 
+    //判断是否有提示消息
     public boolean hasNotifyMsg(String id){
         return jedis.llen(NOTIFY_SEPARATOR+id)!=0;
     }

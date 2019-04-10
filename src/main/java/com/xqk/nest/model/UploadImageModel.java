@@ -1,12 +1,12 @@
 package com.xqk.nest.model;
 
-public class UploadImageMod {
+public class UploadImageModel {
     private String src;
 
-    public UploadImageMod() {
+    public UploadImageModel() {
     }
 
-    public UploadImageMod(String src) {
+    public UploadImageModel(String src) {
         this.src = src;
     }
 
@@ -20,7 +20,7 @@ public class UploadImageMod {
 
     @Override
     public String toString() {
-        return "UploadImageMod{" +
+        return "UploadImageModel{" +
                 "src='" + src + '\'' +
                 '}';
     }

@@ -1,10 +1,8 @@
 package com.xqk.nest.dao;
 
-import com.alibaba.fastjson.JSON;
 import com.xqk.nest.config.MySqlSessionFactory;
 import com.xqk.nest.dto.MessageDTO;
 import com.xqk.nest.model.*;
-import com.xqk.nest.websocket.model.ChatMessage;
 import com.xqk.nest.websocket.model.HistoryChatMessage;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,12 +41,12 @@ public class MessageDAO implements MessageDTO {
         }
     }
 
-    public CommonReturnModel<UploadImageMod> uploadImage(MultipartFile image) throws IOException {
-        CommonReturnModel<UploadImageMod> returnMsg;
+    public CommonReturnModel<UploadImageModel> uploadImage(MultipartFile image) throws IOException {
+        CommonReturnModel<UploadImageModel> returnMsg;
         File file = new File("E:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + image.getOriginalFilename());
         if (!file.exists())
             image.transferTo(file);
-        returnMsg = new CommonReturnModel<>(0, "success", new UploadImageMod("./dataImg/"+image.getOriginalFilename()));
+        returnMsg = new CommonReturnModel<>(0, "success", new UploadImageModel("./dataImg/"+image.getOriginalFilename()));
         return returnMsg;
     }
 }

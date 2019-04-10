@@ -2,7 +2,7 @@ package com.xqk.nest.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-public class NotifyMsg{
+public class NotifyModel {
     @JSONField(ordinal = 1)
     private long id;
 
@@ -37,10 +37,10 @@ public class NotifyMsg{
     private NotifyUserInfo user;
 
 
-    public NotifyMsg() {
+    public NotifyModel() {
     }
 
-    public NotifyMsg(long id, String content, long uid, long from, long from_group, long type, String remark, Object href, long read, String time, NotifyUserInfo user) {
+    public NotifyModel(long id, String content, long uid, long from, long from_group, long type, String remark, Object href, long read, String time, NotifyUserInfo user) {
         this.id = id;
         this.content = content;
         this.uid = uid;
@@ -144,7 +144,7 @@ public class NotifyMsg{
 
     @Override
     public String toString() {
-        return "NotifyMsg{" +
+        return "NotifyModel{" +
                 "id=" + id +
                 ", content='" + content + '\'' +
                 ", uid=" + uid +

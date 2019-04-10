@@ -133,7 +133,6 @@
           page: page || 1
           , id: id
         }, function (res) {
-          alert(res);
           res = JSON.parse(res);
           if (res.code != 0) {
             return layer.msg(res.msg);
@@ -181,7 +180,6 @@
             , from_group = $('li[data-fromGroup]').attr('data-fromGroup')
             , user = cache[uid];
 
-          alert(from_group + "  " + uid);
           //选择分组
           parent.layui.layim.setFriendGroup({
             type: 'friend'
@@ -204,7 +202,6 @@
 
 
               //实际部署时，请开启下述注释，并改成你的接口地址
-              alert(id + '  ' + uid + '  ' + from_group + ' ' + group);
               $.post('http://localhost:8080/message/agree-friend', {//加通知对方已同意好友
                 id: id,
                 uid: uid //对方用户ID

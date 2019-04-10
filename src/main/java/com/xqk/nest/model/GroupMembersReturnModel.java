@@ -2,7 +2,7 @@ package com.xqk.nest.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-public class GroupMembersMsg {
+public class GroupMembersReturnModel {
     @JSONField(ordinal = 1)
     private int code=0;
 
@@ -12,18 +12,18 @@ public class GroupMembersMsg {
     @JSONField(ordinal = 3,name = "data")
     private Members members;
 
-    public GroupMembersMsg(int code, String msg, Members data) {
+    public GroupMembersReturnModel(int code, String msg, Members data) {
         this.code = code;
         this.msg = msg;
         this.members = data;
     }
 
-    public GroupMembersMsg(int code, String msg) {
+    public GroupMembersReturnModel(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public GroupMembersMsg() {
+    public GroupMembersReturnModel() {
     }
 
     public int getCode() {

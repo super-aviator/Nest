@@ -19,7 +19,7 @@ public class AccountController {
 
     @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
     public void singIn(@RequestParam("username") String username, @RequestParam("password") String password
-            , HttpServletResponse response) throws IOException {
+            , HttpServletResponse response) {
         response.setCharacterEncoding("utf-8");
 
         try {

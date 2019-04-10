@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.xqk.nest.dao.MessageDAO;
 import com.xqk.nest.dao.UserDAO;
-import com.xqk.nest.model.NotifyMsg;
-import com.xqk.nest.model.NotifyMsgResult;
+import com.xqk.nest.model.NotifyModel;
+import com.xqk.nest.model.NotifyReturnModel;
 import com.xqk.nest.websocket.model.ChatMessage;
 import com.xqk.nest.websocket.model.HistoryChatMessage;
 import com.xqk.nest.websocket.model.Message;
@@ -16,7 +16,6 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -45,7 +44,7 @@ public class MessageUtil {
             else if ("group".equals(chatMessage.getType())) //如果是群发消息
                 sendMsgToMember(channels, chatMessage);
         } else if ("notify".equals(message.getEmit())) {//如果是提示类型的消息
-            NotifyMsg msg = JSONObject.parseObject(JSON.toJSONString(message.getData()), NotifyMsg.class);
+            NotifyModel msg = JSONObject.parseObject(JSON.toJSONString(message.getData()), NotifyModel.class);
             storeNotifyMsg(channels, msg);//提示类消息不需要主动推送，只需要向用户发送提示消息的数目
         } else if ("changeStatus".equals(message.getEmit())) {//如果是用户状态修改
             StatusMessage statusMessage = JSONObject.toJavaObject((JSON) message.getData(), StatusMessage.class);//转换聊天消息对象
@@ -144,9 +143,9 @@ public class MessageUtil {
      * 将提示类的消息存储到离线消息列表中，然后发送用户提示类消息的数目，消息由用户主动获取
      * 提示消息需要一直保存。
      */
-    public void storeNotifyMsg(Map<String, Channel> channels, NotifyMsg notifyMsg) {
-        String uid = String.valueOf(notifyMsg.getUid());
-        String msg = JSON.toJSONString(notifyMsg);
+    public void storeNotifyMsg(Map<String, Channel> channels, NotifyModel notifyModel) {
+        String uid = String.valueOf(notifyModel.getUid());
+        String msg = JSON.toJSONString(notifyModel);
         if (channels.containsKey(uid)) { //查找id是否在线,在线的话提示用户有一个提示消息
             Message<Long> msgNum = new Message<>(Long.parseLong("1"), "notify");//保存的是用户提示消息的数目
             channels.get(uid).writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(msgNum)));//在线的话直接发送消息数目
@@ -168,10 +167,10 @@ public class MessageUtil {
      * 获取用户id所有的提示消息,并通过http发送到msgBox.html
      */
     public String getNotifyMsg(String id) {
-        NotifyMsgResult result = new NotifyMsgResult();
-        ArrayList<NotifyMsg> list = new ArrayList<>();
+        NotifyReturnModel result = new NotifyReturnModel();
+        ArrayList<NotifyModel> list = new ArrayList<>();
         while (ru.hasNotifyMsg(id)) {
-            list.add(JSONObject.parseObject(ru.popNotifyMsg(id), NotifyMsg.class));
+            list.add(JSONObject.parseObject(ru.popNotifyMsg(id), NotifyModel.class));
         }
         result.setData(list);
         return JSON.toJSONString(result);

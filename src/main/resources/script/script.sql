@@ -4,7 +4,7 @@ CREATE TABLE `user_info` (
   `username` varchar(16) NOT NULL,
   `sign` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
   `avatar` varchar(200) DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
-  `status` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `status` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'hide',
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)

@@ -3,11 +3,9 @@ package com.xqk.nest.dao;
 import com.alibaba.fastjson.JSON;
 import com.xqk.nest.dto.GroupDTO;
 import com.xqk.nest.config.MySqlSessionFactory;
-import com.xqk.nest.model.GroupMembersMsg;
+import com.xqk.nest.model.GroupMembersReturnModel;
 import com.xqk.nest.model.Members;
 import org.apache.ibatis.session.SqlSession;
-
-import java.util.Set;
 
 public class GroupDAO implements GroupDTO {
     /**
@@ -17,14 +15,14 @@ public class GroupDAO implements GroupDTO {
      * @return
      */
     public String getMembers(long id) {
-        GroupMembersMsg msg = new GroupMembersMsg();
+        GroupMembersReturnModel msg = new GroupMembersReturnModel();
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             Members members = session.selectOne("mapper.getGroupMembersMapper", id);
             msg.setMembers(members);
             return JSON.toJSONString(msg);
         } catch (Exception e) {
             e.printStackTrace();
-            return JSON.toJSONString(new GroupMembersMsg(1, "(: 服务器错误"));
+            return JSON.toJSONString(new GroupMembersReturnModel(1, "(: 服务器错误"));
         }
     }
 }
