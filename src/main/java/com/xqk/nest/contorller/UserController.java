@@ -37,8 +37,9 @@ public class UserController {
         response.getWriter().write(JSON.toJSONString(userInfoMsg));
     }
 
-    @RequestMapping(value = "/change-status", method = POST)
+    @RequestMapping(value = "/change-status", method = GET)
     public void changeUserStatus(@RequestParam("id") long id, @RequestParam("status") String status) {
+        System.out.println("----------------------------------------");
         userDAO.changeUserStatus(id, status);
     }
 

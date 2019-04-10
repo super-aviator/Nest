@@ -2,8 +2,12 @@ package com.xqk.nest.dao;
 
 import com.xqk.nest.dto.AccountDTO;
 import com.xqk.nest.config.MySqlSessionFactory;
+import com.xqk.nest.model.CommonReturnModel;
 import com.xqk.nest.model.UserInfo;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 public class AccountDAO implements AccountDTO {
 
@@ -36,17 +40,28 @@ public class AccountDAO implements AccountDTO {
         }
     }
 
+    //1 用户名已经注册 2 注册失败 3 注册成功
     @Override
-    public int signUp(String username, String password, String avatar, String sign) {
+    public CommonReturnModel<Integer> signUp(String username, String password, MultipartFile img, String sign) {
+        CommonReturnModel<Integer> result;
+
+        if (hasSingUp(username))
+            return new CommonReturnModel<>(0,"",1);
+
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            File f = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
+            if (!f.exists())
+                img.transferTo(f);
+            String avatar = "./dataImg/" + img.getOriginalFilename();
+
             UserInfo userInfo = new UserInfo(username, sign, avatar, password);
             int col = session.insert("mapper.singUp", userInfo);
             session.commit();
-            return col;
+            return new CommonReturnModel<>(0,"",3);
         } catch (Exception e) {
             e.printStackTrace();
+            return new CommonReturnModel<>(0,"",2);
         }
-        return -1;
     }
 
     @Override

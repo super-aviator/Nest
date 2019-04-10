@@ -156,12 +156,20 @@
             contentType: false,
             success: function (result) {
                 alert(result);
-                if (result === '注册成功') {
+                result=JSON.parse(result);
+                if(result.code!=0){
+                    alert(result.msg);
+                    return;
+                }
+                if (result.data===3 ) {
+                    alert('注册成功');
                     // window.location.href="signIn.html";
                     window.open('signIn.html');
                     window.close();
-                } else
-                    alert(result);
+                } else if(result.data===1)
+                    alert('用户名已注册');
+                else
+                    alert('注册失败');
             },
             error: function (err) {
                 alert("连接服务器失败");

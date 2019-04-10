@@ -8,7 +8,7 @@ public class UserInfo {
     private String username;
 
     @JSONField(ordinal = 2,serializeUsing = ToStringSerializer.class)
-    private Long id;
+    private long id;
 
     @JSONField(ordinal = 3)
     private String status;
@@ -22,7 +22,7 @@ public class UserInfo {
     @JSONField(serialize = false)
     private String password;
 
-    public UserInfo(Long id, String username, String sign, String status, String avatar) {
+    public UserInfo(long id, String username, String sign, String status, String avatar) {
         this.username = username;
         this.id = id;
         this.sign = sign;
@@ -53,7 +53,7 @@ public class UserInfo {
         return username;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -73,7 +73,7 @@ public class UserInfo {
         this.username = username;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -1,8 +1,12 @@
 package com.xqk.nest.dto;
 
+import com.xqk.nest.model.CommonReturnModel;
+import com.xqk.nest.model.Tuple;
+import org.springframework.web.multipart.MultipartFile;
+
 public interface AccountDTO {
     int pwCorrect(String username, String password);
     long getUserId(String username);
-    int signUp(String username,String password,String avatar,String sign);
+    CommonReturnModel<Integer> signUp(String username, String password, MultipartFile img, String sign);
     boolean hasSingUp(String username);
 }

@@ -35,7 +35,7 @@ public class MessageUtil {
     public void sendMsg(Map<String, Channel> channels, String messageStr) {
         Message message = JSONObject.parseObject(messageStr, Message.class);//转换为Message对象
 
-        if ("chat".equals(message.getEmit())) {//如果是聊天类型的消息
+        /*if ("chat".equals(message.getEmit())) {//如果是聊天类型的消息
             ChatMessage chatMessage = JSONObject.parseObject(JSON.toJSONString(message.getData()), ChatMessage.class);
             chatMessage.setMine(false);
             storeMsg(chatMessage, chatMessage.getId(), chatMessage.getFromid());//存储群聊天消息
@@ -49,6 +49,25 @@ public class MessageUtil {
         } else if ("changeStatus".equals(message.getEmit())) {//如果是用户状态修改
             StatusMessage statusMessage = JSONObject.toJavaObject((JSON) message.getData(), StatusMessage.class);//转换聊天消息对象
             sendStatusToFriend(channels, statusMessage);
+        }*/
+        switch (message.getEmit()) {
+            case "chat"://如果是聊天类型的消息
+                ChatMessage chatMessage = JSONObject.parseObject(JSON.toJSONString(message.getData()), ChatMessage.class);
+                chatMessage.setMine(false);
+                storeMsg(chatMessage, chatMessage.getId(), chatMessage.getFromid());//存储群聊天消息
+                if ("friend".equals(chatMessage.getType())) //如果是好友消息
+                    sendChatMsgToFriend(channels, chatMessage);
+                else if ("group".equals(chatMessage.getType())) //如果是群发消息
+                    sendMsgToMember(channels, chatMessage);
+                break;
+            case "notify"://如果是提示类型的消息
+                NotifyMsg msg = JSONObject.parseObject(JSON.toJSONString(message.getData()), NotifyMsg.class);
+                storeNotifyMsg(channels, msg);//提示类消息不需要主动推送，只需要向用户发送提示消息的数目
+                break;
+            case "changeStatus"://如果是用户状态修改
+                StatusMessage statusMessage =  JSONObject.parseObject(JSON.toJSONString(message.getData()), StatusMessage.class);//转换聊天消息对象
+                sendStatusToFriend(channels, statusMessage);
+                break;
         }
     }
 
@@ -129,12 +148,13 @@ public class MessageUtil {
      * @param statusMessage 状态信息
      */
     private void sendStatusToFriend(Map<String, Channel> channels, StatusMessage statusMessage) {
-        String sendId = statusMessage.getId();
-        for (String friendId : ru.getMembers(sendId)) {
+        String sendId = String.valueOf(statusMessage.getId());
+        for (String friendId : ru.getFriends(String.valueOf(sendId))) {
+            System.out.println(friendId+"-");
             if (friendId.equals(sendId)) continue;//如果是状态的发送者，则不发送
-            if (channels.containsKey(sendId)) {//只给在线的用户发送状态信息
+            if (channels.containsKey(friendId)) {//只给在线的用户发送状态信息
                 String msg = JSON.toJSONString(new Message<>(statusMessage, "changeStatus"));
-                channels.get(sendId).writeAndFlush(new TextWebSocketFrame(msg));//如果在线，则直接发送chatMessage消息
+                channels.get(friendId).writeAndFlush(new TextWebSocketFrame(msg));//如果在线，则直接发送chatMessage消息
             }
         }
     }
