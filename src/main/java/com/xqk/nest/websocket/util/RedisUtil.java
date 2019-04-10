@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.xqk.nest.model.NotifyModel;
 import com.xqk.nest.websocket.model.Message;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Tuple;
 
 import java.util.Set;
 
@@ -16,7 +17,9 @@ public class RedisUtil {
     private static final String MESSAGE_SEPARATOR = "message:";
     private static final String USER_SEPARATOR = "user:";
     private static final String GROUP_SEPARATOR = "group:";
-    private static final String NOTIFY_SEPARATOR="notify:";
+    private static final String NOTIFY_SEPARATOR = "notify:";
+    private static final String HISTORY_NOTIFY_SEPARATOR = "history_notify:";
+    private static final long A_WEEK_TIMESTAMP=3600*24*7;
     private static final int MAX_STORE_TIME = 7 * 24 * 60 * 60;//消息最长存储时间为一个星期
 
     private Jedis jedis = new Jedis();
@@ -110,28 +113,47 @@ public class RedisUtil {
     ----------------------------------------------------------------------------------
      */
 
-    //存入提示消息
-    public void pushNotifyMsg(String id,String msg){
-        jedis.lpush(NOTIFY_SEPARATOR + id, msg);
+    /**
+     * 存入未读提示消息,基数为当前unix时间戳
+     */
+    public void storeNotifyMsg(String id, String msg) {
+        jedis.zadd(NOTIFY_SEPARATOR + id, System.currentTimeMillis(), msg);
     }
 
-    //存入提示消息
-    public void pushNotifyMsg(String id, NotifyModel msg){
-        jedis.lpush(NOTIFY_SEPARATOR + id, JSON.toJSONString(msg));
+    /**
+     * 存入未读提示消息
+     */
+    public void storeNotifyMsg(String id, NotifyModel msg) {
+        jedis.zadd(NOTIFY_SEPARATOR + id, System.currentTimeMillis(), JSON.toJSONString(msg));
     }
 
-    //获得用户的提示消息数目,读出
-    public Long getNotifyMsgNum(String id){
-        return jedis.llen(NOTIFY_SEPARATOR+id);
+    /**
+     * 获得用户未读的提示消息数目
+     */
+    public Long getNotifyMsgNum(String id) {
+        return jedis.zcount(NOTIFY_SEPARATOR + id, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    //取出用户提示消息
-    public String popNotifyMsg(String id){
-        return jedis.rpop(NOTIFY_SEPARATOR+id);
+    /**
+     * 取出用户所有未读的消息
+     */
+    public Set<Tuple> popNotifyMsg(String id) {
+        Set<Tuple> result=jedis.zrangeWithScores(NOTIFY_SEPARATOR+id,Long.MIN_VALUE,Long.MAX_VALUE);
+        jedis.zremrangeByScore(NOTIFY_SEPARATOR+id,Long.MIN_VALUE,Long.MAX_VALUE);
+        return result;
     }
 
-    //判断是否有提示消息
-    public boolean hasNotifyMsg(String id){
-        return jedis.llen(NOTIFY_SEPARATOR+id)!=0;
+    /**
+     * 存入已读消息
+     */
+    public void pushHistoryNotifyMsg(String id, long timestamp, String msg) {
+        jedis.zadd(HISTORY_NOTIFY_SEPARATOR + id, timestamp, msg);
+    }
+
+    /**
+     * 取出用户一个星期内的已读历史提示消息
+     */
+    public Set<String> getHistoryNotifyMsg(String id) {
+        return jedis.zrange(HISTORY_NOTIFY_SEPARATOR+id,0,System.currentTimeMillis());
     }
 }

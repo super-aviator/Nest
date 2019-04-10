@@ -67,7 +67,7 @@ public class UserController {
             UserInfo userInfo = userDAO.getUser(id);
             NotifyUserInfo notifyUserInfo = new NotifyUserInfo(id, userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign());
             NotifyModel notifyModel = new NotifyModel(ID++, "申请添加你为好友 o_o", friendId, id, groupId, 1, remark, null, 1, "刚刚", notifyUserInfo);
-            messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, notifyModel);//将消息存入列表，并提示用户
+            messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, notifyModel);//将消息存入有序结合中，并提示用户
         }catch(Exception e){
             e.printStackTrace();
         }

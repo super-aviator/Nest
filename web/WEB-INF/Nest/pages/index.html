@@ -94,7 +94,7 @@
 
             //init方法调用结束时事件触发
             layim.on('ready', function (options) {
-                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 2000, maxReconnectAttempts: 1 });//掉线重连机制
+                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 2000, maxReconnectAttempts: 20 });//掉线重连机制
 
                 socket.onerror = function () {
                     layer.msg('主机关闭了链接或者账号已在其他地方登录', { icon: 2, anim: 5, time: 3000, offset: 't' }, function () {

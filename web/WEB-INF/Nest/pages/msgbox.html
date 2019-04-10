@@ -241,9 +241,9 @@
               if (res.code != 0) {
                 return layer.msg(res.msg);
               }
-              layer.close(index);
-              othis.parent().html('已拒绝');
             });
+            layer.close(index);
+            othis.parent().html('已拒绝');
           });
         }
       };

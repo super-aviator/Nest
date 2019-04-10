@@ -27,7 +27,7 @@ public class SignChannelHandler extends SimpleChannelInboundHandler<TextWebSocke
         CHANNELS.put(id, channel);//放入新的channel
         System.out.println(id + "->已登陆");
         messageUtil.sendOfflineMsgToUser(ctx, CHANNELS, id);//发送离线聊天消息到对应的ctx
-        messageUtil.getNotifyMsgNum(CHANNELS, id);//获取提示消息数量
+        messageUtil.pushNotifyMsgNum(CHANNELS, id);//获取提示消息数量
     }
 
     //过滤消息，如果发送的是ID，则处理，否则交给下一个ChannelHandler处理
