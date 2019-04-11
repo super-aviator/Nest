@@ -34,6 +34,12 @@ public class MessageController {
      * 这里有两种查询聊天记录需求，查询群聊的或者查询好友的记录，可以在java中判断url的type字段，然后分情况
      * 也可以在查询时给Mybatis传一个对象，对象包括id和type属性，用Mybatis的条件查询语句进行选择性查找
      * 异常应该在DAO层抛出，controller层捕获。
+     *
+     * @param id
+     * @param revId
+     * @param type
+     * @param response
+     * @throws IOException
      */
     @RequestMapping(value = "/get-message", method = GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
@@ -44,6 +50,11 @@ public class MessageController {
 
     /**
      * 获取id所有的提示消息
+     *
+     * @param id
+     * @param page
+     * @param response
+     * @throws IOException
      */
     @RequestMapping(value = "/get-notify", method = POST)
     public void getNotify(@RequestParam("id") long id, @RequestParam("page") long page, HttpServletResponse response) throws IOException {
@@ -53,7 +64,14 @@ public class MessageController {
 
     /**
      * 同意添加好友，向请求发送方发送提示消息
-     * 将id添加到from_group，将uid添加到group
+     * * 将id添加到from_group，将uid添加到group
+     *
+     * @param id
+     * @param uid
+     * @param from_group
+     * @param group
+     * @param response
+     * @throws IOException
      */
     @RequestMapping(value = "/agree-friend", method = POST)
     public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
@@ -63,12 +81,20 @@ public class MessageController {
         userDAO.addFriend(uid, group);
         redisUtil.addFriend(String.valueOf(uid), String.valueOf(id));
         UserInfo userInfo = userDAO.getUser(id);
+        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyModel(0, userInfo.getUsername() + "同意了你的请求 （：",
+                uid, 0, 0, 1, null, null, 1, "刚刚",
+                new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
         AddFriendMsg addFriendMsg = new AddFriendMsg("type", from_group, userInfo);
         response.getWriter().write(JSON.toJSONString(addFriendMsg));
     }
 
     /**
-     * 拒绝添加好友，向uid发送拒绝消息
+     * 拒绝添加好友，向uid发送拒绝消息,from字段需要为0，前端会根据此判断是否为已处理消息
+     *
+     * @param id
+     * @param uid
+     * @param response
+     * @throws IOException
      */
     @RequestMapping(value = "/refuse-friend", method = POST)
     public void refuseFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, HttpServletResponse response) throws IOException {
@@ -82,6 +108,7 @@ public class MessageController {
 
     /**
      * 上传图片接口
+     *
      * @param image
      * @param response
      * @throws IOException
@@ -90,7 +117,7 @@ public class MessageController {
     @ResponseBody
     public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CommonReturnModel<UploadImageModel> returnMsg ;
+        CommonReturnModel<UploadImageModel> returnMsg;
         try {
             returnMsg = messageDAO.uploadImage(image);
         } catch (Exception e) {
