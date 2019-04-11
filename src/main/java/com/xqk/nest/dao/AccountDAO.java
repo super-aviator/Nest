@@ -57,11 +57,12 @@ public class AccountDAO implements AccountDTO {
             UserInfo userInfo = new UserInfo(username, sign, avatar, password);
             int col = session.insert("mapper.singUp", userInfo);
             session.commit();
-            return new CommonReturnModel<>(0,"",3);
+            result= new CommonReturnModel<>(0,"",3);
         } catch (Exception e) {
             e.printStackTrace();
-            return new CommonReturnModel<>(0,"",2);
+            result= new CommonReturnModel<>(0,"",2);
         }
+        return result;
     }
 
     @Override

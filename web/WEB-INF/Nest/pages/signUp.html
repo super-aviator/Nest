@@ -99,10 +99,6 @@
                 <button type="button" class="layui-btn layui-btn-normal" id="upload-btn">上传头像</button>
                 <input class="layui-upload-file" type="file" name="avatar"
                     accept="image/png, image/jpeg, image/gif, image/jpg" id="file-input">
-                <!-- <div class="layui-upload-list" id="upload-review">
-                    <img class="layui-circle layim-msgbox-avatar" id="img" src="file://D:/0.png">
-                    <p id="demoText"></p>
-                </div> -->
             </div>
 
             <div class="layui-form-item">
@@ -140,43 +136,91 @@
 
 <script>
 
+    layui.use('layer', function () {
+        var layer = layui.layer;
 
-    $('#upload-btn').click(function () {
-        $('.layui-upload-file').click();
-    });
+        $('#upload-btn').click(function () {
+            $('.layui-upload-file').click();
+        });
 
-    $('input[value="注册"]').click(function () {
-        $.ajax({
-            url: "http://localhost:8080/sign/sign-up",
-            type: 'POST',
-            cache: false,
-            async: false,
-            data: new FormData($("#data-form")[0]),
-            processData: false,
-            contentType: false,
-            success: function (result) {
-                alert(result);
-                result=JSON.parse(result);
-                if(result.code!=0){
-                    alert(result.msg);
-                    return;
-                }
-                if (result.data===3 ) {
-                    alert('注册成功');
-                    // window.location.href="signIn.html";
-                    window.open('signIn.html');
-                    window.close();
-                } else if(result.data===1)
-                    alert('用户名已注册');
-                else
-                    alert('注册失败');
-            },
-            error: function (err) {
-                alert("连接服务器失败");
+        $('input[value="注册"]').click(function () {
+            if($('#file-input').val()===''){
+                layer.tips('请上传头像','#upload-btn', {
+                    tips: [1, '#c00']
+                    , anim: 6
+                });
+                return;
             }
+
+            if($('input[placeholder="昵称"]').val()===''){
+                layer.tips('请输入昵称','input[placeholder="昵称"]', {
+                    tips: [1, '#c00']
+                    , anim: 6
+                });
+                return;
+            }
+
+            if($('input[placeholder="密码"]').val()===''){
+                layer.tips('请输入密码','input[placeholder="密码"]', {
+                    tips: [1, '#c00']
+                    , anim: 6
+                });
+                return;
+            }
+
+            if($('input[placeholder="签名"]').val()===''){
+                layer.tips('请输入签名','input[placeholder="签名"]', {
+                    tips: [1, '#c00']
+                    , anim: 6
+                });
+                return;
+            }
+
+            $.ajax({
+                url: "http://localhost:8080/sign/sign-up",
+                type: 'POST',
+                cache: false,
+                async: false,
+                data: new FormData($("#data-form")[0]),
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    result = JSON.parse(result);
+                    if (result.code != 0) {
+                        alert(result.msg);
+                        return;
+                    }
+                    if (result.data === 3) {
+                        layer.msg('注册成功', {
+                            icon: 1,
+                            time: 1000
+                        });
+                        // window.location.href="signIn.html";
+                        window.open('signIn.html');
+                        window.close();
+                    } else if (result.data === 1) {
+                        layer.msg('账号已注册', {
+                            icon: 5,
+                            time: 1000 
+                        });
+                    }
+                    else {
+                        layer.msg('注册失败', {
+                            icon: 5,
+                            time: 1000 
+                        });
+                    }
+
+                },
+                error: function (err) {
+                    layer.msg('服务器异常', {
+                        icon: 2,
+                        time: 1000
+                    });
+                }
+            });
         });
     });
-
 </script>
 
 </html>

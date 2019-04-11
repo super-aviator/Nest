@@ -17,6 +17,7 @@ import java.util.List;
 public class MessageDAO implements MessageDTO {
 
     //查询历史消息
+    @Override
     public CommonReturnModel<List<HistoryChatMessage>> getPagingMessage(long id, long revId, String type) {
         CommonReturnModel<List<HistoryChatMessage>> result;
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
@@ -26,12 +27,12 @@ public class MessageDAO implements MessageDTO {
         } catch (Exception e) {
             e.printStackTrace();
             result=new CommonReturnModel<>(1, "(: 服务器错误",null);
-            throw e;
         }
         return result;
     }
 
     //插入历史消息
+    @Override
     public void storeMessage(HistoryChatMessage item) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             session.insert("mapper.storeMsg", item);
@@ -41,6 +42,7 @@ public class MessageDAO implements MessageDTO {
         }
     }
 
+    @Override
     public CommonReturnModel<UploadImageModel> uploadImage(MultipartFile image) throws IOException {
         CommonReturnModel<UploadImageModel> returnMsg;
         File file = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + image.getOriginalFilename());

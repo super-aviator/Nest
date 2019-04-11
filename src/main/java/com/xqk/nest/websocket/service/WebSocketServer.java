@@ -25,7 +25,7 @@ public class WebSocketServer {
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(8081))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
-                        protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        protected void initChannel(SocketChannel socketChannel) {
                             socketChannel.pipeline().addLast(
                                     new HttpServerCodec(),//消息编解码器
                                     new HttpObjectAggregator(655360),//最大消息长度，并聚合消息

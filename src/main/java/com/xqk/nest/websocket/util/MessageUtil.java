@@ -169,7 +169,8 @@ public class MessageUtil {
     }
 
     /**
-     * 获取用户id所有的提示消息,并通过http发送到msgbox.html
+     * 获取用户id所有的提示消息,并通过http发送到msgbox.html，
+     * 如果消息的from不为0，则表示此消息是用户加好友时第一次发送的消息，而不是提示类消息，在历史集合中不进行保存。
      */
     public String getNotifyMsg(String id) {
         NotifyReturnModel result = new NotifyReturnModel();
@@ -183,13 +184,12 @@ public class MessageUtil {
         for (Tuple tuple : ru.popNotifyMsg(id)) {//取未读消息
             list.add(JSONObject.parseObject(tuple.getElement(), NotifyModel.class));
             NotifyModel model = JSONObject.parseObject(tuple.getElement(), NotifyModel.class);
-            if (model.getFrom() != 0)
-                model.setFrom(0);
-            String notifyModelStr = JSON.toJSONString(model);
-            ru.pushHistoryNotifyMsg(id, (long) tuple.getScore(), notifyModelStr);//将消息存入已读有序集合中
-            System.out.println(notifyModelStr);
-        }
+            if (model.getFrom() == 0) {//判断是否是提示类型的消息
+                String notifyModelStr = JSON.toJSONString(model);
+                ru.pushHistoryNotifyMsg(id, (long) tuple.getScore(), notifyModelStr);//将消息存入已读有序集合中
+            }
 
+        }
         Collections.reverse(list);
 
         result.setData(list);
