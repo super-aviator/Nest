@@ -11,11 +11,20 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
 
+@Component
 public class WebSocketServer {
-    public static void main(String[] args) throws Exception {
+    @Autowired
+    private SignChannelHandler signChannelHandler;
+
+    @Autowired
+    private MessageChannelHandler messageChannelHandler;
+
+    public void start() throws Exception {
         EventLoopGroup boss = new NioEventLoopGroup(1);
         EventLoopGroup work = new NioEventLoopGroup();
 
@@ -30,9 +39,9 @@ public class WebSocketServer {
                                     new HttpServerCodec(),//消息编解码器
                                     new HttpObjectAggregator(655360),//最大消息长度，并聚合消息
                                     new WebSocketServerProtocolHandler("/chat"),//websocket路径
-                                    new SignChannelHandler(),
-                                    new MessageChannelHandler(),
-                                    new BinaryFrameHandler()
+                                   signChannelHandler,
+                                    messageChannelHandler
+//                                    new BinaryFrameHandler()
                             );
                         }
                     });

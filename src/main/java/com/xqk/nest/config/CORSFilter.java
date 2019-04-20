@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 解决跨域问题的过滤器
+ */
 public class CORSFilter implements Filter {
 
     @Override

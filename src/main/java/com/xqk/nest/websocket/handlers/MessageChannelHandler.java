@@ -1,15 +1,22 @@
 package com.xqk.nest.websocket.handlers;
 
-import com.xqk.nest.websocket.util.MessageUtil;
+import com.xqk.nest.util.MessageUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+@Component
+@ChannelHandler.Sharable
 public class MessageChannelHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     private Pattern SignInPattern = Pattern.compile("\\d+");
-    private MessageUtil messageUtil = new MessageUtil();
+
+    @Autowired
+    private MessageUtil messageUtil;
 
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) {
         String messageStr = msg.text();

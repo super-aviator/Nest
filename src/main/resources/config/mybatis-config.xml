@@ -8,15 +8,15 @@
     <properties resource="config/jdbcConfiguration.properties" />
 
     <typeAliases>
-        <typeAlias type="com.xqk.nest.model.UserInfo" alias="UserInfo" />
-        <typeAlias type="com.xqk.nest.model.FriendInfo" alias="FriendInfo" />
-        <typeAlias type="com.xqk.nest.model.PacketInfo" alias="PacketInfo" />
-        <typeAlias type="com.xqk.nest.model.GroupInfo" alias="GroupInfo" />
-        <typeAlias type="com.xqk.nest.model.Members" alias="Members" />
-        <typeAlias type="com.xqk.nest.model.GroupMemberInfo" alias="GroupMemberInfo" />
-        <typeAlias type="com.xqk.nest.websocket.model.HistoryChatMessage" alias="HistoryChatMessage" />
-        <typeAlias type="com.xqk.nest.model.Tuple" alias="Tuple" />
-        <typeAlias type="com.xqk.nest.model.Triple" alias="Triple" />
+        <typeAlias type="com.xqk.nest.dto.UserInfoDTO" alias="UserInfo" />
+        <typeAlias type="com.xqk.nest.dto.FriendInfoDTO" alias="FriendInfo" />
+        <typeAlias type="com.xqk.nest.dto.PacketInfoDTO" alias="PacketInfo" />
+        <typeAlias type="com.xqk.nest.dto.GroupInfoDTO" alias="GroupInfo" />
+        <typeAlias type="com.xqk.nest.dto.MembersDTO" alias="Members" />
+        <typeAlias type="com.xqk.nest.dto.GroupMemberInfoDTO" alias="GroupMemberInfo" />
+        <typeAlias type="com.xqk.nest.websocket.dto.HistoryChatMessageDTO" alias="HistoryChatMessage" />
+        <typeAlias type="com.xqk.nest.dto.Tuple" alias="Tuple" />
+        <typeAlias type="com.xqk.nest.dto.Triple" alias="Triple" />
     </typeAliases>
 
 

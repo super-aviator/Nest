@@ -132,21 +132,10 @@
 
             //监听在线状态------------------------------
             layim.on('online', function (status) {
-                $.get('http://localhost:8080/user/change-status', {
+                $.post('http://localhost:8080/user/change-status', {
                     id: id
                     , status: status
                 });
-
-                var data = {
-                    id: id
-                    , status: status === 'hide' ? 'offline' : status
-                };
-
-                var msg = {
-                    emit: "changeStatus"
-                    , data: data
-                };
-                socket.send(JSON.stringify(msg));
             });
 
             //监听签名修改

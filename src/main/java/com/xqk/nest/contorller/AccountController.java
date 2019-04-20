@@ -1,14 +1,14 @@
 package com.xqk.nest.contorller;
 
 import com.alibaba.fastjson.JSON;
-import com.xqk.nest.dao.AccountDAO;
-import com.xqk.nest.model.CommonReturnModel;
-import com.xqk.nest.model.Tuple;
+import com.xqk.nest.service.AccountService;
+import com.xqk.nest.dto.CommonReturnDTO;
+import com.xqk.nest.dto.Tuple;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,8 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/sign")
 public class AccountController {
-    private AccountDAO dao = new AccountDAO();
+    @Autowired
+    private AccountService accountService;
 
     @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
     public void singIn(@RequestParam("username") String username, @RequestParam("password") String password
@@ -24,13 +25,13 @@ public class AccountController {
         response.setCharacterEncoding("utf-8");
 
         try {
-            if (!dao.hasSingUp(username)) {
+            if (!accountService.hasSingUp(username)) {
                 Tuple<String, Long> tuple = new Tuple<>("账号未注册", -1L);
                 response.getWriter().write(JSON.toJSONString(tuple));
                 return;
             }
 
-            int result = dao.pwCorrect(username, password);
+            int result = accountService.pwCorrect(username, password);
             Tuple<String, Long> tuple = new Tuple<>();
             switch (result) {
                 case 0:
@@ -43,7 +44,7 @@ public class AccountController {
                     tuple.setT("密码错误");
                     break;
             }
-            tuple.setE(dao.getUserId(username));
+            tuple.setE(accountService.getUserId(username));
             response.getWriter().write(JSON.toJSONString(tuple));
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,7 +56,7 @@ public class AccountController {
     public void singUp(@RequestParam("username") String username, @RequestParam("password") String password
             , @RequestParam("sign") String sign, @RequestParam("avatar") MultipartFile img, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
-        CommonReturnModel<Integer> result;
+        CommonReturnDTO<Integer> result;
 
         File f = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
         if (!f.exists())
@@ -63,10 +64,10 @@ public class AccountController {
         String avatar = "./dataImg/" + img.getOriginalFilename();
 
         try{
-            result=dao.signUp(username,password,img,sign);
+            result= accountService.signUp(username,password,img,sign);
         }catch(Exception e){
             e.printStackTrace();
-            result=new CommonReturnModel<>(1,"服务器错误",null);
+            result=new CommonReturnDTO<>(1,"服务器错误",null);
         }
         response.getWriter().write(JSON.toJSONString(result));
     }

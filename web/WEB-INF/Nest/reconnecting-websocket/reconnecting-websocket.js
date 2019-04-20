@@ -341,7 +341,7 @@
     ReconnectingWebSocket.prototype.onclose = function(event) {};
     /** An event listener to be called when a connection begins being attempted. */
     ReconnectingWebSocket.prototype.onconnecting = function(event) {};
-    /** An event listener to be called when a model is received from the server. */
+    /** An event listener to be called when a dto is received from the server. */
     ReconnectingWebSocket.prototype.onmessage = function(event) {};
     /** An event listener to be called when an error occurs. */
     ReconnectingWebSocket.prototype.onerror = function(event) {};

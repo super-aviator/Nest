@@ -1,13 +1,14 @@
 package com.xqk.nest.contorller;
 
 import com.alibaba.fastjson.JSON;
-import com.xqk.nest.dao.MessageDAO;
-import com.xqk.nest.dao.UserDAO;
-import com.xqk.nest.model.*;
+import com.xqk.nest.dto.*;
+import com.xqk.nest.service.MessageService;
+import com.xqk.nest.service.UserService;
 import com.xqk.nest.websocket.handlers.SignChannelHandler;
-import com.xqk.nest.websocket.model.HistoryChatMessage;
-import com.xqk.nest.websocket.util.MessageUtil;
-import com.xqk.nest.websocket.util.RedisUtil;
+import com.xqk.nest.websocket.dto.HistoryChatMessageDTO;
+import com.xqk.nest.util.MessageUtil;
+import com.xqk.nest.util.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,10 +25,14 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 @RequestMapping("/message")
 public class MessageController {
-    private MessageDAO messageDAO = new MessageDAO();
-    private UserDAO userDAO = new UserDAO();
-    private MessageUtil messageUtil = new MessageUtil();
-    private RedisUtil redisUtil = new RedisUtil();
+    @Autowired
+    private MessageService messageService ;
+    @Autowired
+    private UserService userService ;
+    @Autowired
+    private MessageUtil messageUtil;
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * redis的缘故，用户id和群id不能重合但是可以使用分隔符group:的方式解决，所以用户和群的id可以重合
@@ -44,7 +49,7 @@ public class MessageController {
     @RequestMapping(value = "/get-message", method = GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-        CommonReturnModel<List<HistoryChatMessage>> result = messageDAO.getPagingMessage(id, revId, type);
+        CommonReturnDTO<List<HistoryChatMessageDTO>> result = messageService.getPagingMessage(id, revId, type);
         response.getWriter().write(JSON.toJSONString(result));
     }
 
@@ -77,15 +82,15 @@ public class MessageController {
     public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
                             HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        userDAO.addFriend(id, from_group);
-        userDAO.addFriend(uid, group);
+        userService.addFriend(id, from_group);
+        userService.addFriend(uid, group);
         redisUtil.addFriend(String.valueOf(uid), String.valueOf(id));
-        UserInfo userInfo = userDAO.getUser(id);
-        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyModel(0, userInfo.getUsername() + "同意了你的请求 （：",
+        UserInfoDTO userInfo = userService.getUser(id);
+        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyDTO(0, userInfo.getUsername() + "同意了你的请求 （：",
                 uid, 0, 0, 1, null, null, 1, "刚刚",
-                new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
-        AddFriendMsg addFriendMsg = new AddFriendMsg("type", from_group, userInfo);
-        response.getWriter().write(JSON.toJSONString(addFriendMsg));
+                new NotifyUserInfoDTO(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
+        AddFriendDTO addFriendDTO = new AddFriendDTO("type", from_group, userInfo);
+        response.getWriter().write(JSON.toJSONString(addFriendDTO));
     }
 
     /**
@@ -99,11 +104,11 @@ public class MessageController {
     @RequestMapping(value = "/refuse-friend", method = POST)
     public void refuseFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        UserInfo userInfo = userDAO.getUser(id);
-        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyModel(0, userInfo.getUsername() + "拒绝了你的请求 （：",
+        UserInfoDTO userInfo = userService.getUser(id);
+        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyDTO(0, userInfo.getUsername() + "拒绝了你的请求 （：",
                 uid, 0, 0, 1, null, null, 1, "刚刚",
-                new NotifyUserInfo(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
-        response.getWriter().write(JSON.toJSONString(new NotifyReturnModel(0, 0, null)));
+                new NotifyUserInfoDTO(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
+        response.getWriter().write(JSON.toJSONString(new NotifyReturnDTO(0, 0, null)));
     }
 
     /**
@@ -117,12 +122,12 @@ public class MessageController {
     @ResponseBody
     public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CommonReturnModel<UploadImageModel> returnMsg;
+        CommonReturnDTO<UploadImageDTO> returnMsg;
         try {
-            returnMsg = messageDAO.uploadImage(image);
+            returnMsg = messageService.uploadImage(image);
         } catch (Exception e) {
             e.printStackTrace();
-            returnMsg = new CommonReturnModel<>(1, "", null);
+            returnMsg = new CommonReturnDTO<>(1, "", null);
         }
         System.out.println(JSON.toJSONString(returnMsg));
         response.getWriter().write(JSON.toJSONString(returnMsg));

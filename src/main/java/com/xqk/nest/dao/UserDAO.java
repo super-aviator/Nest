@@ -1,30 +1,50 @@
 package com.xqk.nest.dao;
 
-import com.xqk.nest.dto.UserDTO;
 import com.xqk.nest.config.MySqlSessionFactory;
-import com.xqk.nest.model.*;
+import com.xqk.nest.dto.*;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Component;
 
-public class UserDAO implements UserDTO {
+@Component
+public class UserDAO {
 
-    public CommonReturnModel<Data> getUserInfo(long userId) {
-        CommonReturnModel<Data> msg;//消息pojo
+    public CommonReturnDTO<DataDTO> getUserInfo(long userId) {
+        CommonReturnDTO<DataDTO> msg;//消息pojo
 
         try (SqlSession s = MySqlSessionFactory.getSqlSession()) {
-            Data data = new Data();
-            data.setMine(s.selectOne("mapper.SelectUserInfo", userId));
-            data.setGroup(s.selectList("mapper.SelectGroupInfo", userId));
-            data.setFriend(s.selectList("mapper.SelectFriendInfo", userId));
-            msg = new CommonReturnModel<>(0, "", data);
+            DataDTO dataDTO = new DataDTO();
+            dataDTO.setMine(s.selectOne("mapper.SelectUserInfo", userId));
+            dataDTO.setGroup(s.selectList("mapper.SelectGroupInfo", userId));
+            dataDTO.setFriend(s.selectList("mapper.SelectFriendInfo", userId));
+            msg = new CommonReturnDTO<>(0, "", dataDTO);
         }
         return msg;
     }
 
-    @Override
-    public void changeUserStatus(long id, String status) {
-
+    public Tuple<UserInfoDTO, GroupInfoDTO> getUserList(String username) {
+        Tuple<UserInfoDTO, GroupInfoDTO> tuple = new Tuple<>();
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            UserInfo userInfo = new UserInfo();
+            UserInfoDTO userInfo = session.selectOne("mapper.getUserList", username);
+            GroupInfoDTO groupInfoDTO = session.selectOne("mapper.getGroupList", username);
+            tuple.setT(userInfo);
+            tuple.setE(groupInfoDTO);
+            return tuple;
+        }
+    }
+
+    public void changeUserSign(long id, String sign) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            UserInfoDTO userInfo = new UserInfoDTO();
+            userInfo.setSign(sign);
+            userInfo.setId(id);
+            session.update("mapper.changeUserSign", userInfo);
+            session.commit();
+        }
+    }
+
+    public void changeUserStatus(long id, String status) {
+        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
+            UserInfoDTO userInfo = new UserInfoDTO();
             userInfo.setStatus(status);
             userInfo.setId(id);
             session.update("mapper.changeUserStatus", userInfo);
@@ -34,31 +54,6 @@ public class UserDAO implements UserDTO {
         }
     }
 
-    @Override
-    public void changeUserSign(long id, String sign) {
-        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            UserInfo userInfo = new UserInfo();
-            userInfo.setSign(sign);
-            userInfo.setId(id);
-            session.update("mapper.changeUserSign", userInfo);
-            session.commit();
-        }
-
-    }
-
-    @Override
-    public Tuple<UserInfo, GroupInfo> getUserList(String username) {
-        Tuple<UserInfo, GroupInfo> tuple = new Tuple<>();
-        try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            UserInfo userInfo = session.selectOne("mapper.getUserList", username);
-            GroupInfo groupInfo = session.selectOne("mapper.getGroupList", username);
-            tuple.setT(userInfo);
-            tuple.setE(groupInfo);
-            return tuple;
-        }
-    }
-
-    @Override
     public void addFriend(long userId, long packetId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             session.insert("mapper.addFriend", new Tuple<>(userId, packetId));
@@ -66,17 +61,9 @@ public class UserDAO implements UserDTO {
         }
     }
 
-    /**
-     * 通过id或者用户信息
-     *
-     * @param userId
-     * @return
-     */
-    @Override
-    public UserInfo getUser(long userId) {
+    public UserInfoDTO getUser(long userId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             return session.selectOne("mapper.getUser", userId);
         }
     }
-
 }
