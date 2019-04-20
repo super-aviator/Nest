@@ -2,3 +2,7 @@
 /target
 out/
 *.class
+target/
+lib/
+.idea/
+
