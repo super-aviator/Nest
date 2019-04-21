@@ -2,7 +2,5 @@
 target/
 out/
 *.class
-lib/
-.idea/
-/.idea
+
 

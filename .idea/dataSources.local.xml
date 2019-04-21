@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="@localhost" uuid="cdea2317-cba7-4db9-bd13-d86748014e88">
+      <database-info product="MySQL" version="5.7.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )" family="MYSQL" exact-version="5.7.19">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>nest-dev</user-name>
+      <introspection-schemas>*:nest</introspection-schemas>
+    </data-source>
+  </component>
+</project>
