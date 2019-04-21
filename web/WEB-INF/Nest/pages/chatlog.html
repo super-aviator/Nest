@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../layui/layui.js"></script>
+  <title>聊天记录</title>
+
+  <style>
+    body .layim-chat-main {
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layim-chat-main">
+    <ul id="LAY_view"></ul>
+  </div>
+
+  <div id="LAY_page" style="margin: 0 10px;"></div>
+
+
+  <textarea title="消息模版" id="LAY_tpl" style="display:none;">
+{{# layui.each(d.data, function(index, item){
+  if(item.id == parent.layui.layim.cache().mine.id){ }}
+    <li class="layim-chat-mine"><div class="layim-chat-user"><img src="{{ item.avatar }}"><cite><i>{{ layui.data.date(item.timestamp) }}</i>{{ item.username }}</cite></div><div class="layim-chat-text">{{ layui.layim.content(item.content) }}</div></li>
+  {{# } else { }}
+    <li><div class="layim-chat-user"><img src="{{ item.avatar }}"><cite>{{ item.username }}<i>{{ layui.data.date(item.timestamp) }}</i></cite></div><div class="layim-chat-text">{{ layui.layim.content(item.content) }}</div></li>
+  {{# }
+}); }}
+</textarea>
+
+  <!-- 
+上述模版采用了 laytpl 语法，不了解的同学可以去看下文档：http://www.layui.com/doc/modules/laytpl.html
+-->
+  <script>
+    var res;
+    var param = location.search;
+    var url = 'http://localhost:8080/messageDTO/get-messageDTO' + param;
+    var urlArr = url.split('?');
+    url = urlArr[0] + '?' + urlArr[1] + '&rev' + urlArr[2];
+
+    //需要发送同步请求，异步可能到时res为null
+    $.ajaxSettings.async = false;
+    $.get(url, null, function (data) {
+      res = JSON.parse(data);
+    });
+    $.ajaxSettings.async = true;
+
+    layui.use(['layim', 'laypage'], function () {
+      var layim = layui.layim
+        , layer = layui.layer
+        , laytpl = layui.laytpl
+        , $ = layui.jquery
+        , laypage = layui.laypage;
+
+      //聊天记录的分页此处不做演示，你可以采用laypage，不了解的同学见文档：http://www.layui.com/doc/modules/laypage.html
+
+      var html = laytpl(LAY_tpl.value).render({
+        data: res.data
+      });
+
+      $('#LAY_view').html(html);
+    });
+  </script>
+</body>
+
+</html>
