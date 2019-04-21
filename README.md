@@ -37,6 +37,6 @@
 - Spring容器加载完毕之后会调用ApplicationListener接口中的onApplicationEvent方法，可以使用一个类实现此接口,在onApplicationEvent方法中可以开启WebSocketServer线程
 
 -Git------------------------------------------------------------------------    
-master分支：项目稳定版本
-Nest-Dev：开发分支
-Nest：GitHub远程分支
+- master分支：项目稳定版本     
+- Nest-Dev：开发分支       
+- Nest：GitHub远程分支     
