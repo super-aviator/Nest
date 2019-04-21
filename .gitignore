@@ -1,8 +1,8 @@
 # Build targets
-/target
+target/
 out/
 *.class
-target/
 lib/
 .idea/
+/.idea
 
