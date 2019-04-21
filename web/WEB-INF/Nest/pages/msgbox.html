@@ -133,10 +133,30 @@
           page: page || 1
           , id: id
         }, function (res) {
+            // alert(res);
           res = JSON.parse(res);
           if (res.code != 0) {
             return layer.msg(res.msg);
           }
+
+            // for (let i of res.data) {
+            //   alert(JSON.stringify(i));
+            //   if (i.from != 0) {//未读消息
+            //     if (i.type === 2) {//是添加好友的回馈消息
+            //       //将好友追加到主面板
+            //       parent.layui.layim.addList({
+            //         type: "friend"
+            //         , avatar: i.user.avatar //好友头像
+            //         , username: i.user.username //好友昵称
+            //         , groupid: i.group //所在的分组id
+            //         , id: i.user.id //好友ID
+            //         , sign: i.user.sign //好友签名
+            //       });
+            //     }
+            //   }
+            // }
+
+
 
           //记录来源用户信息
           layui.each(res.data, function (index, item) {
@@ -209,6 +229,7 @@
                 , group: group //我设定的好友分组
               }, function (res) {
                 if (res.code != 0) {
+                    // alert(res);
                   return layer.msg(res.msg);
                 }
 
@@ -221,7 +242,8 @@
                   , id: uid //好友ID
                   , sign: user.sign //好友签名
                 });
-                parent.layer.close(index);
+
+                  parent.layer.close(index);
                 othis.parent().html('已同意');
               });
             }

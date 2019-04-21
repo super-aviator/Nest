@@ -9,7 +9,8 @@ public interface UserService {
     void changeUserStatus(long userId, String status);
     void changeUserSign(long userId, String sign);
     Tuple<UserInfoDTO, GroupInfoDTO> getUserList(String username);
-    void addFriend(long userId,long groupId);
+
+    AddFriendDTO addFriend(long id, long uid, long from_group, long group);
     UserInfoDTO getUser(long userId);
     void sendAddFriendMessage( long id, long friendId, long groupId, String remark);
 }

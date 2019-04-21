@@ -146,7 +146,7 @@ public class RedisUtil {
     }
 
     /**
-     * 存入已读消息
+     * 存入已读的提示消息
      */
     public void pushHistoryNotifyMsg(String id, long timestamp, String msg) {
         jedis.zadd(HISTORY_NOTIFY_SEPARATOR + id, timestamp, msg);

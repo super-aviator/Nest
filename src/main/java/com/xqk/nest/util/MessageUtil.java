@@ -110,7 +110,7 @@ public class MessageUtil {
      * @param channels
      * @param id
      */
-    public void sendOfflineMsgToUser(ChannelHandlerContext ctx, Map<String, Channel> channels, String id) {
+    public void getOfflineMsgToUser(ChannelHandlerContext ctx, Map<String, Channel> channels, String id) {
         while (ru.hasMsg(id)) {//查询用户的离线消息
             if (channels.containsKey(id))//确保用户还在线
                 ctx.writeAndFlush(new TextWebSocketFrame(ru.popMsg(id)));//将离线消息取出并推送
@@ -153,6 +153,7 @@ public class MessageUtil {
     /**
      * 将提示类的消息存储到离线消息列表中，然后发送用户提示类消息的数目，消息由用户主动获取
      * 提示消息需要一直保存。
+     * @param notifyDTO 提示消息DTO
      */
     public void storeNotifyMsg(Map<String, Channel> channels, NotifyDTO notifyDTO) {
         String uid = String.valueOf(notifyDTO.getUid());
@@ -167,7 +168,7 @@ public class MessageUtil {
     /**
      * 当用户id登陆时，获取提示消息的数量
      */
-    public void pushNotifyMsgNum(Map<String, Channel> channels, String id) {
+    public void getNotifyMsgNum(Map<String, Channel> channels, String id) {
         if (channels.containsKey(id)) { //查找id是否在线
             MessageDTO<Long> msgNum = new MessageDTO<>(ru.getNotifyMsgNum(id), "notify");//保存的是用户提示消息的数目
             channels.get(id).writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(msgNum)));//在线的话直接发送消息数目
@@ -183,7 +184,6 @@ public class MessageUtil {
         ArrayList<NotifyDTO> list = new ArrayList<>();
 
         for (String msg : ru.getHistoryNotifyMsg(id)) {//取已读消息
-            System.out.println("***********" + msg);
             list.add(JSONObject.parseObject(msg, NotifyDTO.class));
         }
 

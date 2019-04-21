@@ -54,11 +54,16 @@ public class UserDAO {
         }
     }
 
-    public void addFriend(long userId, long packetId) {
+    private void addFriend(long userId, long packetId) {
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
             session.insert("mapper.addFriend", new Tuple<>(userId, packetId));
             session.commit();
         }
+    }
+
+    public void addFriend(long id, long uid, long from_group, long group) {
+        addFriend(id, from_group);
+        addFriend(uid, group);
     }
 
     public UserInfoDTO getUser(long userId) {

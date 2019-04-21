@@ -1,19 +1,61 @@
 #用户信息表
 CREATE TABLE `user_info` (
-  `user_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(16) NOT NULL,
-  `sign` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
-  `avatar` varchar(200) DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
-  `status` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'hide',
-  `password` varchar(45) NOT NULL,
+  `user_id`  bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(16)         NOT NULL,
+  `sign`     varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
+  `avatar`   varchar(200) DEFAULT 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1',
+  `status`   varchar(15) CHARACTER SET utf8
+  COLLATE utf8_bin               NOT NULL DEFAULT 'hide',
+  `password` varchar(45)         NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
+)
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 1000028
+  DEFAULT CHARSET = utf8;
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000001, '熊乾坤', '你要去哪里', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'online', '6504110130');
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000002, '杨小毛', '勿失莫忘', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'hide', '123456');
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000003, '曹睿', '静听寂寞嘞', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'hide', '123456');
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000004, '张威', '哈哈哈', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'online', '123456');
+CREATE DEFINER = `root`@`localhost` TRIGGER `nest`.`user_info_AFTER_INSERT`
+  AFTER INSERT
+  ON `user_info`
+  FOR EACH ROW
+  BEGIN
+
+    SELECT max(user_id) INTO @user_id from user_info;
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的好友');
+    SET @id1 = LAST_INSERT_ID();
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的家人');
+    SET @id2 = LAST_INSERT_ID();
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的亲人');
+    SET @id3 = LAST_INSERT_ID();
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的朋友');
+    SET @id4 = LAST_INSERT_ID();
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的老师');
+    SET @id5 = LAST_INSERT_ID();
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的同学');
+    SET @id6 = LAST_INSERT_ID();
+
+    INSERT INTO packet_info (packet_name) VALUES ('我的室友');
+    SET @id7 = LAST_INSERT_ID();
+
+    INSERT INTO user_packet_info (packet_id, user_id)
+    VALUES (@id1, @user_id),
+           (@id2, @user_id),
+           (@id3, @user_id),
+           (@id4, @user_id),
+           (@id5, @user_id),
+           (@id6, @user_id),
+           (@id7, @user_id);
+  END;
+
 
 
 #用户拥有的组表
@@ -33,10 +75,13 @@ INSERT INTO nest.user_packet_info (packet_id, user_id) VALUES (8, 1000004);
 
 #分组信息表
 CREATE TABLE `packet_info` (
-  `packet_name` varchar(20) NOT NULL,
-  `packet_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`packet_name`,`packet_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `packet_name` varchar(20)         DEFAULT NULL,
+  `packet_id`   bigint(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`packet_id`)
+)
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 24
+  DEFAULT CHARSET = utf8;
 INSERT INTO nest.packet_info (packet_name, packet_id) VALUES ('好友', 1);
 INSERT INTO nest.packet_info (packet_name, packet_id) VALUES ('好友', 4);
 INSERT INTO nest.packet_info (packet_name, packet_id) VALUES ('好友', 7);

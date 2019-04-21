@@ -82,14 +82,7 @@ public class MessageController {
     public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
                             HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        userService.addFriend(id, from_group);
-        userService.addFriend(uid, group);
-        redisUtil.addFriend(String.valueOf(uid), String.valueOf(id));
-        UserInfoDTO userInfo = userService.getUser(id);
-        messageUtil.storeNotifyMsg(SignChannelHandler.CHANNELS, new NotifyDTO(0, userInfo.getUsername() + "同意了你的请求 （：",
-                uid, 0, 0, 1, null, null, 1, "刚刚",
-                new NotifyUserInfoDTO(userInfo.getId(), userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign())));
-        AddFriendDTO addFriendDTO = new AddFriendDTO("type", from_group, userInfo);
+        AddFriendDTO addFriendDTO = userService.addFriend(id, uid, from_group, group);
         response.getWriter().write(JSON.toJSONString(addFriendDTO));
     }
 
@@ -112,7 +105,7 @@ public class MessageController {
     }
 
     /**
-     * 上传图片接口
+     * 上传图片接口,待修复
      *
      * @param image
      * @param response
