@@ -1,0 +1,8 @@
+# Build targets
+target/
+out/
+*.class
+lib/
+.idea/
+/.idea
+

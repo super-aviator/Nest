@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nest登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js">
+    </script>
+
+    <!-- //大框的样式 -->
+    <style>
+        .layoutAll {
+            background: url('images/signinBackgroundImage3.jpg') no-repeat 0px 0px;
+            background-size: cover;
+        }
+
+        .centerDiv {
+            background-color: #FCFCFc;
+            width: 450px;
+            height: 400px;
+            border-radius: 6px;
+            margin: auto;
+            margin-top: 20px;
+            opacity: 0.95;
+        }
+    </style>
+
+    <!-- //大框里面组件的样式
+    //欢迎文字 -->
+    <style>
+        .welcomeDiv {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #Nest {
+            font-size: 100px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #0084FF;
+        }
+    </style>
+
+    <!-- //表单 -->
+    <style>
+        .input-a {
+            width: 350px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .loginButton {
+            width: 350px;
+        }
+
+        #sign-up {
+            text-align: center;
+            color: aliceblue;
+            font-size: 15px;
+        }
+    </style>
+
+</head>
+
+<body class="layoutAll">
+    <div class="centerDiv">
+        <div class="welcomeDiv">
+            <p id="Nest">Nest</p>
+        </div>
+
+        <form class="layui-form" action="" target="_self" submit="return false;">
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="text" name="username" autocomplete="off" placeholder="用户名" class="layui-input"
+                        id="input-a">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="password" name="password" autocomplete="off" placeholder="密码" class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <div class="input-a">
+                    <input type="button" value="登录" class="layui-btn layui-btn-lg layui-btn-normal"
+                        style="width:350px;" /><br />
+                </div>
+            </div>
+
+        </form>
+        <div id="sign-up">
+            <a href="./find-password.html">忘记密码</a><span style="color:black;">&nbsp;|&nbsp;</span><a
+                href="./signUp.html">没有账号？去注册</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    layui.use('layer', function () {
+        var layer = layui.layer;
+
+        $('input[type="button"]').click(function () {
+            var un = $('input[name="username"]').val();
+            var pw = $('input[name="password"]').val();
+            if ($.trim(un) === '') {
+                layer.tips('请输入用户名', 'input[name="username"]', {
+                    tips: [1, '#c00']
+                    , anim: 6
+                });
+                return;
+            }
+
+            if ($.trim(pw) === '') {
+                layer.tips('请输入密码', 'input[name="password"]', {
+                    tips: [1, '#c00']
+                    , anim: 6
+                });
+                return;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:8080/sign/sign-in',
+                data: {
+                    username: un,
+                    password: pw
+                }
+                , beforeSend: function () {
+                    var index = layer.load(2);
+                },
+                success: function (data) {
+                    layer.closeAll('loading'); //关闭加载层
+                    var tuple = JSON.parse(data);
+                    if (tuple.t === '登录成功') {
+                        layer.msg('登陆成功', {
+                            icon: 1,
+                            time: 1000 
+                        });
+                        location.href = "index.html";
+                        sessionStorage.setItem("username", tuple.e);
+                    } else {
+                        layer.msg(tuple.t, {
+                            icon: 5,
+                            time: 1000
+                        });
+                    }
+                },
+                error: function () {
+                    layer.closeAll('loading'); //关闭加载层
+                    layer.msg('服务器异常', {
+                        icon: 2,
+                        time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                    });
+                }
+            });
+        });
+
+    });
+
+</script>
+
+</html>
