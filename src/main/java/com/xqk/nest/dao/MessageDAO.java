@@ -42,10 +42,10 @@ public class MessageDAO {
     //图片上传接口
     public CommonReturnDTO<UploadImageDTO> uploadImage(MultipartFile image) throws IOException {
         CommonReturnDTO<UploadImageDTO> returnMsg;
-        File file = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + image.getOriginalFilename());
+        File file = new File("C:\\Users\\Aviator\\Desktop\\毕业设计实现\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + image.getOriginalFilename());
         if (!file.exists())
             image.transferTo(file);
-        returnMsg = new CommonReturnDTO<>(0, "success", new UploadImageDTO("./dataImg/" + image.getOriginalFilename()));
+        returnMsg = new CommonReturnDTO<>(0, "success", new UploadImageDTO("http://127.0.0.1:5500/pages/dataImg/" + image.getOriginalFilename()));
         return returnMsg;
     }
 }

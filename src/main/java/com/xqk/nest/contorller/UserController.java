@@ -22,8 +22,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class UserController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private MessageUtil messageUtil;
 
     @RequestMapping(value = "/get-info", method = GET)
     public void getUserInfo(@RequestParam("id") long UserId, HttpServletResponse response) throws IOException {

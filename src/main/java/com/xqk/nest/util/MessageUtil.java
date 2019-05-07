@@ -6,6 +6,7 @@ import com.xqk.nest.dto.NotifyDTO;
 import com.xqk.nest.service.Impl.MessageServiceImpl;
 import com.xqk.nest.service.Impl.UserServiceImpl;
 import com.xqk.nest.dto.NotifyReturnDTO;
+import com.xqk.nest.service.UserService;
 import com.xqk.nest.websocket.dto.ChatMessageDTO;
 import com.xqk.nest.websocket.dto.HistoryChatMessageDTO;
 import com.xqk.nest.websocket.dto.MessageDTO;
@@ -13,6 +14,7 @@ import com.xqk.nest.websocket.dto.StatusMessageDTO;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Tuple;
 
@@ -25,10 +27,16 @@ import java.util.concurrent.Executors;
 @SuppressWarnings("unused")
 @Component
 public class MessageUtil {
-    private RedisUtil ru = new RedisUtil();//离线消息获取工具类
     private static final ExecutorService EXECUTOR = Executors.newSingleThreadExecutor();//开一个线程去来存储消息。
-    private MessageServiceImpl messageDAO = new MessageServiceImpl();//消息存储DAO类
-    private UserServiceImpl userOptDAO = new UserServiceImpl();
+
+    @Autowired
+    private RedisUtil ru;//离线消息获取工具类
+
+    @Autowired
+    private MessageServiceImpl messageDAO;//消息存储DAO类
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 消息分发

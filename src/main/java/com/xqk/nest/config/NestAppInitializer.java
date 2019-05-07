@@ -30,6 +30,6 @@ public class NestAppInitializer extends AbstractAnnotationConfigDispatcherServle
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\",1048579,2097152,0));
+        registration.setMultipartConfig(new MultipartConfigElement("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\",104857900,209715200,0));
     }
 }
