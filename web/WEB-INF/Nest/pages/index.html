@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <title>LayIM测试</title>
     <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../jquery-2.1.4/jquery.min.js"></script>
     <script src="../reconnecting-websocket/reconnecting-websocket.min.js"></script>
+    <script src="../layui/layui.js"></script>
+
     <style>
         body {
             background: url('images/signinBackgroundImage3.jpg') no-repeat 0px 0px;
@@ -16,7 +18,6 @@
 </head>
 
 <body class="layui-bg-black">
-    <script src="../layui/layui.js"></script>
     <script>
         var socket;
         var id = sessionStorage.getItem("username");
@@ -56,7 +57,7 @@
 
                 //上传图片接口（返回的数据格式见下文），若不开启图片上传，剔除该项即可
                 , uploadImage: {
-                    url: 'http://localhost:8080/message/upload-image' //接口地址
+                    url: 'http://localhost:8080/message/upload-image'
                 }
 
                 //上传文件接口（返回的数据格式见下文），若不开启文件上传，剔除该项即可

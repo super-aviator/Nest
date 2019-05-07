@@ -71,5 +71,4 @@ public class AccountController {
         }
         response.getWriter().write(JSON.toJSONString(result));
     }
-
 }

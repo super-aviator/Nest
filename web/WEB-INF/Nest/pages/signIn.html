@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
-    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js">
+    <script src="../jquery-2.1.4/jquery.min.js"></script>
     </script>
 
     <!-- //大框的样式 -->
@@ -103,63 +103,62 @@
 
 <script>
     layui.use('layer', function () {
-        var layer = layui.layer;
+    var layer = layui.layer;
+    $('input[type="button"]').click(function () {
+        var un = $('input[name="username"]').val();
+        var pw = $('input[name="password"]').val();
+        if ($.trim(un) === '') {
+            layer.tips('请输入用户名', 'input[name="username"]', {
+                tips: [1, '#c00']
+                , anim: 6
+            });
+            return;
+        }
 
-        $('input[type="button"]').click(function () {
-            var un = $('input[name="username"]').val();
-            var pw = $('input[name="password"]').val();
-            if ($.trim(un) === '') {
-                layer.tips('请输入用户名', 'input[name="username"]', {
-                    tips: [1, '#c00']
-                    , anim: 6
-                });
-                return;
+        if ($.trim(pw) === '') {
+            layer.tips('请输入密码', 'input[name="password"]', {
+                tips: [1, '#c00']
+                , anim: 6
+            });
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:8080/sign/sign-in',
+            data: {
+                username: un,
+                password: pw
             }
-
-            if ($.trim(pw) === '') {
-                layer.tips('请输入密码', 'input[name="password"]', {
-                    tips: [1, '#c00']
-                    , anim: 6
-                });
-                return;
-            }
-
-            $.ajax({
-                type: 'POST',
-                url: 'http://127.0.0.1:8080/sign/sign-in',
-                data: {
-                    username: un,
-                    password: pw
-                }
-                , beforeSend: function () {
-                    var index = layer.load(2);
-                },
-                success: function (data) {
-                    layer.closeAll('loading'); //关闭加载层
-                    var tuple = JSON.parse(data);
-                    if (tuple.t === '登录成功') {
-                        layer.msg('登陆成功', {
-                            icon: 1,
-                            time: 1000 
-                        });
-                        location.href = "index.html";
-                        sessionStorage.setItem("username", tuple.e);
-                    } else {
-                        layer.msg(tuple.t, {
-                            icon: 5,
-                            time: 1000
-                        });
-                    }
-                },
-                error: function () {
-                    layer.closeAll('loading'); //关闭加载层
-                    layer.msg('服务器异常', {
-                        icon: 2,
-                        time: 1000 //2秒关闭（如果不配置，默认是3秒）
+            , beforeSend: function () {
+                var index = layer.load(2);
+            },
+            success: function (data) {
+                layer.closeAll('loading'); //关闭加载层
+                var tuple = JSON.parse(data);
+                if (tuple.t === '登录成功') {
+                    layer.msg('登陆成功', {
+                        icon: 1,
+                        time: 1000 
+                    });
+                    location.href = "index.html";
+                    sessionStorage.setItem("username", tuple.e);
+                } else {
+                    layer.msg(tuple.t, {
+                        icon: 5,
+                        time: 1000
                     });
                 }
-            });
+            },
+            error: function () {
+                layer.closeAll('loading'); //关闭加载层
+                layer.msg('服务器异常', {
+                    icon: 2,
+                    time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                });
+            }
         });
+    });
 
     });
 

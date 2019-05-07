@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService {
     /**
      * 修改用户在线状态，并发送消息给好友
      *
-     * @param id
-     * @param status
+     * @param id 用户id
+     * @param status 用户现在的状态
      */
     @Override
     public void changeUserStatus(long id, String status) {
