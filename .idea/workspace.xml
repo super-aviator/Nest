@@ -7,27 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4252e3ec-beb2-4fa0-9c03-073015e3f2c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config/bugList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Nest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Nest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/NestAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/NestAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/WebSocketServerStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/WebSocketServerStart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/layui/lay/modules/layim.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/layui/lay/modules/layim.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/chatlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/chatlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/dataImg/下载.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/dataImgjar包.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/dataImg小杰瑞.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/find.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/find.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/msgbox.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/msgbox.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signUp.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +63,7 @@
           <entry key="class" value="6" />
           <entry key="gitignore" value="3" />
           <entry key="html" value="5" />
-          <entry key="java" value="207" />
+          <entry key="java" value="209" />
           <entry key="js" value="1" />
           <entry key="md" value="9" />
           <entry key="properties" value="1" />
@@ -96,7 +76,7 @@
         <counts>
           <entry key="CLASS" value="6" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="207" />
+          <entry key="JAVA" value="209" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="9" />
           <entry key="PLAIN_TEXT" value="6" />
@@ -149,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="19">
+              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,11 +150,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
+            <state relative-caret-position="445">
               <caret line="52" lean-forward="true" selection-start-line="15" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/SignChannelHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -216,8 +205,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="25">
+              <caret line="44" column="58" lean-forward="true" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -618,7 +607,7 @@
       <workItem from="1555761125155" duration="18089000" />
       <workItem from="1555844542668" duration="385000" />
       <workItem from="1555844938012" duration="3982000" />
-      <workItem from="1556790843974" duration="26722000" />
+      <workItem from="1556790843974" duration="29097000" />
     </task>
     <task id="LOCAL-00001" summary="修改.gitignore">
       <created>1555844708040</created>
@@ -631,7 +620,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61903000" />
+    <option name="totallyTimeSpent" value="64278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,12 +633,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1382" height="744" extended-state="1" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.21785174" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.2700454" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -666,7 +654,7 @@
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="12" visible="true" weight="0.12807882" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" visible="true" weight="0.82101804" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.25615764" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32840723" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
@@ -899,16 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
@@ -941,13 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.34.Final/netty-all-4.1.34.Final-sources.jar!/io/netty/channel/Channel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="182" column="20" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -987,20 +958,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="445">
+          <caret line="52" lean-forward="true" selection-start-line="15" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.34.Final/netty-all-4.1.34.Final-sources.jar!/io/netty/channel/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1601">
+          <caret line="214" column="51" lean-forward="true" selection-start-line="214" selection-start-column="51" selection-end-line="214" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/SignChannelHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="44" column="58" lean-forward="true" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="52" lean-forward="true" selection-start-line="15" selection-end-line="52" />
+        <state relative-caret-position="19">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
