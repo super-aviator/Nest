@@ -1,6 +1,7 @@
 package com.xqk.nest.contorller;
 
 import com.alibaba.fastjson.JSON;
+import com.xqk.nest.dto.UploadImageDTO;
 import com.xqk.nest.service.AccountService;
 import com.xqk.nest.dto.CommonReturnDTO;
 import com.xqk.nest.dto.Tuple;
@@ -51,23 +52,18 @@ public class AccountController {
         }
     }
 
-    @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public void singUp(@RequestParam("username") String username, @RequestParam("password") String password
             , @RequestParam("sign") String sign, @RequestParam("avatar") MultipartFile img, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
         CommonReturnDTO<Integer> result;
 
-        File f = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
-        if (!f.exists())
-            img.transferTo(f);
-        String avatar = "./dataImg/" + img.getOriginalFilename();
-
-        try{
-            result= accountService.signUp(username,password,img,sign);
-        }catch(Exception e){
+        try {
+            result = accountService.signUp(username, password, img, sign);
+        } catch (Exception e) {
             e.printStackTrace();
-            result=new CommonReturnDTO<>(1,"服务器错误",null);
+            result = new CommonReturnDTO<>(1, "服务器错误", null);
         }
         response.getWriter().write(JSON.toJSONString(result));
     }

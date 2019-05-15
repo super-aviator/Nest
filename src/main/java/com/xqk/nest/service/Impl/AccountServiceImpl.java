@@ -48,21 +48,23 @@ public class AccountServiceImpl implements AccountService {
         CommonReturnDTO<Integer> result;
 
         if (hasSingUp(username))
-            return new CommonReturnDTO<>(0,"",1);
+            return new CommonReturnDTO<>(0,"用户已注册",1);
 
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {
-            File f = new File("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg" + img.getOriginalFilename());
-            if (!f.exists())
-                img.transferTo(f);
-            String avatar = "./dataImg/" + img.getOriginalFilename();
+
+            File file = new File("C:\\Users\\Aviator\\Desktop\\毕业设计实现\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\" + img.getOriginalFilename());
+            if (!file.exists())
+                img.transferTo(file);
+
+            String avatar = "http://127.0.0.1:5500/pages/dataImg/" + img.getOriginalFilename();
 
             UserInfoDTO userInfo = new UserInfoDTO(username, sign, avatar, password);
-            int col = session.insert("mapper.singUp", userInfo);
+            session.insert("mapper.singUp", userInfo);
             session.commit();
-            result= new CommonReturnDTO<>(0,"",3);
+            result= new CommonReturnDTO<>(0,"注册成功",3);
         } catch (Exception e) {
             e.printStackTrace();
-            result= new CommonReturnDTO<>(0,"",2);
+            result= new CommonReturnDTO<>(0,"注册失败",2);
         }
         return result;
     }

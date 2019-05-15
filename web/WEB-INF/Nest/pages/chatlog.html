@@ -45,7 +45,7 @@
     var urlArr = url.split('?');
     url = urlArr[0] + '?' + urlArr[1] + '&rev' + urlArr[2];
 
-    //需要发送同步请求，异步可能到时res为null
+    //需要发送同步请求，异步时res可能为null
     $.ajaxSettings.async = false;
     $.get(url, null, function (data) {
       res = JSON.parse(data);
