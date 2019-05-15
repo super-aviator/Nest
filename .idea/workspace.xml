@@ -7,7 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4252e3ec-beb2-4fa0-9c03-073015e3f2c7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/UploadFileDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Nest_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Nest_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/MySqlSessionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/MySqlSessionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/bugList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/bugList.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/layui/lay/modules/layim.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/layui/lay/modules/layim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/chatlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/chatlog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signIn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Nest/pages/signUp.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,79 +46,73 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="nest: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-93229946">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.103" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.51" value="1" />
+          <entry key="project.open.time.54" value="1" />
+          <entry key="project.open.time.66" value="1" />
+          <entry key="project.open.time.68" value="1" />
+          <entry key="project.open.time.97" value="1" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="6" />
+          <entry key="class" value="9" />
           <entry key="gitignore" value="3" />
           <entry key="html" value="5" />
-          <entry key="java" value="209" />
+          <entry key="java" value="245" />
           <entry key="js" value="1" />
           <entry key="md" value="9" />
           <entry key="properties" value="1" />
-          <entry key="sql" value="5" />
-          <entry key="txt" value="3" />
-          <entry key="xml" value="6" />
+          <entry key="sql" value="7" />
+          <entry key="txt" value="5" />
+          <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="6" />
+          <entry key="CLASS" value="9" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="209" />
+          <entry key="JAVA" value="245" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="9" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="PLAIN_TEXT" value="8" />
           <entry key="Properties" value="1" />
-          <entry key="SQL" value="5" />
-          <entry key="XML" value="6" />
+          <entry key="SQL" value="6" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="132" />
-          <entry key="java" value="2026" />
+          <entry key="java" value="2473" />
           <entry key="md" value="414" />
           <entry key="properties" value="9" />
-          <entry key="txt" value="79" />
+          <entry key="txt" value="176" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2026" />
+          <entry key="JAVA" value="2473" />
           <entry key="Markdown" value="414" />
-          <entry key="PLAIN_TEXT" value="211" />
+          <entry key="PLAIN_TEXT" value="308" />
           <entry key="Properties" value="9" />
           <entry key="XML" value="1" />
         </counts>
@@ -115,106 +128,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-193">
-              <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1373#2058#0" expanded="true" />
-                <element signature="e#2057#2058#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/MySqlSessionFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="52" lean-forward="true" selection-start-line="15" selection-end-line="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/SignChannelHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#914#915#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/UserDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="44" column="58" lean-forward="true" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="12" selection-start-line="12" selection-end-line="29" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -244,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/AccountDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/UserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/GroupServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/GroupController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/util/RedisUtil.java" />
@@ -260,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/NotifyUserInfoDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/UploadImageDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/GroupMemberInfoDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/bugList.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/dto/SystemMessageDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/CORSFilter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/jdbcConfiguration.properties" />
@@ -273,15 +201,20 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/NestAppInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/MessageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/WebSocketServerStart.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/UploadFileDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/MessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/bugList.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xqk/nest/config/MySqlSessionFactory.java" />
       </list>
     </option>
   </component>
@@ -327,10 +260,11 @@
       <path value="$PROJECT_DIR$/web/WEB-INF/Nest/reconnecting-websocket/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-7" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="5" />
+    <option name="y" value="75" />
+    <option name="width" value="1368" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -397,6 +331,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nest" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nest" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
@@ -480,6 +423,32 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="Nest" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -488,9 +457,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.35258964" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
@@ -580,8 +550,70 @@
         </option>
       </method>
     </configuration>
+    <configuration name="NestRemote" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" APPLICATION_SERVER_NAME="Tomcat 7.0.86" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="HOST" value="http://100.64.130.188" />
+      <option name="LOCAL" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://100.64.130.188//100.64.130.188:8080/" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="targets">
+            <list>
+              <WatchedTargetModelImpl>
+                <option name="name" value="CONTEXT_XML" />
+                <option name="transportStagingTarget">
+                  <TransportTarget>
+                    <option name="id" value="60b8eb25-6fc4-41fb-8cc9-b61975e0258b" />
+                    <id>60b8eb25-6fc4-41fb-8cc9-b61975e0258b</id>
+                  </TransportTarget>
+                </option>
+                <option name="watchedLocalPath" value="" />
+                <watched-path />
+                <name>CONTEXT_XML</name>
+                <transport-target>
+                  <TransportTarget>
+                    <option name="id" value="60b8eb25-6fc4-41fb-8cc9-b61975e0258b" />
+                    <id>60b8eb25-6fc4-41fb-8cc9-b61975e0258b</id>
+                  </TransportTarget>
+                </transport-target>
+              </WatchedTargetModelImpl>
+              <StagingTargetModelImpl>
+                <option name="name" value="STAGING" />
+                <option name="stagingRemotePath" value="" />
+                <option name="transportStagingTarget">
+                  <TransportTarget>
+                    <option name="id" value="09efe931-22dd-4748-b119-28e12560e45d" />
+                    <id>09efe931-22dd-4748-b119-28e12560e45d</id>
+                  </TransportTarget>
+                </option>
+                <staging-path />
+                <name>STAGING</name>
+                <transport-target>
+                  <TransportTarget>
+                    <option name="id" value="09efe931-22dd-4748-b119-28e12560e45d" />
+                    <id>09efe931-22dd-4748-b119-28e12560e45d</id>
+                  </TransportTarget>
+                </transport-target>
+              </StagingTargetModelImpl>
+            </list>
+          </option>
+          <option name="transportHostId" value="1ad99fdf-bf33-452b-9f75-d5fd2f7c9a98" />
+          <host-id>1ad99fdf-bf33-452b-9f75-d5fd2f7c9a98</host-id>
+        </data>
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="11446" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Tomcat Server.Nest" />
+      <item itemvalue="Tomcat Server.NestRemote" />
       <item itemvalue="Application.WebSocketServer" />
     </list>
     <recent_temporary>
@@ -607,7 +639,16 @@
       <workItem from="1555761125155" duration="18089000" />
       <workItem from="1555844542668" duration="385000" />
       <workItem from="1555844938012" duration="3982000" />
-      <workItem from="1556790843974" duration="29097000" />
+      <workItem from="1556790843974" duration="41856000" />
+      <workItem from="1557367311167" duration="1181000" />
+      <workItem from="1557456090608" duration="6825000" />
+      <workItem from="1557550295971" duration="564000" />
+      <workItem from="1557567655239" duration="111000" />
+      <workItem from="1557624293724" duration="601000" />
+      <workItem from="1557663910376" duration="1260000" />
+      <workItem from="1557823167907" duration="786000" />
+      <workItem from="1557826387324" duration="605000" />
+      <workItem from="1557895058745" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="修改.gitignore">
       <created>1555844708040</created>
@@ -620,7 +661,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64278000" />
+    <option name="totallyTimeSpent" value="88907000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -632,17 +673,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.2700454" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.17397882" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
-      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.88834155" />
       <window_info anchor="bottom" id="Spring" order="2" weight="0.32840723" />
       <window_info anchor="bottom" id="Terminal" order="3" />
@@ -654,8 +696,8 @@
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" visible="true" weight="0.82101804" />
-      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.25615764" />
+      <window_info anchor="bottom" id="Run" order="12" visible="true" weight="0.3448276" />
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.5960591" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32840723" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
@@ -742,11 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/script/script.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1080" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -754,56 +791,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/MySqlSessionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/CORSFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/UploadImageDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <element signature="e#157#158#0" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/Socket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
           <caret line="433" selection-start-line="433" selection-end-line="433" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1110">
-          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/AddFriendDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -825,10 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-          <folding>
-            <element signature="e#1812#1813#0" expanded="true" />
-            <element signature="e#1874#1875#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -836,30 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/bugList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -880,48 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/WebSocketServerStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.34.Final/netty-all-4.1.34.Final-sources.jar!/io/netty/handler/codec/http/websocketx/WebSocketProtocolHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -933,35 +854,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="53" column="63" lean-forward="true" selection-start-line="53" selection-start-column="63" selection-end-line="53" selection-end-column="63" />
-          <folding>
-            <element signature="e#3572#3573#0" expanded="true" />
-            <element signature="e#3613#3614#0" expanded="true" />
-            <element signature="e#3660#3661#0" expanded="true" />
-            <element signature="e#3705#3706#0" expanded="true" />
-            <element signature="e#3752#3753#0" expanded="true" />
-            <element signature="e#3802#3803#0" expanded="true" />
-            <element signature="e#4300#4301#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/service/WebSocketServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-193">
-          <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1373#2058#0" expanded="true" />
-            <element signature="e#2057#2058#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="52" lean-forward="true" selection-start-line="15" selection-end-line="52" />
+          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -972,30 +871,208 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/SignChannelHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/script/script.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        <state relative-caret-position="22">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ac91bad6-ed95-4d78-a210-5900b16e4828/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/dto/ChatMessageDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="44" column="58" lean-forward="true" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
+        <state relative-caret-position="296">
+          <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/SignChannelHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/UploadImageDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/UploadFileDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dto/AddFriendDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/bugList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/dto/HistoryChatMessageDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/websocket/handlers/MessageChannelHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/util/MessageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="135" selection-start-line="135" selection-end-line="141" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/GroupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/MessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-context-4.3.18.RELEASE.jar!/org/springframework/context/event/ContextRefreshedEvent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-context-4.3.18.RELEASE.jar!/org/springframework/context/ApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-beans-4.3.18.RELEASE.jar!/org/springframework/beans/factory/config/AutowireCapableBeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-515">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="8" column="87" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/WebSocketServerStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="8" selection-start-line="8" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/MessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/dao/MessageDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="45" column="27" selection-start-line="44" selection-start-column="8" selection-end-line="47" selection-end-column="146" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/contorller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="726">
+          <caret line="47" column="39" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/CORSFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/service/Impl/AccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xqk/nest/config/MySqlSessionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" selection-start-line="12" selection-end-line="29" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1010,7 +1087,6 @@
             <option name="proportions">
               <list>
                 <option value="0.35258964" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1058,6 +1134,7 @@
             <option name="proportions">
               <list>
                 <option value="0.35258964" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

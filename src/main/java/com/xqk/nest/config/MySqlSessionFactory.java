@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 public class MySqlSessionFactory {
 
-    public MySqlSessionFactory() {
+    private MySqlSessionFactory() {
     }
 
     private static SqlSessionFactory factory;

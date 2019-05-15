@@ -40,11 +40,6 @@ public class MessageController {
      * 也可以在查询时给Mybatis传一个对象，对象包括id和type属性，用Mybatis的条件查询语句进行选择性查找
      * 异常应该在DAO层抛出，controller层捕获。
      *
-     * @param id
-     * @param revId
-     * @param type
-     * @param response
-     * @throws IOException
      */
     @RequestMapping(value = "/get-message", method = GET)
     public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
@@ -56,10 +51,6 @@ public class MessageController {
     /**
      * 获取id所有的提示消息
      *
-     * @param id
-     * @param page
-     * @param response
-     * @throws IOException
      */
     @RequestMapping(value = "/get-notify", method = POST)
     public void getNotify(@RequestParam("id") long id, @RequestParam("page") long page, HttpServletResponse response) throws IOException {
@@ -71,12 +62,6 @@ public class MessageController {
      * 同意添加好友，向请求发送方发送提示消息
      * * 将id添加到from_group，将uid添加到group
      *
-     * @param id
-     * @param uid
-     * @param from_group
-     * @param group
-     * @param response
-     * @throws IOException
      */
     @RequestMapping(value = "/agree-friend", method = POST)
     public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
@@ -89,10 +74,6 @@ public class MessageController {
     /**
      * 拒绝添加好友，向uid发送拒绝消息,from字段需要为0，前端会根据此判断是否为已处理消息
      *
-     * @param id
-     * @param uid
-     * @param response
-     * @throws IOException
      */
     @RequestMapping(value = "/refuse-friend", method = POST)
     public void refuseFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, HttpServletResponse response) throws IOException {
@@ -107,12 +88,8 @@ public class MessageController {
     /**
      * 上传图片接口,待修复
      *
-     * @param image
-     * @param response
-     * @throws IOException
      */
-    @RequestMapping(value = "upload-image", method = POST)
-    @ResponseBody
+    @RequestMapping(value = "upload-images", method = POST)
     public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         CommonReturnDTO<UploadImageDTO> returnMsg;
@@ -120,9 +97,21 @@ public class MessageController {
             returnMsg = messageService.uploadImage(image);
         } catch (Exception e) {
             e.printStackTrace();
-            returnMsg = new CommonReturnDTO<>(1, "", null);
+            returnMsg = new CommonReturnDTO<>(1, "图片上传失败", null);
         }
-        System.out.println(JSON.toJSONString(returnMsg));
+        response.getWriter().write(JSON.toJSONString(returnMsg));
+    }
+
+    @RequestMapping(value = "upload-file",method = POST)
+    public void uploadFile(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        CommonReturnDTO<UploadFileDTO> returnMsg;
+        try {
+            returnMsg = messageService.uploadFile(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnMsg = new CommonReturnDTO<>(1, "文件上传失败", null);
+        }
         response.getWriter().write(JSON.toJSONString(returnMsg));
     }
 

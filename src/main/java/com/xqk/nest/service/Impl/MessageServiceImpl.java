@@ -35,4 +35,9 @@ public class MessageServiceImpl implements MessageService {
     public CommonReturnDTO<UploadImageDTO> uploadImage(MultipartFile image) throws IOException {
         return messageDAO.uploadImage(image);
     }
+
+    @Override
+    public CommonReturnDTO<UploadFileDTO> uploadFile(MultipartFile file) throws IOException {
+        return messageDAO.uploadFile(file);
+    }
 }

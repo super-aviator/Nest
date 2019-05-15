@@ -74,8 +74,8 @@ public class MessageUtil {
     /**
      * 将聊天消息推送到用户，ID需要从chatMessage中获取
      *
-     * @param channels
-     * @param chatMessageDTO
+     * @param channels 保存用户登陆连接的map
+     * @param chatMessageDTO 保存消息的对象
      */
     @SuppressWarnings("unchecked")
     private void sendChatMsgToFriend(Map<String, Channel> channels, ChatMessageDTO chatMessageDTO) {
@@ -92,8 +92,8 @@ public class MessageUtil {
      * 将群消息推送到群成员
      * 这里需要将id和fromId交换一下
      *
-     * @param channels
-     * @param chatMessageDTO
+     * @param channels 保存用户登陆连接的map
+     * @param chatMessageDTO 保存消息的对象
      */
     @SuppressWarnings("unchecked")
     private void sendMsgToMember(Map<String, Channel> channels, ChatMessageDTO chatMessageDTO) {
@@ -114,9 +114,9 @@ public class MessageUtil {
     /**
      * 获取用户离线消息队列中的消息
      *
-     * @param ctx
-     * @param channels
-     * @param id
+     * @param ctx ChannelHandlerContext
+     * @param channels 保存用户登陆连接的map
+     * @param id 用户id
      */
     public void getOfflineMsgToUser(ChannelHandlerContext ctx, Map<String, Channel> channels, String id) {
         while (ru.hasMsg(id)) {//查询用户的离线消息
@@ -135,10 +135,10 @@ public class MessageUtil {
      */
     private void storeMsg(ChatMessageDTO chatMessageDTO, String id, String fromId) {
         EXECUTOR.execute(() -> {
-            HistoryChatMessageDTO historyChatMessageDTO = new HistoryChatMessageDTO(chatMessageDTO.getUsername(), chatMessageDTO.getAvatar(), fromId, id, chatMessageDTO.getContent(), chatMessageDTO.getTimestamp(), chatMessageDTO.getType());
+            HistoryChatMessageDTO historyChatMessageDTO = new HistoryChatMessageDTO(chatMessageDTO.getUsername(),
+                    chatMessageDTO.getAvatar(), fromId, id, chatMessageDTO.getContent(), chatMessageDTO.getTimestamp(), chatMessageDTO.getType());
             messageDAO.storeMessage(historyChatMessageDTO);//调用dao层去存储消息
         });
-
     }
 
     /**
