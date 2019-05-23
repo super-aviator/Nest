@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RedisUtil redisUtil;
 
+    @Override
     public CommonReturnDTO<DataDTO> getUserInfo(long userId) {
         return userDAO.getUserInfo(userId);
     }
@@ -94,7 +95,8 @@ public class UserServiceImpl implements UserService {
             NotifyUserInfoDTO notifyUserInfoDTO = new NotifyUserInfoDTO(id, userInfo.getAvatar(), userInfo.getUsername(), userInfo.getSign());
             NotifyDTO notifyDTO = new NotifyDTO(ID++, "申请添加你为好友 o_o", friendId, id, groupId, 1, remark, null, 1, "刚刚", notifyUserInfoDTO);
             MessageDTO<NotifyDTO> message = new MessageDTO<>(notifyDTO, "notify");
-            messageUtil.sendMsg(SignChannelHandler.CHANNELS, message);//将消息存入有序结合中，并提示用户
+            //将消息存入有序结合中，并提示用户
+            messageUtil.sendMsg(SignChannelHandler.CHANNELS, message);
         } catch (Exception e) {
             e.printStackTrace();
         }

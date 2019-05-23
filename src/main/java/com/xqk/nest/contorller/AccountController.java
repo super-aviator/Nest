@@ -44,6 +44,8 @@ public class AccountController {
                 case 2:
                     tuple.setT("密码错误");
                     break;
+                default:
+                    tuple.setT("未知情况");
             }
             tuple.setE(accountService.getUserId(username));
             response.getWriter().write(JSON.toJSONString(tuple));

@@ -92,14 +92,17 @@ public class RedisUtil {
 
     //将用户加入群聊
     public void addMemebers(String groupId, String userId) {
-        if (jedis.sismember(GROUP_SEPARATOR + groupId, userId))
+        if (jedis.sismember(GROUP_SEPARATOR + groupId, userId)){
             jedis.sadd(GROUP_SEPARATOR + groupId, userId);
+
+        }
     }
 
     //将用户移除群聊
     public long removeMembers(String groupId, String userId) {
-        if (jedis.sismember(GROUP_SEPARATOR + groupId, userId))
+        if (jedis.sismember(GROUP_SEPARATOR + groupId, userId)){
             return jedis.srem(GROUP_SEPARATOR + groupId, userId);
+        }
         return -1;
     }
 

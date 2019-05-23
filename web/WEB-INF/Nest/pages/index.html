@@ -95,7 +95,7 @@
 
             //init方法调用结束时事件触发
             layim.on('ready', function (options) {
-                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 2000, maxReconnectAttempts: 20 });//掉线重连机制
+                socket = new ReconnectingWebSocket("ws://localhost:8081/chat", null, { reconnectInterval: 5000, maxReconnectAttempts: 10 });//掉线重连机制
 
                 socket.onopen = function () {
                     layer.closeAll('loading');
@@ -121,12 +121,16 @@
                 }
 
                 socket.onerror = function () {
-                    layer.msg('服务器关闭了链接或者账号已在其他地方登录', { icon: 2, anim: 5, time: 3000, offset: 't' }, function () {
-                        layer.load(1, { shade: [0.3, '#393D49'] });
-                    });
+                    // layer.msg('服务器关闭了链接或者账号已在其他地方登录', { icon: 2, anim: 5, time: 3000, offset: 't' }, function () {
+                    //     layer.load(1, { shade: [0.3, '#393D49'] });
+                    // });
                 };
 
                 socket.onclose = function () {
+                    layer.msg('服务器关闭了链接或者账号已在其他地方登录', { icon: 2, anim: 5, time: 2000, offset: 't' }, function () {
+                        layer.load(1, { shade: [0.3, '#393D49'] });
+                        location.href="./signIn.html";
+                    });
                 };
 
             });

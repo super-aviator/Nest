@@ -12,17 +12,26 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-import java.net.InetSocketAddress;
-
 @Component
+@PropertySource("classpath:config/application.properties")
 public class WebSocketServer {
+    @Value("${webSocketAddress}")
+    private String webSocketAddress;
+
+    @Value("${webSocketPort}")
+    private int webSocketPort;
+
     @Autowired
     private SignChannelHandler signChannelHandler;
 
     @Autowired
     private MessageChannelHandler messageChannelHandler;
+
+    private ChannelFuture future;
 
     public void start() throws Exception {
         EventLoopGroup boss = new NioEventLoopGroup(1);
@@ -32,20 +41,23 @@ public class WebSocketServer {
             ServerBootstrap b = new ServerBootstrap();
             b.group(boss, work)
                     .channel(NioServerSocketChannel.class)
-                    .localAddress(new InetSocketAddress(8081))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
                         protected void initChannel(SocketChannel socketChannel) {
                             socketChannel.pipeline().addLast(
-                                    new HttpServerCodec(),//消息编解码器
-                                    new HttpObjectAggregator(655360),//最大消息长度，并聚合消息
-                                    new WebSocketServerProtocolHandler("/chat"),//websocket路径
+                                    //消息编解码器
+                                    new HttpServerCodec(),
+                                    //最大消息长度，并聚合消息
+                                    new HttpObjectAggregator(655360),
+                                    //websocket路径
+                                    new WebSocketServerProtocolHandler("/chat"),
                                    signChannelHandler,
                                     messageChannelHandler
-//                                    new BinaryFrameHandler()
+                                    //new BinaryFrameHandler()
                             );
                         }
                     });
-            ChannelFuture future = b.bind().sync();
+            future = b.bind(webSocketAddress,webSocketPort).sync();
             future.channel().closeFuture().sync();
         } finally {
             boss.shutdownGracefully().sync();

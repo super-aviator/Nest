@@ -149,25 +149,19 @@
                     tips: [1, '#c00']
                     , anim: 6
                 });
-                return;
-            }
-
+            }else
             if($('input[placeholder="昵称"]').val()===''){
                 layer.tips('请输入昵称','input[placeholder="昵称"]', {
                     tips: [1, '#c00']
                     , anim: 6
                 });
-                return;
-            }
-
+            }else
             if($('input[placeholder="密码"]').val()===''){
                 layer.tips('请输入密码','input[placeholder="密码"]', {
                     tips: [1, '#c00']
                     , anim: 6
                 });
-                return;
-            }
-
+            }else
             if($('input[placeholder="签名"]').val()===''){
                 layer.tips('请输入签名','input[placeholder="签名"]', {
                     tips: [1, '#c00']
@@ -195,9 +189,10 @@
                             icon: 1,
                             time: 1000
                         });
-                        // window.location.href="signIn.html";
-                        window.open('signIn.html');
-                        window.close();
+                        // // window.location.href="signIn.html";
+                        // window.open('signIn.html');
+                        // window.close();
+                        location.href="signIn.html";
                     } else if (result.data === 1) {
                         layer.msg('账号已注册', {
                             icon: 5,

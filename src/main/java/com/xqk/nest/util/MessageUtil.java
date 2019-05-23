@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.xqk.nest.dto.NotifyDTO;
 import com.xqk.nest.service.Impl.MessageServiceImpl;
-import com.xqk.nest.service.Impl.UserServiceImpl;
 import com.xqk.nest.dto.NotifyReturnDTO;
 import com.xqk.nest.service.UserService;
 import com.xqk.nest.websocket.dto.ChatMessageDTO;
@@ -21,19 +20,27 @@ import redis.clients.jedis.Tuple;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @SuppressWarnings("unused")
 @Component
 public class MessageUtil {
-    private static final ExecutorService EXECUTOR = Executors.newSingleThreadExecutor();//开一个线程去来存储消息。
-
+    /**
+     * 使用但粗的线程池去存储消息。
+     */
     @Autowired
-    private RedisUtil ru;//离线消息获取工具类
+    private ThreadPoolUtil EXECUTOR;
 
+    /**
+     * 离线消息获取工具类
+     */
     @Autowired
-    private MessageServiceImpl messageDAO;//消息存储DAO类
+    private RedisUtil ru;
+
+    /**
+     * 消息存储DAO类
+     */
+    @Autowired
+    private MessageServiceImpl messageDAO;
 
     @Autowired
     private UserService userService;
@@ -45,13 +52,15 @@ public class MessageUtil {
      * 内部接口(private)参数需要很详细，外部接口(public)参数需要很整洁，即类库能做的事情尽量不交给用户做
      */
     public void sendMsg(Map<String, Channel> channels, String messageStr) {
-        MessageDTO messageDTO = JSONObject.parseObject(messageStr, MessageDTO.class);//转换为Message对象
-        sendMsg(channels,messageDTO);
+        //转换为Message对象
+        MessageDTO messageDTO = JSONObject.parseObject(messageStr, MessageDTO.class);
+        sendMsg(channels, messageDTO);
     }
 
     public void sendMsg(Map<String, Channel> channels, MessageDTO<?> messageDTO) {
         switch (messageDTO.getEmit()) {
-            case "chat"://如果是聊天类型的消息
+            //如果是聊天类型的消息
+            case "chat":
                 ChatMessageDTO chatMessageDTO = JSONObject.parseObject(JSON.toJSONString(messageDTO.getData()), ChatMessageDTO.class);
                 chatMessageDTO.setMine(false);
                 storeMsg(chatMessageDTO, chatMessageDTO.getId(), chatMessageDTO.getFromid());//存储群聊天消息
@@ -68,23 +77,25 @@ public class MessageUtil {
                 StatusMessageDTO statusMessageDTO = JSONObject.parseObject(JSON.toJSONString(messageDTO.getData()), StatusMessageDTO.class);//转换聊天消息对象
                 sendStatusToFriend(channels, statusMessageDTO);
                 break;
+            default:
         }
     }
 
     /**
      * 将聊天消息推送到用户，ID需要从chatMessage中获取
      *
-     * @param channels 保存用户登陆连接的map
+     * @param channels       保存用户登陆连接的map
      * @param chatMessageDTO 保存消息的对象
      */
     @SuppressWarnings("unchecked")
     private void sendChatMsgToFriend(Map<String, Channel> channels, ChatMessageDTO chatMessageDTO) {
         String msg = JSON.toJSONString(new MessageDTO(chatMessageDTO, "chat"));
         String revId = chatMessageDTO.getId();
-        if (channels.containsKey(revId)) //查找id是否在线
+        if (channels.containsKey(revId)) {//查找id是否在线
             channels.get(revId).writeAndFlush(new TextWebSocketFrame(msg));//在线的话直接发送
-        else
+        } else {
             ru.pushChatMsg(revId, msg);//不在线则放入离线消息列表中
+        }
 
     }
 
@@ -92,7 +103,7 @@ public class MessageUtil {
      * 将群消息推送到群成员
      * 这里需要将id和fromId交换一下
      *
-     * @param channels 保存用户登陆连接的map
+     * @param channels       保存用户登陆连接的map
      * @param chatMessageDTO 保存消息的对象
      */
     @SuppressWarnings("unchecked")
@@ -103,27 +114,31 @@ public class MessageUtil {
 
         String msg = JSON.toJSONString(new MessageDTO(chatMessageDTO, "chat"));
         for (String id : ru.getMembers(groupID)) {//获取群成员的id列表
-            if (id.equals(sendId)) continue;//如果是消息的发送者，信息不显示
-            if (channels.containsKey(id))
+            if (id.equals(sendId)) {
+                continue;//如果是消息的发送者，信息不显示
+            }
+            if (channels.containsKey(id)) {
                 channels.get(id).writeAndFlush(new TextWebSocketFrame(msg));//如果在线，则直接发送chatMessage消息
-            else
+            } else {
                 ru.pushChatMsg(id, msg);//否则放入用户的离线消息列表中
+            }
         }
     }
 
     /**
      * 获取用户离线消息队列中的消息
      *
-     * @param ctx ChannelHandlerContext
+     * @param ctx      ChannelHandlerContext
      * @param channels 保存用户登陆连接的map
-     * @param id 用户id
+     * @param id       用户id
      */
     public void getOfflineMsgToUser(ChannelHandlerContext ctx, Map<String, Channel> channels, String id) {
         while (ru.hasMsg(id)) {//查询用户的离线消息
-            if (channels.containsKey(id))//确保用户还在线
+            if (channels.containsKey(id)) {//确保用户还在线
                 ctx.writeAndFlush(new TextWebSocketFrame(ru.popMsg(id)));//将离线消息取出并推送
-            else
+            } else {
                 return;//如果推送过程中掉线，则直接退出推送，
+            }
         }
     }
 
@@ -144,7 +159,7 @@ public class MessageUtil {
     /**
      * 查询用户所有好友，给每一个好友好友发送消息，显示用户状态
      *
-     * @param channels      用户channel的Map
+     * @param channels         用户channel的Map
      * @param statusMessageDTO 状态信息
      */
     private void sendStatusToFriend(Map<String, Channel> channels, StatusMessageDTO statusMessageDTO) {
@@ -161,6 +176,7 @@ public class MessageUtil {
     /**
      * 将提示类的消息存储到离线消息列表中，然后发送用户提示类消息的数目，消息由用户主动获取
      * 提示消息需要一直保存。
+     *
      * @param notifyDTO 提示消息DTO
      */
     public void storeNotifyMsg(Map<String, Channel> channels, NotifyDTO notifyDTO) {

@@ -19,13 +19,17 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageDAO messageDAO;
 
-    //查询历史消息
+    /**
+     *     查询历史消息
+     */
     @Override
-    public CommonReturnDTO<List<HistoryChatMessageDTO>> getPagingMessage(long id, long revId, String type) {
-        return messageDAO.getPagingMessage(id, revId, type);
+    public CommonReturnDTO<List<HistoryChatMessageDTO>> getPagingMessage(long id, long revId, String type,int start,int limit) {
+        return messageDAO.getPagingMessage(id, revId, type,start,limit);
     }
 
-    //插入历史消息
+    /**
+     *     插入历史消息
+     */
     @Override
     public void storeMessage(HistoryChatMessageDTO item) {
         messageDAO.storeMessage(item);
@@ -39,5 +43,10 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public CommonReturnDTO<UploadFileDTO> uploadFile(MultipartFile file) throws IOException {
         return messageDAO.uploadFile(file);
+    }
+
+    @Override
+    public int getMessageCount(long id,long revId,String type) {
+        return messageDAO.getMessageCount(id,revId,type);
     }
 }
