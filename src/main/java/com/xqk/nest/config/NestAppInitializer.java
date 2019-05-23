@@ -1,12 +1,19 @@
 package com.xqk.nest.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
+@PropertySource("classpath:/config/application.properties")
 public class NestAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+    @Value("${uploadImagePath}")
+    private String uploadImagePath;
+
+    private long maxFileSize=1024*1024*10;
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -30,6 +37,6 @@ public class NestAppInitializer extends AbstractAnnotationConfigDispatcherServle
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("D:\\Nest\\web\\WEB-INF\\Nest\\pages\\dataImg\\",104857900,209715200,0));
+        registration.setMultipartConfig(new MultipartConfigElement(uploadImagePath,maxFileSize,maxFileSize,0));
     }
 }

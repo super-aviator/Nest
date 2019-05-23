@@ -16,6 +16,7 @@ public class GroupServiceImpl implements GroupService {
      * @param id
      * @return
      */
+    @Override
     public String getMembers(long id) {
         GroupMembersReturnDTO msg = new GroupMembersReturnDTO();
         try (SqlSession session = MySqlSessionFactory.getSqlSession()) {

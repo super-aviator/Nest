@@ -17,6 +17,7 @@
         <typeAlias type="com.xqk.nest.websocket.dto.HistoryChatMessageDTO" alias="HistoryChatMessage" />
         <typeAlias type="com.xqk.nest.dto.Tuple" alias="Tuple" />
         <typeAlias type="com.xqk.nest.dto.Triple" alias="Triple" />
+        <typeAlias type="com.xqk.nest.dto.HistoryMessagePagableDTO" alias="HistoryMessagePagable" />
     </typeAliases>
 
 

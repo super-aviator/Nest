@@ -22,36 +22,56 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+/**
+ * @author  熊乾坤
+ */
 @Controller
 @RequestMapping("/message")
 public class MessageController {
     @Autowired
-    private MessageService messageService ;
+    private MessageService messageService;
     @Autowired
-    private UserService userService ;
+    private UserService userService;
     @Autowired
     private MessageUtil messageUtil;
-    @Autowired
-    private RedisUtil redisUtil;
 
     /**
      * redis的缘故，用户id和群id不能重合但是可以使用分隔符group:的方式解决，所以用户和群的id可以重合
      * 这里有两种查询聊天记录需求，查询群聊的或者查询好友的记录，可以在java中判断url的type字段，然后分情况
      * 也可以在查询时给Mybatis传一个对象，对象包括id和type属性，用Mybatis的条件查询语句进行选择性查找
      * 异常应该在DAO层抛出，controller层捕获。
-     *
      */
     @RequestMapping(value = "/get-message", method = GET)
-    public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type, HttpServletResponse response) throws IOException {
+    public void getHistoryMsg(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type
+            , @RequestParam("current") int start, @RequestParam("limit") int limit, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-        CommonReturnDTO<List<HistoryChatMessageDTO>> result = messageService.getPagingMessage(id, revId, type);
+        CommonReturnDTO<List<HistoryChatMessageDTO>> result = messageService.getPagingMessage(id, revId, type, (start-1)*limit, limit);
         response.getWriter().write(JSON.toJSONString(result));
     }
 
     /**
-     * 获取id所有的提示消息
-     *
+     * 查询该项的用户历史消息条数
+     * @param id 用户id
+     * @param revId 接受者id
+     * @param type 消息类型
+     * @param response 相应对象
+     * @throws IOException 写入消息时发生的异常
      */
+    @RequestMapping(value = "/get-count", method = GET)
+    public void getMessageCount(@RequestParam("id") long id, @RequestParam("revid") long revId, @RequestParam("type") String type
+            ,HttpServletResponse response) throws IOException{
+        response.setCharacterEncoding("utf-8");
+        try{
+            response.getWriter().write(String.valueOf(messageService.getMessageCount(id,revId,type)));
+
+        }catch(Exception e){
+            response.getWriter().write(0);
+        }
+    }
+
+    /**
+     * 获取id所有的提示消息
+     */@SuppressWarnings("unused")
     @RequestMapping(value = "/get-notify", method = POST)
     public void getNotify(@RequestParam("id") long id, @RequestParam("page") long page, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
@@ -61,19 +81,18 @@ public class MessageController {
     /**
      * 同意添加好友，向请求发送方发送提示消息
      * * 将id添加到from_group，将uid添加到group
-     *
      */
     @RequestMapping(value = "/agree-friend", method = POST)
-    public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long from_group, @RequestParam("group") long group,
+    public void agreeFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, @RequestParam("fromgroup") long fromGroup
+            , @RequestParam("group") long group,
                             HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        AddFriendDTO addFriendDTO = userService.addFriend(id, uid, from_group, group);
+        AddFriendDTO addFriendDTO = userService.addFriend(id, uid, fromGroup, group);
         response.getWriter().write(JSON.toJSONString(addFriendDTO));
     }
 
     /**
      * 拒绝添加好友，向uid发送拒绝消息,from字段需要为0，前端会根据此判断是否为已处理消息
-     *
      */
     @RequestMapping(value = "/refuse-friend", method = POST)
     public void refuseFriend(@RequestParam("id") long id, @RequestParam("uid") long uid, HttpServletResponse response) throws IOException {
@@ -87,7 +106,6 @@ public class MessageController {
 
     /**
      * 上传图片接口,待修复
-     *
      */
     @RequestMapping(value = "upload-images", method = POST)
     public void uploadImage(@RequestParam("file") MultipartFile image, HttpServletResponse response) throws IOException {
@@ -102,7 +120,7 @@ public class MessageController {
         response.getWriter().write(JSON.toJSONString(returnMsg));
     }
 
-    @RequestMapping(value = "upload-file",method = POST)
+    @RequestMapping(value = "upload-file", method = POST)
     public void uploadFile(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         CommonReturnDTO<UploadFileDTO> returnMsg;

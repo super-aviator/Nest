@@ -10,8 +10,9 @@ import java.io.IOException;
 import java.util.List;
 
 public interface MessageService {
-    CommonReturnDTO<List<HistoryChatMessageDTO>> getPagingMessage(long id, long revId, String type);
+    CommonReturnDTO<List<HistoryChatMessageDTO>> getPagingMessage(long id, long revId, String type,int start,int limit);
     void storeMessage(HistoryChatMessageDTO item) ;
     CommonReturnDTO<UploadImageDTO> uploadImage(MultipartFile image) throws IOException;
     CommonReturnDTO<UploadFileDTO> uploadFile(MultipartFile file) throws IOException;
+    int getMessageCount(long id,long revId,String type);
 }

@@ -17,13 +17,14 @@ INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) V
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000002, '杨小毛', '勿失莫忘', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'hide', '123456');
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000003, '曹睿', '静听寂寞嘞', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'hide', '123456');
 INSERT INTO nest.user_info (user_id, username, sign, avatar, status, password) VALUES (1000004, '张威', '哈哈哈', 'http://tp4.sinaimg.cn/2145291155/180/5601307179/1', 'online', '123456');
-CREATE DEFINER = `root`@`localhost` TRIGGER `nest`.`user_info_AFTER_INSERT`
-  AFTER INSERT
-  ON `user_info`
-  FOR EACH ROW
-  BEGIN
 
-    SELECT max(user_id) INTO @user_id from user_info;
+#创建触发器
+DROP TRIGGER IF EXISTS `nest`.`user_info_AFTER_INSERT`;
+DELIMITER $$
+USE `nest`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `nest`.`user_info_AFTER_INSERT` AFTER INSERT ON `user_info` FOR EACH ROW
+BEGIN
+SELECT max(user_id) INTO @user_id from user_info;
 
     INSERT INTO packet_info (packet_name) VALUES ('我的好友');
     SET @id1 = LAST_INSERT_ID();
@@ -54,9 +55,8 @@ CREATE DEFINER = `root`@`localhost` TRIGGER `nest`.`user_info_AFTER_INSERT`
            (@id5, @user_id),
            (@id6, @user_id),
            (@id7, @user_id);
-  END;
-
-
+END$$
+DELIMITER ;
 
 #用户拥有的组表
 CREATE TABLE `user_packet_info` (
